@@ -6,7 +6,7 @@ import { BizzcalcComponent } from './bizzcalc.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 // Primeng imports
 import { CalendarModule } from 'primeng/calendar';
 import { RadioButtonModule } from 'primeng/radiobutton';
@@ -55,60 +55,53 @@ import { EmploymentModalComponent } from './components/setup/modals/employment-m
 import { FixedAssetsModalComponent } from './components/setup/modals/fixed-assets-modal/fixed-assets-modal.component';
 import { OperatingExpensesModalComponent } from './components/setup/modals/operating-expenses-modal/operating-expenses-modal.component';
 
-@NgModule({
-  declarations: [
-    BizzcalcComponent,
-    BizzCalcIndexComponent,
-    BizzCalcFixedAssetsComponent,
-    NextPrevButtonComponent,
-    BizzcalcFooterComponent,
-    BizzcalcSetupComponent,
-    BizzcalcBaseAssumptionComponent,
-    BizzcalcBusinessDetailsComponent,
-    BizzcalcBusinessDaysWorkedComponent,
-    BizzcalcBusinessFixedAssetsComponent,
-    BizzbeanCategoryListControlComponent,
-    BizzbeanButtonGroupComponent,
-    RevenueCalculatorComponent,
-    EmploymentComponent,
-    BizzcalcOperatingExpenseComponent,
-    BizzcalcRevenueCalculatorComponent,
-    OperatingExpenseComponent,
-    OperatingExpensesModalComponent,
-    FixedAssetsComponent,
-    FundingCalculatorComponent,
-    BizzcalcFundingCalculatorComponent,
-    ReportsComponent,
-    BizzcalcHeaderComponent,
-    HolidaysModalComponent,
-    IncomeStatementComponent,
-    BalanceSheetComponent,
-    ScheduleOfExpenseComponent,
-    ResultsChartComponent,
-    BizzCalcLandingPageComponent,
-    BizzCalcReportsPageComponent,
-    ViewHolidaysComponent,
-    FixedAssetsCategoriesModalComponent,
-    FixedAssetsModalComponent,
-    EmploymentModalComponent
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    BizzcalcRoutingModule,
-    FontAwesomeModule,
-    NgbDatepickerModule,
-    CalendarModule,
-    RadioButtonModule,
-    CheckboxModule,
-    FormsModule,
-    NgbModule,
-    SharedModule,
-    ToastModule,
-    BsDatepickerModule.forRoot(),
-    TooltipModule.forRoot()
-  ],
-  providers: [ConfirmationService, MessageService, BizzCalcService],
-})
+@NgModule({ declarations: [
+        BizzcalcComponent,
+        BizzCalcIndexComponent,
+        BizzCalcFixedAssetsComponent,
+        NextPrevButtonComponent,
+        BizzcalcFooterComponent,
+        BizzcalcSetupComponent,
+        BizzcalcBaseAssumptionComponent,
+        BizzcalcBusinessDetailsComponent,
+        BizzcalcBusinessDaysWorkedComponent,
+        BizzcalcBusinessFixedAssetsComponent,
+        BizzbeanCategoryListControlComponent,
+        BizzbeanButtonGroupComponent,
+        RevenueCalculatorComponent,
+        EmploymentComponent,
+        BizzcalcOperatingExpenseComponent,
+        BizzcalcRevenueCalculatorComponent,
+        OperatingExpenseComponent,
+        OperatingExpensesModalComponent,
+        FixedAssetsComponent,
+        FundingCalculatorComponent,
+        BizzcalcFundingCalculatorComponent,
+        ReportsComponent,
+        BizzcalcHeaderComponent,
+        HolidaysModalComponent,
+        IncomeStatementComponent,
+        BalanceSheetComponent,
+        ScheduleOfExpenseComponent,
+        ResultsChartComponent,
+        BizzCalcLandingPageComponent,
+        BizzCalcReportsPageComponent,
+        ViewHolidaysComponent,
+        FixedAssetsCategoriesModalComponent,
+        FixedAssetsModalComponent,
+        EmploymentModalComponent
+    ], imports: [CommonModule,
+        ReactiveFormsModule,
+        BizzcalcRoutingModule,
+        FontAwesomeModule,
+        NgbDatepickerModule,
+        CalendarModule,
+        RadioButtonModule,
+        CheckboxModule,
+        FormsModule,
+        NgbModule,
+        SharedModule,
+        ToastModule,
+        BsDatepickerModule.forRoot(),
+        TooltipModule.forRoot()], providers: [ConfirmationService, MessageService, BizzCalcService, provideHttpClient(withInterceptorsFromDi())] })
 export class BizzcalcModule {}

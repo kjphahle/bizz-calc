@@ -6,7 +6,7 @@ import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './pages/main/main.component';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -29,31 +29,24 @@ const maskConfig: Partial<IConfig> = {
   validation: false,
 };
 
-@NgModule({
-  declarations: [AppComponent, MainComponent, InvoiceComponent],
-  imports: [
-    BrowserModule,
-    // FormModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    //NgbModule,
-    BrowserAnimationsModule,
-    NavbarModule,
-    FontAwesomeModule,
-    HttpClientModule,
-    NgxMaskDirective,
-    SlickCarouselModule,
-    NgbModule,
-    CommonModule,
-    NgxIntlTelInputModule,
-    BsDatepickerModule.forRoot(),
-    TooltipModule.forRoot()
-  ],
-
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: authInterceptor, multi: true },
-    {provide: ErrorHandler, useClass: ErrorHandlerService}
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [AppComponent, MainComponent, InvoiceComponent],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        // FormModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        //NgbModule,
+        BrowserAnimationsModule,
+        NavbarModule,
+        FontAwesomeModule,
+        NgxMaskDirective,
+        SlickCarouselModule,
+        NgbModule,
+        CommonModule,
+        NgxIntlTelInputModule,
+        BsDatepickerModule.forRoot(),
+        TooltipModule.forRoot()], providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: authInterceptor, multi: true },
+        { provide: ErrorHandler, useClass: ErrorHandlerService },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {}
