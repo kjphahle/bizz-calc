@@ -32,9 +32,10 @@ import {
 import { ICustomMonths } from 'src/app/apps/bizzcalc/models/custom-months';
 
 @Component({
-  selector: 'app-bizzbean-nav-control',
-  templateUrl: './bizzbean-nav-control.component.html',
-  styleUrls: ['./bizzbean-nav-control.component.scss'],
+    selector: 'app-bizzbean-nav-control',
+    templateUrl: './bizzbean-nav-control.component.html',
+    styleUrls: ['./bizzbean-nav-control.component.scss'],
+    standalone: false
 })
 export class BizzbeanNavControlComponent
   implements OnChanges, ControlValueAccessor

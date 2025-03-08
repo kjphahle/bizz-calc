@@ -4,9 +4,10 @@ import { BizzclassService } from 'src/app/services/bizzclass.service';
 import { CoursesService } from 'src/app/services/courses.service';
 
 @Component({
-  selector: 'app-playlist',
-  templateUrl: './playlist.component.html',
-  styleUrls: ['./playlist.component.scss'],
+    selector: 'app-playlist',
+    templateUrl: './playlist.component.html',
+    styleUrls: ['./playlist.component.scss'],
+    standalone: false
 })
 export class PlaylistComponent implements OnInit {
  

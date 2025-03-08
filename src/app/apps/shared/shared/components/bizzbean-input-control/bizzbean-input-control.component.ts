@@ -7,9 +7,10 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-bizzbean-input-control',
-  templateUrl: './bizzbean-input-control.component.html',
-  styleUrls: ['./bizzbean-input-control.component.scss'],
+    selector: 'app-bizzbean-input-control',
+    templateUrl: './bizzbean-input-control.component.html',
+    styleUrls: ['./bizzbean-input-control.component.scss'],
+    standalone: false
 })
 export class BizzbeanInputControlComponent implements ControlValueAccessor {
   @Input() label = '';

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-bizzcalc-operating-expense',
-  templateUrl: './bizzcalc-operating-expense.component.html',
-  styleUrls: ['./bizzcalc-operating-expense.component.scss'],
+    selector: 'app-bizzcalc-operating-expense',
+    templateUrl: './bizzcalc-operating-expense.component.html',
+    styleUrls: ['./bizzcalc-operating-expense.component.scss'],
+    standalone: false
 })
 export class BizzcalcOperatingExpenseComponent {
   constructor(private router: Router) {}

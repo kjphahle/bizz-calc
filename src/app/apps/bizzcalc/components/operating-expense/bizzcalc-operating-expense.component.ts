@@ -25,9 +25,10 @@ import { Employee } from '../../models/Employee';
 import { BaseAssumptionModalComponent } from '../setup/modals/base-assumption-modal/base-assumption-modal.component';
 
 @Component({
-  selector: 'app-bizzcalc-operating-expense',
-  templateUrl: './bizzcalc-operating-expense.component.html',
-  styleUrls: ['./bizzcalc-operating-expense.component.scss'],
+    selector: 'app-bizzcalc-operating-expense',
+    templateUrl: './bizzcalc-operating-expense.component.html',
+    styleUrls: ['./bizzcalc-operating-expense.component.scss'],
+    standalone: false
 })
 export class OperatingExpenseComponent implements OnInit {
 

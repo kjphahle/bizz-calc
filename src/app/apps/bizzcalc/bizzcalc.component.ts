@@ -29,9 +29,10 @@ import { EmployeeModel, IEmployeeModal } from './models/EmployeeModal';
 import { ExpenseModal, IExpenseModal } from './models/ExpenseModal';
 
 @Component({
-  selector: 'app-bizzcalc',
-  templateUrl: './bizzcalc.component.html',
-  styleUrls: ['./bizzcalc.component.scss'],
+    selector: 'app-bizzcalc',
+    templateUrl: './bizzcalc.component.html',
+    styleUrls: ['./bizzcalc.component.scss'],
+    standalone: false
 })
 export class BizzcalcComponent implements OnInit {
   revenueCalculator: IRevenueCalculator = {

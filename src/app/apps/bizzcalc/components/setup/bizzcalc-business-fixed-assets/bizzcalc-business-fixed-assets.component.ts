@@ -10,9 +10,10 @@ import { BaseAssumptionModalComponent } from '../modals/base-assumption-modal/ba
 
 
 @Component({
-  selector: 'app-bizzcalc-business-fixed-assets',
-  templateUrl: './bizzcalc-business-fixed-assets.component.html',
-  styleUrls: ['./bizzcalc-business-fixed-assets.component.scss'],
+    selector: 'app-bizzcalc-business-fixed-assets',
+    templateUrl: './bizzcalc-business-fixed-assets.component.html',
+    styleUrls: ['./bizzcalc-business-fixed-assets.component.scss'],
+    standalone: false
 })
 export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
   public assetsCategoryDepreciationForm: FormGroup;

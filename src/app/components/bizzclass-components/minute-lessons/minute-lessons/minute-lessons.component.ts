@@ -5,9 +5,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MinuteLessonsService } from 'src/app/services/minute-lessons.service';
 
 @Component({
-  selector: 'app-minute-lessons',
-  templateUrl: './minute-lessons.component.html',
-  styleUrls: ['./minute-lessons.component.scss'],
+    selector: 'app-minute-lessons',
+    templateUrl: './minute-lessons.component.html',
+    styleUrls: ['./minute-lessons.component.scss'],
+    standalone: false
 })
 export class MinuteLessonsComponent implements OnInit {
   filterOption: string = 'category';

@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-bizzbean-action-buttons',
-  templateUrl: './bizzbean-action-buttons.component.html',
-  styleUrls: ['./bizzbean-action-buttons.component.scss'],
+    selector: 'app-bizzbean-action-buttons',
+    templateUrl: './bizzbean-action-buttons.component.html',
+    styleUrls: ['./bizzbean-action-buttons.component.scss'],
+    standalone: false
 })
 export class BizzbeanActionButtonsComponent {
   @Output() public saveClicked = new EventEmitter<void>();

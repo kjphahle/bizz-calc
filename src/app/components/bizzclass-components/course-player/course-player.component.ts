@@ -5,9 +5,10 @@ import { CoursesComponent } from '../courses/courses.component';
 import { CoursesService } from 'src/app/services/courses.service';
 
 @Component({
-  selector: 'app-course-player',
-  templateUrl: './course-player.component.html',
-  styleUrls: ['./course-player.component.scss'],
+    selector: 'app-course-player',
+    templateUrl: './course-player.component.html',
+    styleUrls: ['./course-player.component.scss'],
+    standalone: false
 })
 export class CoursePlayerComponent implements OnInit {
   hidePlaylist: boolean = false;

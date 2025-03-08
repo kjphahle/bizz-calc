@@ -6,9 +6,10 @@ import { ResultsChartComponent } from './components/results-chart/results-chart.
 import { IncomeStatementComponent } from './components/income-statement/income-statement.component';
 
 @Component({
-  selector: 'app-reports',
-  templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.scss'],
+    selector: 'app-reports',
+    templateUrl: './reports.component.html',
+    styleUrls: ['./reports.component.scss'],
+    standalone: false
 })
 export class ReportsComponent {
   modalRef: NgbModalRef;

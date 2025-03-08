@@ -5,9 +5,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-bizzbean-button-group',
-  templateUrl: './bizzbean-button-group.component.html',
-  styleUrls: ['./bizzbean-button-group.component.scss']
+    selector: 'app-bizzbean-button-group',
+    templateUrl: './bizzbean-button-group.component.html',
+    styleUrls: ['./bizzbean-button-group.component.scss'],
+    standalone: false
 })
 export class BizzbeanButtonGroupComponent {
   @Output() increment = new EventEmitter<void>();

@@ -4,9 +4,10 @@ import { BehaviorSubject } from 'rxjs';
 import { PaymentService } from 'src/app/services/payment.service';
 
 @Component({
-  selector: 'app-summary',
-  templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.scss'],
+    selector: 'app-summary',
+    templateUrl: './summary.component.html',
+    styleUrls: ['./summary.component.scss'],
+    standalone: false
 })
 export class SummaryComponent implements OnInit {
   faQuestion = faQuestion;

@@ -27,9 +27,10 @@ import {
 import { ICategoryList } from 'src/app/apps/bizzcalc/models/category-list.interface';
 
 @Component({
-  selector: 'app-bizzbean-category-list-control',
-  templateUrl: './bizzbean-category-list-control.component.html',
-  styleUrls: ['./bizzbean-category-list-control.component.scss'],
+    selector: 'app-bizzbean-category-list-control',
+    templateUrl: './bizzbean-category-list-control.component.html',
+    styleUrls: ['./bizzbean-category-list-control.component.scss'],
+    standalone: false
 })
 export class BizzbeanCategoryListControlComponent implements OnChanges, ControlValueAccessor {
   faArrowCircleLeft = faArrowCircleLeft;

@@ -10,9 +10,10 @@ export interface IDaysWorked {
 }
 
 @Component({
-  selector: 'app-holidays-modal',
-  templateUrl: './holidays-modal.component.html',
-  styleUrls: ['./holidays-modal.component.scss'],
+    selector: 'app-holidays-modal',
+    templateUrl: './holidays-modal.component.html',
+    styleUrls: ['./holidays-modal.component.scss'],
+    standalone: false
 })
 export class HolidaysModalComponent implements OnInit{
   @Input() holidays: IHoliday[];

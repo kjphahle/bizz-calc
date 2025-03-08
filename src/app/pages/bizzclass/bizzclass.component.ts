@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-bizzclass',
-  templateUrl: './bizzclass.component.html',
-  styleUrls: ['./bizzclass.component.scss'],
+    selector: 'app-bizzclass',
+    templateUrl: './bizzclass.component.html',
+    styleUrls: ['./bizzclass.component.scss'],
+    standalone: false
 })
 export class BizzclassComponent implements OnInit {
   activeRoute: string = 'summary';

@@ -13,9 +13,10 @@ import { take } from 'rxjs/operators';
 import { BaseAssumptionModalComponent } from '../setup/modals/base-assumption-modal/base-assumption-modal.component';
 
 @Component({
-  selector: 'app-employment',
-  templateUrl: './employment.component.html',
-  styleUrls: ['./employment.component.scss'],
+    selector: 'app-employment',
+    templateUrl: './employment.component.html',
+    styleUrls: ['./employment.component.scss'],
+    standalone: false
 })
 export class EmploymentComponent implements AfterViewInit {
   @Input() public saveClicked: boolean;

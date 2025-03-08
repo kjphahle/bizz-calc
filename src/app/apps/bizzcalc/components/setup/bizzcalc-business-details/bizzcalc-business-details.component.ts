@@ -15,9 +15,10 @@ import { BaseAssumptionModalComponent } from '../modals/base-assumption-modal/ba
 
 
 @Component({
-  selector: 'app-bizzcalc-business-details',
-  templateUrl: './bizzcalc-business-details.component.html',
-  styleUrls: ['./bizzcalc-business-details.component.scss'],
+    selector: 'app-bizzcalc-business-details',
+    templateUrl: './bizzcalc-business-details.component.html',
+    styleUrls: ['./bizzcalc-business-details.component.scss'],
+    standalone: false
 })
 export class BizzcalcBusinessDetailsComponent implements OnInit {
   public businessDetailsForm: FormGroup;

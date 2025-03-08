@@ -3,9 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BizzCalcService } from 'src/app/apps/bizzcalc/services/bizz-calc.service';
 
 @Component({
-  selector: 'app-income-statement',
-  templateUrl: './income-statement.component.html',
-  styleUrls: ['./income-statement.component.scss'],
+    selector: 'app-income-statement',
+    templateUrl: './income-statement.component.html',
+    styleUrls: ['./income-statement.component.scss'],
+    standalone: false
 })
 export class IncomeStatementComponent implements OnInit {
   @Input() incomeStatement: {

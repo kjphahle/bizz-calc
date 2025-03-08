@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-role-options',
-  templateUrl: './role-options.component.html',
-  styleUrls: ['./role-options.component.scss']
+    selector: 'app-role-options',
+    templateUrl: './role-options.component.html',
+    styleUrls: ['./role-options.component.scss'],
+    standalone: false
 })
 export class RoleOptionsComponent implements OnInit {
   roleOptionsForm: FormGroup;

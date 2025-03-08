@@ -7,9 +7,10 @@ import { ResultsChartComponent } from '../reports/components/results-chart/resul
 import { BizzCalcService } from '../../services/bizz-calc.service';
 
 @Component({
-  selector: 'app-bizz-calc-reports-page',
-  templateUrl: './bizz-calc-reports-page.component.html',
-  styleUrls: ['./bizz-calc-reports-page.component.scss'],
+    selector: 'app-bizz-calc-reports-page',
+    templateUrl: './bizz-calc-reports-page.component.html',
+    styleUrls: ['./bizz-calc-reports-page.component.scss'],
+    standalone: false
 })
 export class BizzCalcReportsPageComponent {
   modalRef: NgbModalRef;

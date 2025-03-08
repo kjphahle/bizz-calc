@@ -2,9 +2,10 @@ import { Component,OnInit } from '@angular/core';
 import {NavigationEnd, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-bizz-calc-landing-page',
-  templateUrl: './bizz-calc-landing-page.component.html',
-  styleUrls: ['./bizz-calc-landing-page.component.scss'],
+    selector: 'app-bizz-calc-landing-page',
+    templateUrl: './bizz-calc-landing-page.component.html',
+    styleUrls: ['./bizz-calc-landing-page.component.scss'],
+    standalone: false
 })
 export class BizzCalcLandingPageComponent implements OnInit {
   public currentRoute: string = '';

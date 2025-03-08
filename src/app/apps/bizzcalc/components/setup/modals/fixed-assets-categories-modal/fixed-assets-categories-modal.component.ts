@@ -10,9 +10,10 @@ export interface IDaysWorked {
 }
 
 @Component({
-  selector: 'app-fixed-assets-categories-modal',
-  templateUrl: './fixed-assets-categories-modal.component.html',
-  styleUrls: ['./fixed-assets-categories-modal.component.scss'],
+    selector: 'app-fixed-assets-categories-modal',
+    templateUrl: './fixed-assets-categories-modal.component.html',
+    styleUrls: ['./fixed-assets-categories-modal.component.scss'],
+    standalone: false
 })
 export class FixedAssetsCategoriesModalComponent implements OnInit{
   @Input() depreciationRates: IDepreciationRate[];

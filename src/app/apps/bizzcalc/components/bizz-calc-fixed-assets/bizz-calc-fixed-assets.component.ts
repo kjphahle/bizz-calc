@@ -21,9 +21,10 @@ export interface IFixedAssets {
 }
 
 @Component({
-  selector: 'app-bizz-calc-fixed-assets',
-  templateUrl: './bizz-calc-fixed-assets.component.html',
-  styleUrls: ['./bizz-calc-fixed-assets.component.scss'],
+    selector: 'app-bizz-calc-fixed-assets',
+    templateUrl: './bizz-calc-fixed-assets.component.html',
+    styleUrls: ['./bizz-calc-fixed-assets.component.scss'],
+    standalone: false
 })
 export class BizzCalcFixedAssetsComponent implements OnInit {
   fixedAssetsForm: FormGroup;

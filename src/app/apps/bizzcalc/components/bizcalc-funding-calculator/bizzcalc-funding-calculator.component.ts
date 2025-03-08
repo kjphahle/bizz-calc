@@ -6,9 +6,10 @@ import { BizzCalcService } from '../../services/bizz-calc.service';
 import { BaseAssumptionModalComponent } from '../setup/modals/base-assumption-modal/base-assumption-modal.component';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-bizzcalc-funding-calculator',
-  templateUrl: './bizzcalc-funding-calculator.component.html',
-  styleUrls: ['./bizzcalc-funding-calculator.component.scss'],
+    selector: 'app-bizzcalc-funding-calculator',
+    templateUrl: './bizzcalc-funding-calculator.component.html',
+    styleUrls: ['./bizzcalc-funding-calculator.component.scss'],
+    standalone: false
 })
 export class BizzcalcFundingCalculatorComponent {
   fundingCalculatorForm: FormGroup;

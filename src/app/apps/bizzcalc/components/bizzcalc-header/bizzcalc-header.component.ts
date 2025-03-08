@@ -2,9 +2,10 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { BizzCalcService } from '../../services/bizz-calc.service';
 
 @Component({
-  selector: 'app-bizzcalc-header',
-  templateUrl: './bizzcalc-header.component.html',
-  styleUrls: ['./bizzcalc-header.component.scss'],
+    selector: 'app-bizzcalc-header',
+    templateUrl: './bizzcalc-header.component.html',
+    styleUrls: ['./bizzcalc-header.component.scss'],
+    standalone: false
 })
 export class BizzcalcHeaderComponent implements OnInit{
 

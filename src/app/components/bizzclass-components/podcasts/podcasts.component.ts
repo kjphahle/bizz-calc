@@ -6,9 +6,10 @@ import { PodcastsService } from 'src/app/services/podcasts.service';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-podcasts',
-  templateUrl: './podcasts.component.html',
-  styleUrls: ['./podcasts.component.scss']
+    selector: 'app-podcasts',
+    templateUrl: './podcasts.component.html',
+    styleUrls: ['./podcasts.component.scss'],
+    standalone: false
 })
 export class PodcastsComponent implements OnInit {
   filterOption: string = 'category';

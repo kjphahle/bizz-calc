@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-balance-sheet',
-  templateUrl: './balance-sheet.component.html',
-  styleUrls: ['./balance-sheet.component.scss'],
+    selector: 'app-balance-sheet',
+    templateUrl: './balance-sheet.component.html',
+    styleUrls: ['./balance-sheet.component.scss'],
+    standalone: false
 })
 export class BalanceSheetComponent {
   @Input() balanceSheet: {

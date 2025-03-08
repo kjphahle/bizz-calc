@@ -16,10 +16,11 @@ import { BaseAssumptionModalComponent } from '../modals/base-assumption-modal/ba
 
 
 @Component({
-  selector: 'app-bizzcalc-business-days-worked',
-  templateUrl: './bizzcalc-business-days-worked.component.html',
-  styleUrls: ['./bizzcalc-business-days-worked.component.scss'],
-  providers: [DatePipe],
+    selector: 'app-bizzcalc-business-days-worked',
+    templateUrl: './bizzcalc-business-days-worked.component.html',
+    styleUrls: ['./bizzcalc-business-days-worked.component.scss'],
+    providers: [DatePipe],
+    standalone: false
 })
 export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
   closeResult = '';

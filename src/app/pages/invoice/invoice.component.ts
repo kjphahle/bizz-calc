@@ -3,9 +3,10 @@ import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 
 @Component({
-  selector: 'app-invoice',
-  templateUrl: './invoice.component.html',
-  styleUrls: ['./invoice.component.scss']
+    selector: 'app-invoice',
+    templateUrl: './invoice.component.html',
+    styleUrls: ['./invoice.component.scss'],
+    standalone: false
 })
 export class InvoiceComponent {
   @ViewChild('content', {static: false}) el!: ElementRef;

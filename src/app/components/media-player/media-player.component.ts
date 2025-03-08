@@ -10,9 +10,10 @@ import {
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-media-player',
-  templateUrl: './media-player.component.html',
-  styleUrls: ['./media-player.component.scss'],
+    selector: 'app-media-player',
+    templateUrl: './media-player.component.html',
+    styleUrls: ['./media-player.component.scss'],
+    standalone: false
 })
 export class MediaPlayerComponent implements OnInit {
   @ViewChild('videoPlayer') videoPlayer: ElementRef;

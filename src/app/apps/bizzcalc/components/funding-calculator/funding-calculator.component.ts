@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-funding-calculator',
-  templateUrl: './funding-calculator.component.html',
-  styleUrls: ['./funding-calculator.component.scss']
+    selector: 'app-funding-calculator',
+    templateUrl: './funding-calculator.component.html',
+    styleUrls: ['./funding-calculator.component.scss'],
+    standalone: false
 })
 export class FundingCalculatorComponent {
   constructor(private router: Router) {}

@@ -10,9 +10,10 @@ import { FixedAssetsModalComponent } from 'src/app/apps/bizzcalc/components/setu
 import { BaseAssumptionModalComponent } from'src/app/apps/bizzcalc/components/setup/modals/base-assumption-modal/base-assumption-modal.component';
 
 @Component({
-  selector: 'app-fixed-assets',
-  templateUrl: './fixed-assets.component.html',
-  styleUrls: ['./fixed-assets.component.scss']
+    selector: 'app-fixed-assets',
+    templateUrl: './fixed-assets.component.html',
+    styleUrls: ['./fixed-assets.component.scss'],
+    standalone: false
 })
 export class FixedAssetsComponent {
   fixedAssetsForm: FormGroup;

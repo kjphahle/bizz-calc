@@ -9,9 +9,10 @@ import { CoursesService } from 'src/app/services/courses.service';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-courses',
-  templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.scss'],
+    selector: 'app-courses',
+    templateUrl: './courses.component.html',
+    styleUrls: ['./courses.component.scss'],
+    standalone: false
 })
 export class CoursesComponent implements OnInit {
   

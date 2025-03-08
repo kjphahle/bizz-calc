@@ -9,9 +9,10 @@ import { BizzblogService } from 'src/app/services/bizzblog.service';
 import { SwiperContainer } from 'swiper/element/bundle';
 
 @Component({
-  selector: 'app-bizzblog',
-  templateUrl: './bizzblog.component.html',
-  styleUrls: ['./bizzblog.component.scss'],
+    selector: 'app-bizzblog',
+    templateUrl: './bizzblog.component.html',
+    styleUrls: ['./bizzblog.component.scss'],
+    standalone: false
 })
 export class BizzblogComponent implements OnInit {
   filterOption: string = 'category';

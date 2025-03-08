@@ -5,9 +5,10 @@ import { Employee } from 'src/app/apps/bizzcalc/models/Employee';
 
 
 @Component({
-  selector: 'app-employment-modal',
-  templateUrl: './employment-modal.component.html',
-  styleUrls: ['./employment-modal.component.scss'],
+    selector: 'app-employment-modal',
+    templateUrl: './employment-modal.component.html',
+    styleUrls: ['./employment-modal.component.scss'],
+    standalone: false
 })
 export class EmploymentModalComponent implements OnInit{
   @Input() employees: Employee[];

@@ -18,9 +18,10 @@ import {
 import { BizzCalcTabs } from 'src/app/enums/apps/bizzcalc/bizzcalcTabs.enum';
 
 @Component({
-  selector: 'app-revenue-calculator',
-  templateUrl: './revenue-calculator.component.html',
-  styleUrls: ['./revenue-calculator.component.scss']
+    selector: 'app-revenue-calculator',
+    templateUrl: './revenue-calculator.component.html',
+    styleUrls: ['./revenue-calculator.component.scss'],
+    standalone: false
 })
 export class RevenueCalculatorComponent {
   faArrowCircleLeft = faArrowCircleLeft;

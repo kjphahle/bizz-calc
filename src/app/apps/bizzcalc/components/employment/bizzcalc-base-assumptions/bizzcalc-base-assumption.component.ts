@@ -44,9 +44,10 @@ export interface Employee {
 }
 
 @Component({
-  selector: 'app-bizzcalc-base-assumption',
-  templateUrl: './bizzcalc-base-assumption.component.html',
-  styleUrls: ['./bizzcalc-base-assumption.component.scss'],
+    selector: 'app-bizzcalc-base-assumption',
+    templateUrl: './bizzcalc-base-assumption.component.html',
+    styleUrls: ['./bizzcalc-base-assumption.component.scss'],
+    standalone: false
 })
 export class BizzcalcBaseAssumptionComponent implements OnChanges, OnInit {
   @Input() public saveClicked: boolean;

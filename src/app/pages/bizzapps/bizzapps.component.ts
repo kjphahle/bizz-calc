@@ -5,9 +5,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BizzappsService } from 'src/app/services/bizzapps.service';
 
 @Component({
-  selector: 'app-bizzapps',
-  templateUrl: './bizzapps.component.html',
-  styleUrls: ['./bizzapps.component.scss'],
+    selector: 'app-bizzapps',
+    templateUrl: './bizzapps.component.html',
+    styleUrls: ['./bizzapps.component.scss'],
+    standalone: false
 })
 export class BizzappsComponent implements OnInit {
 

@@ -5,9 +5,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VideoService } from 'src/app/services/video.service';
 
 @Component({
-  selector: 'app-videos',
-  templateUrl: './videos.component.html',
-  styleUrls: ['./videos.component.scss'],
+    selector: 'app-videos',
+    templateUrl: './videos.component.html',
+    styleUrls: ['./videos.component.scss'],
+    standalone: false
 })
 export class VideosComponent implements OnInit {
   filterOption: string = 'category';

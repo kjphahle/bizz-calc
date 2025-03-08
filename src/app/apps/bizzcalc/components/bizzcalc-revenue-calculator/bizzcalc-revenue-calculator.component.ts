@@ -11,9 +11,10 @@ import { BizzCalcService } from '../../services/bizz-calc.service';
 import { BaseAssumptionModalComponent } from '../setup/modals/base-assumption-modal/base-assumption-modal.component';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-bizzcalc-revenue-calculator',
-  templateUrl: './bizzcalc-revenue-calculator.component.html',
-  styleUrls: ['./bizzcalc-revenue-calculator.component.scss'],
+    selector: 'app-bizzcalc-revenue-calculator',
+    templateUrl: './bizzcalc-revenue-calculator.component.html',
+    styleUrls: ['./bizzcalc-revenue-calculator.component.scss'],
+    standalone: false
 })
 export class BizzcalcRevenueCalculatorComponent {
   faArrowCircleLeft = faArrowCircleLeft;

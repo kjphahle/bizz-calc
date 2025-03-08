@@ -5,9 +5,10 @@ import { Expense2 } from 'src/app/apps/bizzcalc/models/Expense';
 
 
 @Component({
-  selector: 'app-operating-expenses-modal',
-  templateUrl: './operating-expenses-modal.component.html',
-  styleUrls: ['./operating-expenses-modal.component.scss'],
+    selector: 'app-operating-expenses-modal',
+    templateUrl: './operating-expenses-modal.component.html',
+    styleUrls: ['./operating-expenses-modal.component.scss'],
+    standalone: false
 })
 export class OperatingExpensesModalComponent implements OnInit{
   @Input() expenses: Expense2[];

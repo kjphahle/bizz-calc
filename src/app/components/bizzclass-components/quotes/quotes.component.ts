@@ -3,9 +3,10 @@ import { QuotesService } from 'src/app/services/quotes.service';
 
 
 @Component({
-  selector: 'app-quotes',
-  templateUrl: './quotes.component.html',
-  styleUrls: ['./quotes.component.scss'],
+    selector: 'app-quotes',
+    templateUrl: './quotes.component.html',
+    styleUrls: ['./quotes.component.scss'],
+    standalone: false
 })
 export class QuotesComponent implements OnInit {
 
