@@ -1,5 +1,5 @@
+@use "../../../../theme.scss" as theme;
 @import "../../../../mixins";
-@import "../../../../theme.scss";
 
 .courses {
   width: 100%;
@@ -7,7 +7,7 @@
 }
 
 .courses h2 {
-  color: $primary-blue;
+  color: theme.$primary-blue;
   padding: 60px;
   margin: 0;
 }
@@ -116,7 +116,7 @@
     cursor: pointer;
 
     &:hover {
-      color: $primary-blue;
+      color: theme.$primary-blue;
       text-decoration: underline;
     }
   }
@@ -126,7 +126,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border-bottom: 0.5px solid $primary-grey;
+    border-bottom: 0.5px solid theme.$primary-grey;
     //margin-top: 20px;
 
     @include breakpoint("medium") {
@@ -142,7 +142,7 @@
   top: 10px;
   right: 10px;
   padding: 15px;
-  background-color: $primary-green;
+  background-color: theme.$primary-green;
   display: flex;
   justify-content: center;
   width: 18px;

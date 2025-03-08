@@ -1,10 +1,10 @@
-@import "../../../../mixins";
-@import "../../../../theme.scss";
+@use "../../../../theme.scss" as theme;
+@use "../../../../mixins" as mixins;
 
 .customer {
   height: 100%;
   width: 100%;
-  background-color: $white;
+  background-color: theme.$white;
   padding: 50px;
   border-radius: 10px;
 
@@ -13,17 +13,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid $primary-green;
+    border-bottom: 2px solid theme.$primary-green;
     margin-bottom: 20px;
   }
 
   &__heading {
     font-size: 50px;
-    color: $primary-blue;
+    color: theme.$primary-blue;
   }
 
   &__text {
-    color: $primary-blue;
+    color: theme.$primary-blue;
   }
 
   &__buttons-container {

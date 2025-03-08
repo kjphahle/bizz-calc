@@ -1,4 +1,4 @@
-@import "./theme.scss";
+@use "./theme.scss" as theme;
 @import "./mixins";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
@@ -14,7 +14,7 @@
 }
 
 body {
-  background-color: $white !important;
+  background-color: theme.$white !important;
 }
 
 // TODO: Move to separate class
@@ -55,16 +55,16 @@ body {
 
 .input-label {
   font-size: 14px;
-  color: $primary-blue;
+  color: theme.$primary-blue;
   font-weight: 300;
   line-height: 23px;
 }
 
 .primary-text-area {
-  color: $primary-blue;
+  color: theme.$primary-blue;
   font-size: 18px;
-  background-color: $white;
-  border: 1px solid $primary-blue;
+  background-color: theme.$white;
+  border: 1px solid theme.$primary-blue;
   border-radius: 5px;
   width: 100%;
 }
@@ -72,10 +72,10 @@ body {
 .primary-input {
   width: 100%;
   height: 40px;
-  border: 1px solid $primary-blue;
+  border: 1px solid theme.$primary-blue;
   // border-radius: 5px;
   outline: none;
-  background-color: $secondary-blue;
+  background-color: theme.$secondary-blue;
   padding: 5px;
   font-size: 18px;
 }
@@ -86,9 +86,9 @@ body {
 
 .primary-label {
   width: 100%;
-  background-color: $white;
-  color: $primary-blue;
-  border: 1px solid $primary-blue;
+  background-color: theme.$white;
+  color: theme.$primary-blue;
+  border: 1px solid theme.$primary-blue;
   padding: 10px 5px;
   // border-radius: 10px;
   display: flex;
@@ -98,43 +98,43 @@ body {
 
 .primary-btn {
   border: none;
-  background-color: $primary-green;
-  color: $white;
+  background-color: theme.$primary-green;
+  color: theme.$white;
   padding: 15px;
   border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
   transition-duration: 0.2s;
   &:hover {
-    background-color: $secondary-green;
+    background-color: theme.$secondary-green;
   }
 }
 
 .primary-btn-sm {
   border: none;
-  background-color: $primary-green;
-  color: $white;
+  background-color: theme.$primary-green;
+  color: theme.$white;
   padding: 5px;
   border-radius: 8px;
   font-size: 10px;
   cursor: pointer;
   transition-duration: 0.2s;
   &:hover {
-    background-color: $secondary-green;
+    background-color: theme.$secondary-green;
   }
 }
 
 .secondary-btn {
   border: none;
-  background-color: $primary-blue;
-  color: $white;
+  background-color: theme.$primary-blue;
+  color: theme.$white;
   padding: 15px;
   border-radius: 8px;
   font-size: 15px;
   cursor: pointer;
   transition-duration: 0.2s;
   &:hover {
-    background-color: $primary-blue-dark;
+    background-color: theme.$primary-blue-dark;
   }
 }
 
@@ -156,7 +156,7 @@ body {
   display: none;
 }
 .blue-input {
-  background-color: $secondary-blue;
+  background-color: theme.$secondary-blue;
 }
 
 .loader {
@@ -190,10 +190,10 @@ body {
 }
 
 .blue-input {
-  color: $primary-blue;
-  border: 1px solid $primary-blue;
+  color: theme.$primary-blue;
+  border: 1px solid theme.$primary-blue;
   outline: none;
-  background-color: $light-blue;
+  background-color: theme.$light-blue;
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
@@ -206,7 +206,7 @@ body {
   outline: none !important;
 
   &::placeholder {
-    color: $primary-blue;
+    color: theme.$primary-blue;
   }
 }
 

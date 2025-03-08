@@ -1,5 +1,5 @@
-@import "../../../mixins";
-@import "../../../theme.scss";
+@use "../../../theme.scss" as theme;
+@use "../../../mixins";
 
 .bizz-money {
   width: 100%;
@@ -22,7 +22,7 @@
   }
 
   &__text {
-    color: $primary-grey;
+    color: theme.$primary-grey;
     font-size: 20px;
   }
 }
