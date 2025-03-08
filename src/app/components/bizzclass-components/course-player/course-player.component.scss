@@ -1,0 +1,130 @@
+@import "../../../../mixins";
+@import "../../../../theme.scss";
+
+.course-player {
+  display: flex;
+  padding: 20px;
+  height: fit-content;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  @include breakpoint("medium") {
+    flex-direction: row;
+    padding: 20px 20px 20px 0;
+    height: 90vh;
+  }
+
+  &__img {
+    order: 1;
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    @include breakpoint("medium") {
+      display: none;
+    }
+  }
+
+  &__playlist-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: $primary-blue;
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition-duration: 0.8s;
+    display: none;
+
+    @include breakpoint("medium") {
+      display: flex;
+    }
+  }
+
+  &__playlist {
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    position: relative;
+    transition-duration: 1s;
+    order: 3;
+
+    @include breakpoint("medium") {
+      width: 30%;
+      order: 1;
+      margin-right: 20px;
+    }
+
+    @include breakpoint("xlarge") {
+      width: 20%;
+      order: 1;
+      margin-right: 20px;
+    }
+
+    &-img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+
+  &__media-player {
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px;
+    transition-duration: 1s;
+    order: 2;
+
+    @include breakpoint("medium") {
+      width: 80%;
+      order: 2;
+      margin-bottom: 0;
+      padding: 50px;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+  }
+
+  &__component {
+    width: 100%;
+  }
+}
+
+.hide-playlist {
+  width: 0% !important;
+}
+
+.flip-button {
+  transform: rotateY(180deg);
+  right: -40px !important;
+}
+
+.full-screen {
+  width: 100% !important;
+}
+
+.message{
+  width:100%;
+  background-color: $primary-blue;
+  color: white;
+  text-align: center;
+  padding:20px;
+  margin-bottom:0px;
+
+}
+
+

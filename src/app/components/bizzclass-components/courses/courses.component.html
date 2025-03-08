@@ -1,0 +1,100 @@
+<div class="courses">
+  <!--<h2>bizzcourses</h2>-->
+
+
+  <!--Navigation for top of page-->
+ <!-- <div class="courses__nav">
+    <div class="courses__nav-container">
+
+      <p class="courses__nav-item" (click)="setActiveFilter(CoursesFilterType.ALL)"
+        [ngClass]="{ active: activeFilter == CoursesFilterType.ALL }">
+        all
+      </p>
+      <p class="courses__nav-item" (click)="setActiveFilter(CoursesFilterType.AVAILABLE)"
+        [ngClass]="{ active: activeFilter == CoursesFilterType.AVAILABLE }">
+        available
+      </p>
+      <p class="courses__nav-item" (click)="setActiveFilter(CoursesFilterType.PURCHASED)"
+        [ngClass]="{ active: activeFilter == CoursesFilterType.PURCHASED }">
+        purchased
+      </p>
+    </div>
+  </div>-->
+  <div class="courses__container">
+  <!--<h4 *ngIf="
+        currentCourses.length == 0 &&
+        activeFilter == CoursesFilterType.AVAILABLE
+      ">
+      No new courses available
+    </h4>
+    <h4 *ngIf="
+        currentCourses.length == 0 &&
+        activeFilter == CoursesFilterType.PURCHASED
+      ">
+      You haven't purchased any courses yet
+    </h4>-->
+    <!--END OF NAV-->
+
+    <!--THE CARDS FOR COURSES-->
+
+    <div class="bizzcourses__container">
+
+      <!-- Image -->
+      <div class="bizzcourses__card" *ngFor="let course of allCourses; let i = index">
+        <img class="bizzcourses__card-img" [src]="'https://api.asone.global/api/BizzBean/v1/image/' + course.media1"
+          alt="" />
+
+        <!--CONTENT-->
+        <div class="courses__card-content"></div>
+
+          <!-- BUTTONS -->
+          <div class="btn-container">
+
+            <button class="secondary-btn w-200-btn" (click)="openVideoModal(video, course.media2)">
+              watch video
+            </button>
+            <button class="secondary-btn w-200-btn">R{{ course.sellingPrice }}</button>
+            <!--DO NOT DELETE - checking player-->
+
+            <button class="secondary-btn w-200-btn" (click)="openCourse(course)">
+              open
+            </button>
+
+            <!--DO NOT DELETE - if criteria for if app is purchased or not-->
+            
+          <!--  <button class="secondary-btn w-200-btn" (click)="openCourse(course)" *ngIf="course.purchased">
+                        open
+                      </button>
+                       <button class="secondary-btn w-200-btn">R{{ course.sellingPrice }}</button>
+                    <button class="secondary-btn w-200-btn" (click)="buyCourse(course)" *ngIf="!course.purchased">
+                        buy now
+                      </button>-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--VIDEO PLAYER-->
+  <ng-template #video>
+    <div class="video-modal">
+      <div class="bizz-blog__modal-close-main">
+        <fa-icon (click)="closeModal()" >
+        <img
+          src="../../../assets/minified/close-min.png"
+          alt=""
+          class="close-icon"
+        />
+      </fa-icon>
+      </div>   
+      <iframe [src]="safeSrc" frameborder="0" class="video-player" allow="autoplay"></iframe>
+    </div>
+  </ng-template>
+
+
+
+
+
+ 

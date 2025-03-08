@@ -1,0 +1,38 @@
+th {
+    font-size: 16px;
+    color: #5085B6;
+    font-weight: 500;
+}
+
+td {
+    font-size: 14px;
+    color: #5085B6;
+}
+
+table {
+    width: 100%;
+}
+
+.modal-basic-title {
+  color: white;
+}
+
+.modal-header {
+  background-color: #9FC754;
+}
+
+.edit-icon:hover {
+  cursor: pointer;
+}
+
+.thrash-icon:hover {
+  cursor: pointer;
+}
+
+.days-worked-th {
+  font-weight: bold;
+}
+
+.days-worked-td, .days-worked-th {
+  font-size: 13px;
+}

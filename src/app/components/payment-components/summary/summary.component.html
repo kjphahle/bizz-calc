@@ -1,0 +1,45 @@
+<div class="payment-summary">
+  <div class="payment-summary__card">
+    <div class="payment-summary__info">
+      <img
+        [src]="imageLookUp[product.id]"
+        alt=""
+        class="payment-summary__img"
+      />
+    </div>
+    <div class="payment-summary__options">
+      <h2 class="payment-summary__header">select a payment service</h2>
+      <form
+        action="https://sandbox.payfast.co.za​/eng/process"
+        method="post"
+        class="payfast-form"
+      >
+        <input type="hidden" name="merchant_id" value="10000100" />
+        <input type="hidden" name="merchant_key" value="46f0cd694581a" />
+        <input type="hidden" name="amount" [value]="product.sellingPrice" />
+        <input type="hidden" name="item_name" [value]="product.description" />
+        <input
+          type="hidden"
+          name="return_url"
+          value="https://www.app.bizzbean.com/main/payment/thank-you"
+        />
+        <input
+          type="hidden"
+          name="cancel_url"
+          value="https://www.app.bizzbean.com/main/payment/failed"
+        />
+        <button type="submit" class="secondary-btn w-100">
+          <span>payfast</span>
+          <span class="btn-info">?</span>
+        </button>
+      </form>
+      <!-- <button class="secondary-btn">
+        <span>Pay By Face coming soon</span><span class="btn-info">?</span>
+      </button>
+      <button class="secondary-btn">
+        <span>Ozow coming soon</span>
+        <span class="btn-info">?</span>
+      </button> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,160 @@
+<div class="bizzcalc__container">
+  <!-- base assumptions -->
+  <div class="bizzcalc__column">
+    <form [formGroup]="fixedAssetsForm">
+      <!-- Assets purchase month & month selector -->
+      <div class="row">
+        <div class="col-7 col-md-8">
+          <div class="text-end">
+            <small class="label-description bizzcalc-form-label">&nbsp;</small>
+          </div>
+
+          <small class="instructiontextcolour">purchase month</small>
+
+        </div>
+        <div class="col-5 col-md-4 ps-2">
+          <!-- <app-bizzbean-nav-control formControlName="FAPurchaseMonth"></app-bizzbean-nav-control> -->
+          <div class="text-end">
+            <small class="label-description bizzcalc-form-label">select month</small>
+          </div>
+          <app-bizzbean-nav-control [customMonths]="baseRateCustomMonths"
+            [btnLabel]="baseRateCustomMonths[0].monthNo"
+            formControlName="FAPurchaseMonth"
+            (arrowCircleRightClicked)="
+                      onArrowCircleRightClicked($event)
+                    " (arrowCircleLeftClicked)="
+                      onArrowCircleLeftClicked($event)
+                    "></app-bizzbean-nav-control>
+        </div>
+      </div>
+      <!-- Asset description -->
+      <div class="row bizzcalc-row">
+        <div class="col-md-12">
+          <small class="label-description bizzcalc-form-label">description of fixed asset purchased</small>
+        </div>
+        <div class="col-md-12">
+          <input type="text" class="primary-input" formControlName="FADescription" placeholder="asset description" />
+        </div>
+        <small *ngIf="fixedAssetsForm.get('FADescription')?.hasError('required') && fixedAssetsForm.get('FADescription')?.touched" class="text-danger error-message-section">
+          Description is required.
+        </small>
+        <small *ngIf="fixedAssetsForm.get('FADescription')?.hasError('minLength') && fixedAssetsForm.get('FADescription')?.touched" class="text-danger error-message-section">
+          Description must be at least 5 characters long.
+        </small>
+      </div>
+      <!-- Asset cost, unit cost & unit purchased -->
+      <div class="row bizzcalc-row">
+        <div class="row d-none">
+          <div class="col-md-6"></div>
+
+          <div class="col-md-3 pe-0">
+            <small class="label-description bizzcalc-form-label">no. units</small>
+          </div>
+          <div class="col-md-3">
+            <small class="label-description bizzcalc-form-label">unit cost</small>
+          </div>
+        </div>
+        <div class="row pe-0">
+          <div class="col-6 col-md-6 pe-1">
+            <div class="text-end">
+              <small class="label-description bizzcalc-form-label">&nbsp;</small>
+            </div>
+
+            <small class="instructiontextcolour">asset cost</small>
+
+          </div>
+          <div class="col-3 col-md-3 px-0">
+            <div class="text-end">
+              <small class="label-description bizzcalc-form-label">no. units</small>
+            </div>
+
+            <input type="number" class="primary-input" formControlName="FAQty" placeholder="1+" />
+            <small *ngIf="fixedAssetsForm.get('FAQty')?.hasError('required') && fixedAssetsForm.get('FAQty')?.touched" class="text-danger error-message-section">
+              Number of units is required.
+            </small>
+            <small *ngIf="fixedAssetsForm.get('FAQty')?.hasError('min') && fixedAssetsForm.get('FAQty')?.touched" class="text-danger error-message-section">
+              Number of units must be greater than 1.
+            </small>
+          </div>
+          <div class="col-3 col-md-3 pe-1">
+            <div class="text-end">
+              <small class="label-description bizzcalc-form-label">unit cost</small>
+            </div>
+            <input type="number" class="primary-input" formControlName="FACost" placeholder=">1" />
+            <small *ngIf="fixedAssetsForm.get('FACost')?.hasError('required') && fixedAssetsForm.get('FACost')?.touched" class="text-danger error-message-section">
+              Cost is required.
+            </small>
+            <small *ngIf="fixedAssetsForm.get('FACost')?.hasError('min') && fixedAssetsForm.get('FACost')?.touched" class="text-danger error-message-section">
+              Cost must be greater than 1.
+            </small>
+          </div>
+
+
+        </div>
+      </div>
+      <!-- Select asset category dropdown$ Rate -->
+      <div class="row bizzcalc-row">
+        <!-- category dropdown -->
+        <div class="col-7 col-md-7">
+          <div>
+            <small class="label-description bizzcalc-form-label">select asset category</small>
+          </div>
+          <div *ngIf="catDepreciationRates.length > 0">
+            <app-bizzbean-category-list-control formControlName="categoryID"
+              (arrowCircleRightClicked)="onCategoryChange($event)" (arrowCircleLeftClicked)="onCategoryChange($event)"
+              [categoryList]="catDepreciationRates"></app-bizzbean-category-list-control>
+            <!-- <select
+              class="primary-input"
+              name="asset_category"
+              id="asset_category"
+            >
+              <option value="" disabled selected>select category</option>
+              <option
+                [value]="assetCategory.categoryId"
+                *ngFor="let assetCategory of assetsCategories"
+              >
+                {{ assetCategory.categoryName }}
+              </option>
+            </select> -->
+          </div>
+        </div>
+        <!-- percentage rate -->
+        <div class="col-5 col-md-5">
+          <div class="text-end">
+            <small class="label-description bizzcalc-form-label">% rate</small>
+          </div>
+          <div>
+            <input type="number" class="primary-input" formControlName="FADepreciationRate" placeholder="25% "
+              readonly />
+          </div>
+        </div>
+      </div>
+
+      <!-- <pre>{{fixedAssetsForm.value | json}}</pre>
+      <pre>{{fixedAssets | json}}</pre> -->
+      <p-toast position="center" key="br" />
+
+      <!-- Action buttons -->
+      <div class="col-12 bizzcalc__column bg-white px-0" style="padding-top: 20px;">
+        <div class="d-flex justify-content-between">
+          <button class="primary-btn bizz-calc-data-save-btn" (click)="onAddAssetsBtnClicked()">add data</button>
+          <button class="primary-btn bizz-calc-page-save-btn" (click)="onViewDataBtnClicked()">view data</button>
+          <button class="primary-btn bizz-calc-page-save-btn" (click)="onSaveBtnClicked()">save</button>
+        </div>
+      </div>
+      <!-- View data & save button row -->
+      <!-- <div class="row pt-2 d-none">
+        <div class="col-md-12">
+          <div class="d-flex justify-content-between">
+            <button class="primary-btn" (click)="onViewDataBtnClicked()">
+              view data1
+            </button>
+            <button class="primary-btn" (click)="onSaveBtnClicked()">
+              save
+            </button>
+          </div>
+        </div>
+      </div> -->
+    </form>
+  </div>
+</div>

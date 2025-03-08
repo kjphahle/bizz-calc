@@ -1,0 +1,27 @@
+<div class="container-fluid px-0 bizzcalc-setup-container bg-white">
+    <!-- header -->
+    <app-bizzcalc-header [showLeftIcon]="false" [showRightIcon]="false"></app-bizzcalc-header>
+
+    <!-- content -->
+    <div class="bizzcalc__container">
+        <!-- business details -->
+        <div class="col-12 bizzcalc__column bizzcalc__column_setup pt-0">
+          <button type="button" class="secondary-btn bizzcalc-secondary-btn w-100" (click)="goToBusinessDetails($event)">
+            business details
+          </button>
+        </div>
+        <!-- days worked -->
+        <div class="col-12 bizzcalc__column bizzcalc__column_setup pt-0">
+            <button type="button" class="secondary-btn bizzcalc-secondary-btn w-100" (click)="goToDaysWorked($event)">
+                days worked
+            </button>
+        </div>
+        <!-- fixed asset category depreciation rates -->
+        <div class="col-12 bizzcalc__column bizzcalc__column_setup pt-0">
+            <button type="button" class="secondary-btn bizzcalc-secondary-btn w-100" (click)="goToDepreciationRates($event)">
+                fixed asset category depreciation rates
+            </button>
+        </div>
+    </div>
+
+</div>

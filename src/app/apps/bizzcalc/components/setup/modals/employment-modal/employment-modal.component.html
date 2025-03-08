@@ -1,0 +1,58 @@
+<div class="modal-header justify-content-between">
+  <h6 class="modal-title modal-basic-title" id="modal-basic-title">employment</h6>
+  <i
+    class="bi bi-x-lg modal-close-button"
+    (click)="activeModal.dismiss('Cross click')"
+  ></i>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+
+  <ng-container *ngIf="!viewDaysWorked">
+    <!-- <pre>{{employees | json}}</pre> -->
+    <table>
+      <tr>
+        <th class="w-auto text-center days-worked-th">job title</th>
+        <th class="w-auto text-center days-worked-th">rate</th>
+        <th class="w-auto text-center days-worked-th">no.</th>
+        <th class="w-auto text-center days-worked-th">mth</th>
+        <th class="w-auto text-center days-worked-th">action</th>
+      </tr>
+      <tr *ngFor="let employee of employees">
+        <td class="w-auto text-start days-worked-td">
+          {{ employee?.EmployeeName }}
+        </td>
+        <td class="w-auto text-end days-worked-td">{{ employee?.Amount }}</td>
+        <td class="w-auto text-center days-worked-td">{{ employee?.Qty }}</td>
+        <td class="w-auto text-center days-worked-td">{{ employee?.ReviewMonth }}</td>
+        <td class="w-auto text-center days-worked-td">
+          <div class="d-flex justify-content-around px-3">
+            <div class="edit-icon pe-2" (click)="onEditHoliday(employee)">
+              <i class="bi bi-pen"></i>
+            </div>
+            <div class="thrash-icon pe-2" (click)="onRemoveHoliday(employee)">
+              <i class="bi bi-x-square"></i>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </ng-container>
+</div>
+<!-- Modal footer -->
+<div class="modal-footer">
+  <!-- <ng-container *ngIf="!viewDaysWorked">
+    <div class="text-center w-100">
+      <button type="submit" class="primary-btn bizzcalc-button">save</button>
+      <button
+        type="submit"
+        class="primary-btn bizzcalc-button"
+        (click)="onDaysWorkedClicked()"
+      >
+        day worked
+      </button>
+    </div>
+  </ng-container> -->
+  <!-- <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Save</button> -->
+</div>

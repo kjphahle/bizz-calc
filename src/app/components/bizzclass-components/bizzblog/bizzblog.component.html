@@ -1,0 +1,41 @@
+<swiper-container class="mySwiper" pagination="true" navigation="true" pagination-clickable="true" space-between="30"
+  [breakpoints]="swiperBreakpoints">
+  <swiper-slide class="blog__card" *ngFor="let blog of blogs; let i = index" (click)="openModal(blogModal, blog)">
+    <div class="card">
+      <img height="45px" [src]="
+        'https://api.asone.global/api/BizzBean/v1/image/' +
+        blog.mediaId
+      " />
+      <h1 class="bizz-blog__modal-header">
+        {{ blog.heading }}
+      </h1>
+      <h3 class="bizz-blog__modal-subtitle">
+        {{ blog.author }}
+      </h3>
+    </div>
+  </swiper-slide>
+</swiper-container>
+
+<ng-template #blogModal let-modal>
+  <div class="bizz-blog__modal">
+    <div class="bizz-blog__modal-close-main">
+      <fa-icon [icon]="faXmark" (click)="closeModal()" class="close-icon"></fa-icon>
+    </div>
+    <img [src]="
+        'https://api.asone.global/api/BizzBean/v1/image/' +
+        currentBlog.mediaId
+      " alt="" class="bizz-blog-card-img rounded-corners" />
+    <div class="bizz-blog__modal-container">
+      <h1 class="bizz-blog__modal-header">
+        {{ currentBlog.heading }}
+      </h1>
+      <h3 class="bizz-blog__modal-subtitle">
+        {{ currentBlog.author }}
+      </h3>
+      <h3 class="bizz-blog__modal-category">
+        {{ currentBlog.category }}
+      </h3>
+      <div [innerHTML]="blogContent[0]?.data"></div>
+    </div>
+  </div>
+</ng-template>

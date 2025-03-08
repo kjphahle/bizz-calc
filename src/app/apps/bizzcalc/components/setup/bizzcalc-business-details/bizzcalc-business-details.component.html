@@ -1,0 +1,143 @@
+<div class="container-fluid px-0 bizzcalc-business-details-container">
+
+  <app-bizzcalc-header
+    [showLeftIcon]="false"
+    [showRightIcon]="true"
+    [title]="'setup'"
+    [leftIconRoute]="'/main/bizzcalc/setup/business-details'"
+    [rightIconRoute]="'/main/bizzcalc/setup/days-worked'">
+  </app-bizzcalc-header>
+
+
+  <div class="bizzcalc__container">
+    <!-- business details -->
+    <div class="col-12 bizzcalc__column py-0   ">
+      <button
+        class="secondary-btn bizzcalc-secondary-btn bizzcalc-secondary-btn w-100"
+        style="text-align: justify"
+        (click)="openModalWithDynamicContent()"
+      >
+        <span class="pe-2"
+          ><img
+            height="25px"
+            src="../../../../../../assets/images/bizzcalc/info.jpg" /></span
+        >business details
+      </button>
+    </div>
+    <!-- Business details form  -->
+    <div class="col-12 bizzcalc__form-details-container pt-0 px-0" >
+      <section class="bizzcalc__column__business-details-form">
+        <form [formGroup]="businessDetailsForm">
+          <!-- <div class="bizzcalc__column-header-left pb-2">business details</div> -->
+          <div class="row form-details-row">
+            <div class="col-sm-12 px-0">
+              <label class="bizzcalc-form-label" for="business-name">business name</label>
+              <input
+                id="business-name"
+                type="text"
+                class="primary-input"
+                formControlName="BusinessName"
+                placeholder="read the note below before entering business name"
+              required/>
+
+              <small
+              class="text-danger error-message-section"
+              *ngIf="
+                businessDetailsForm.get('BusinessName')?.invalid &&
+                businessDetailsForm.get('BusinessName')?.touched
+
+              "
+            >
+              Please enter  business name.
+            </small>
+            </div>
+          </div>
+
+          <!-- <pre>{{getNonFirstDaysOfMonth() | json}}</pre> -->
+          <p-toast position="center" key="br" />
+          <!-- select version -->
+          <div class="row form-details-row">
+            <div class="col-6 ps-0 py-0 form-details-col">
+              <label class="bizzcalc-mobile-label bizzcalc-form-label" for="start-scenario"
+                >select a scenario</label
+              >
+              <select
+                formControlName="VersionNumber"
+                (change)="onScenarioNameChange($event?.target?.value)"
+                id="start-scenario"
+                class="primary-input"
+                name="asset_category"
+                id="asset_category"
+              >
+                <option value="" disabled selected>select version</option>
+                <option [value]="version.name" *ngFor="let version of versions">
+                  {{ version.name }}
+                </option>
+              </select>
+            </div>
+            <div class="col-6 pe-0 py-0 form-details-col">
+              <div class="w-auto">
+                <label class="bizzcalc-mobile-label bizzcalc-form-label" for="start-scenario-date"
+                  >change start date</label
+                >
+                <input
+                  type="text"
+                  id="scenario-start-date"
+                  [placeholder]="currentDate"
+                  class="form-control"
+                  isAnimated="true"
+                  placement="bottom"
+                  formControlName="ProjectDate"
+                  (onShown)="onOpenCalendarMonth($event)"
+                  [bsConfig]="{
+                    adaptivePosition: true,
+                    dateInputFormat: 'MM/YYYY',
+                    containerClass: 'theme-dark-blue',
+                  }"
+                  [minDate]="minDate"
+                  (bsValueChange)="onDateValueChange($event)"
+                  bsDatepicker
+                />
+              </div>
+            </div>
+          </div>
+          <!-- <pre>{{businessDetailsForm.value | json}}</pre> -->
+          <div class="row bizzcal-action-buttons-row">
+            <div class="col-12 py-0 text-center">
+              <button class="primary-btn bizz-calc-page-save-btn" (click)="onSaveBtnClicked()">
+                save
+              </button>
+            </div>
+
+
+
+
+
+
+
+          </div>
+          <div class="container text-center">
+
+            <p>The business name cannot be changed, once saved.</p>
+            <p>Each scenario has been designed for a specific purpose, as described in the video link below.</p>
+            <p>However, you are free to use each scenario for your own purpose, but, as with the business name, they cannot be changed.</p>
+            <p>Please note that changing the business start date applies to each business scenario and this change will reset the data for each scenario to zero.</p>
+            <p>Click on the button below to download and watch a video on how to use bizzcalc.</p>
+
+
+        </div>
+
+        <div class="capital-btn  text-center mx-0">
+          <button class="capital-btn  text-centerr mx-0 w-100">LEARN how to EARN access to CAPITAL</button>
+      </div>
+
+
+
+      <div class="bizzcalc-btn  text-center " >
+          <button class="bizzcalc-btn">how to use bizzcalc</button>
+      </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

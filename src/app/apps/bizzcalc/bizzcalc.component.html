@@ -1,0 +1,1156 @@
+<div class="bizzcalc">
+  <div class="bizzcalc__header">
+    <img
+      src="../../../assets/images/bizzcalc.png"
+      alt=""
+      class="bizzcalc__header-img"
+    />
+  </div>
+  <div class="bizzcalc__container">
+    <div class="col-md-2 bizzcalc__column">
+      <button
+        class="secondary-btn"
+        (click)="setPrimaryActiveTab(bizzCalcTabs.SETUP)"
+      >
+        <fa-icon [icon]="faGear"></fa-icon>
+        <span class="ml-2">setup</span>
+      </button>
+      <button
+        class="secondary-btn"
+        (click)="setPrimaryActiveTab(bizzCalcTabs.REVENUE_CALCULATOR)"
+      >
+        <fa-icon [icon]="faCalculator"></fa-icon>
+        <span class="ml-2">revenue calculator</span>
+      </button>
+      <button
+        class="secondary-btn"
+        (click)="setPrimaryActiveTab(bizzCalcTabs.EMPLOYMENT)"
+      >
+        <fa-icon [icon]="faUsers"></fa-icon>
+        <span class="ml-2">employment</span>
+      </button>
+      <button
+        class="secondary-btn"
+        (click)="setPrimaryActiveTab(bizzCalcTabs.OPERATING_EXPENSES)"
+      >
+        <fa-icon [icon]="faScroll"></fa-icon>
+        <span class="ml-2">operating expenses</span>
+      </button>
+      <button
+        class="secondary-btn"
+        (click)="setPrimaryActiveTab(bizzCalcTabs.FIXED_ASSETS)"
+      >
+        <fa-icon [icon]="faTruck"></fa-icon>
+        <span class="ml-2">fixed assets</span>
+      </button>
+      <button
+        class="secondary-btn"
+        (click)="setPrimaryActiveTab(bizzCalcTabs.FUNDING_CALCULATOR)"
+      >
+        <fa-icon [icon]="faCoins"></fa-icon>
+        <span class="ml-2">funding calculator</span>
+      </button>
+      <button
+        class="secondary-btn"
+        (click)="setPrimaryActiveTab(bizzCalcTabs.REPORTS)"
+      >
+        <fa-icon [icon]="faChartLine"></fa-icon>
+        <span class="ml-2">reports</span>
+      </button>
+    </div>
+
+    <div class="col-md-2 bizzcalc__column">
+      <ng-container *ngIf="primaryActiveTab == bizzCalcTabs.SETUP">
+        <button
+          class="secondary-btn"
+          (click)="setSecondaryActiveTab(bizzCalcTabs.SETUP_BUSSINESS_DETAILS)"
+        >
+          business details
+        </button>
+        <button
+          class="secondary-btn"
+          (click)="setSecondaryActiveTab(bizzCalcTabs.SETUP_DAYS_WORKED)"
+        >
+          days worked
+        </button>
+        <button
+          class="secondary-btn"
+          (click)="setSecondaryActiveTab(bizzCalcTabs.SETUP_FIXED_ASSETS)"
+        >
+          fixed asset depreciation rates
+        </button>
+      </ng-container>
+      <ng-container *ngIf="primaryActiveTab == bizzCalcTabs.REVENUE_CALCULATOR">
+        <button
+          class="secondary-btn"
+          (click)="
+            setSecondaryActiveTab(
+              bizzCalcTabs.REVENUE_CALCULATOR_BASE_ASSUMPTIONS
+            )
+          "
+        >
+          base assumptions
+        </button>
+      </ng-container>
+      <ng-container *ngIf="primaryActiveTab == bizzCalcTabs.EMPLOYMENT">
+        <button
+          class="secondary-btn"
+          (click)="
+            setSecondaryActiveTab(bizzCalcTabs.EMPLOYMENT_BASE_ASSUMPTIONS)
+          "
+        >
+          base assumptions
+        </button>
+      </ng-container>
+      <ng-container *ngIf="primaryActiveTab == bizzCalcTabs.OPERATING_EXPENSES">
+        <button
+          class="secondary-btn"
+          (click)="
+            setSecondaryActiveTab(
+              bizzCalcTabs.OPERATING_EXPENSES_BASE_ASSUMPTIONS
+            )
+          "
+        >
+          base assumptions
+        </button>
+      </ng-container>
+      <ng-container *ngIf="primaryActiveTab == bizzCalcTabs.FIXED_ASSETS">
+        <button
+          class="secondary-btn"
+          (click)="
+            setSecondaryActiveTab(bizzCalcTabs.FIXED_ASSETS_BASE_ASSUMPTIONS)
+          "
+        >
+          base assumptions
+        </button>
+      </ng-container>
+      <ng-container *ngIf="primaryActiveTab == bizzCalcTabs.FUNDING_CALCULATOR">
+        <button
+          class="secondary-btn"
+          (click)="
+            setSecondaryActiveTab(
+              bizzCalcTabs.FUNDING_CALCULATOR_BASE_ASSUMPTIONS
+            )
+          "
+        >
+          base assumptions
+        </button>
+      </ng-container>
+      <ng-container *ngIf="primaryActiveTab == bizzCalcTabs.REPORTS">
+        <button
+          class="secondary-btn"
+          (click)="setSecondaryActiveTab(bizzCalcTabs.REPORTS_INCOME_STATEMENT)"
+        >
+          income statement
+        </button>
+        <button
+          class="secondary-btn"
+          (click)="setSecondaryActiveTab(bizzCalcTabs.REPORTS_BALANCE_SHEET)"
+        >
+          balance sheet
+        </button>
+        <button
+          class="secondary-btn"
+          (click)="setSecondaryActiveTab(bizzCalcTabs.REPORTS_SCHEDULE_OF_EXPENSES)"
+        >
+          schedule of expenses
+        </button>
+        <button
+          class="secondary-btn"
+          (click)="setSecondaryActiveTab(bizzCalcTabs.REPORTS_GRAPH)"
+        >
+          graph
+        </button>
+      </ng-container>
+    </div>
+
+    <div class="col-md-4 bizzcalc__column" *ngIf="secondaryActiveTab != null">
+      <ng-container
+        *ngIf="secondaryActiveTab == bizzCalcTabs.SETUP_BUSSINESS_DETAILS"
+      >
+        <div class="bizzcalc__column-header-left">business details</div>
+        <input type="text" class="primary-input" placeholder="business name" />
+        <div class="row">
+          <div class="col-md-6">
+            <label class="primary-label">start month and year</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="primary-input" placeholder="05-22" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="primary-label">project status</label>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="primary-input"
+              placeholder="keep existing project"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="primary-btn">save</button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container
+        *ngIf="secondaryActiveTab == bizzCalcTabs.SETUP_DAYS_WORKED"
+      >
+        <div class="bizzcalc__column-header-left">days worked</div>
+        <label class="primary-label">uncheck non-working days</label>
+        <div class="bizzcalc__checkbox-list">
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">mon</label>
+            <input type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">tue</label>
+            <input type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">wed</label>
+            <input type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">thu</label>
+            <input type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">fri</label>
+            <input type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">sat</label>
+            <input type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">sun</label>
+            <input type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+        </div>
+        <label class="primary-label">deduct holdidays</label>
+        <div class="row">
+          <div class="col-md-12">
+            <input
+              type="text"
+              class="primary-input"
+              placeholder="holiday name"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              placeholder="select start date"
+              name="ap"
+              [(ngModel)]="model1"
+              ngbDatepicker
+              #a="ngbDatepicker"
+              (click)="a.toggle()"
+            />
+          </div>
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              placeholder="select end date"
+              name="bp"
+              [(ngModel)]="model2"
+              ngbDatepicker
+              #b="ngbDatepicker"
+              (click)="b.toggle()"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <button class="primary-btn">prev</button>
+          </div>
+          <div class="col-md-6">
+            <button class="primary-btn">next</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="primary-btn">delete</button>
+          </div>
+          <div class="col-md-6">
+            <button class="primary-btn">save</button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container
+        *ngIf="secondaryActiveTab == bizzCalcTabs.SETUP_FIXED_ASSETS"
+      >
+        <div class="bizzcalc__column-header-left">
+          fixed asset depreciation rates
+        </div>
+        <label for="" class="primary-label"
+          >enter fixed asset category depreciation rates</label
+        >
+
+        <div class="row">
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="primary-input"
+              placeholder="asset category"
+            />
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="primary-input" placeholder="10%" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <button class="primary-btn">prev</button>
+          </div>
+          <div class="col-md-6">
+            <button class="primary-btn">next</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="primary-btn">save</button>
+          </div>
+        </div>
+      </ng-container>
+
+
+      <ng-container
+      *ngIf="secondaryActiveTab == bizzCalcTabs.REVENUE_CALCULATOR_BASE_ASSUMPTIONS"
+    >
+      <div class="bizzcalc__column-header-left">base assumptions</div>
+      <div class="form-container">
+        <div class="row">
+          <div class="col-md-6">
+            <label class="primary-label">base rates</label>
+          </div>
+          <div class="col-md-3">
+            <input type="number" class="primary-input" placeholder="1,000%" [(ngModel)]="revenueCalculator.ValueSalesPerDay"/>
+          </div>
+          <div class="col-md-3">
+            <input type="text" class="primary-input" placeholder="1,000%"[(ngModel)]="revenueCalculator.ProfitMargin"/>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+              <label class="primary-label">enter growth rate per month</label>
+            </div>
+            <div class="col-md-5">
+              <!-- <app-bizzbean-button-group [value]="parentValue" (increment)="onIncrement()" (decrement)="onDecrement()"></app-bizzbean-button-group> -->
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" disabled (click)="decrementMonth()">
+                <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary" style="font-size: small;">
+                    {{ revenueCalculator.GrowthRate }}
+                  </button>
+                </div>
+                <button type="button" class="btn btn-primary" disabled (click)="incrementMonth()">
+                  <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+                </button>
+              </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4" *ngFor="let month of revenueCalculator.AdjustmentMonths">
+            <!-- <label class="primary-label">month {{ month.monthNo }} - {{ month.month }}</label> -->
+            <label class="primary-label">{{month.adjustmentMonth}}</label>
+            <input type="number" class="primary-input" placeholder="1,000%"[(ngModel)]="month.growthRate"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="primary-btn" style="margin-top: 10px;">cancel</button>
+          </div>
+          <div class="col-md-6">
+            <button class="primary-btn" (click)="saveFormData()" style="margin-top: 10px;">save</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- <div>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="primary-label">daily sales</label>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="primary-input" placeholder="1,000"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="primary-label">gross profit margin</label>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="primary-input"
+              placeholder="25.00%"
+            />
+          </div>
+        </div>
+        <input type="text" class="primary-input" placeholder="enter your monthly sales growth %"/>
+        <div class="row">
+          <div class="col-md-6">
+            <label class="primary-label" style="font-weight: bold;">{{selectedDate}}</label>
+          </div>
+          <div class="col-md-6">
+            <input
+              type="text"
+              class="primary-input"
+              placeholder="25.00%"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="btn-group col-md-12" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary" (click)="decrementMonth()">
+            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{selectedMonth.month}} : {{selectedMonth.index}}<span class="caret"></span>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Option 1</a>
+                <a class="dropdown-item" href="#">Option 2</a>
+                <a class="dropdown-item" href="#">Option 3</a>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="incrementMonth()">
+              <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+          </div>
+          <div class="col-md-6">
+            <button class="primary-btn" (click)="saveFormData()" style="margin-top: 10px;">save</button>
+          </div>
+        </div>
+      </div> -->
+    </ng-container>
+    <ng-container
+    *ngIf="secondaryActiveTab == bizzCalcTabs.EMPLOYMENT_BASE_ASSUMPTIONS"
+    >
+    <div class="bizzcalc__column-header-left">employment</div>
+     <div class="form-container">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="primary-label">employment month</label>
+        </div>
+        <div class="col-md-6">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary">
+            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-sm" style="font-size: small;" [textContent]="employee.employmentMonth">
+                month 2 - mar {{employee.employmentMonth}}
+              </button>
+            </div>
+            <button type="button" class="btn btn-primary">
+              <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+         <input type="text" class="primary-input" placeholder="job title" [(ngModel)]="employee.jobTitle"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="primary-input" placeholder="2" [(ngModel)]="employee.employmentMonths"/>
+        </div>
+        <div class="col-md-4">
+          <input type="number" class="primary-input" placeholder="1,000%" [(ngModel)]="employee.employeeRate"/>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-12">
+          <label class="primary-label">base rates</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-sm" style="font-size: small;" [textContent]="employee.employmentGrowthRate">
+                month 2 - mar {{employee.employmentGrowthRate}}
+              </button>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm">
+              <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="primary-input" placeholder="1,000%" [(ngModel)]="employee.employeeGrowthRate"/>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col-md-4">
+          <label class="primary-label">base rates</label>
+        </div>
+        <div class="col-md-4">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-sm" style="font-size: small;" [textContent]="employee.employmentGrowthRate">
+                {{employee.employmentGrowthRate}}
+              </button>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm">
+              <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <input type="number" class="primary-input" placeholder="1,000%" [(ngModel)]="employee.employeeGrowthRate"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <button class="primary-btn" style="margin-top: 10px;" (click)="onAddJobTitle()">add job title</button>
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+     </div>
+    </ng-container>
+
+    <ng-container
+    *ngIf="secondaryActiveTab == bizzCalcTabs.OPERATING_EXPENSES_BASE_ASSUMPTIONS"
+    >
+     <div class="bizzcalc__column-header-left">operating expenses</div>
+     <div class="form-container">
+       <div class="row">
+        <div class="col-md-12" style="margin-bottom: 5px;">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary">
+            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+            </button>
+            <div class="btn-group" style="width: 300px;">
+              <button type="button" class="btn btn-primary" [textContent]="expense.expenseName">
+                expenses item {{expense.expenseName}}
+              </button>
+            </div>
+            <button type="button" class="btn btn-primary">
+              <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </button>
+          </div>
+        </div>
+       </div>
+       <div class="row">
+        <div class="col-md-6">
+         <label class="primary-label">expense base value</label>
+        </div>
+        <div class="col-md-6">
+         <input type="number" class="primary-input" placeholder="0,00"  [(ngModel)]="expense.expenseBaseValue"/>
+        </div>
+     </div>
+     <div class="row">
+       <div class="col-md-12">
+        <label class="primary-label">expense rate review</label>
+       </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary btn-sm">
+            <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-sm" style="font-size: small;" [textContent]="expense.baseRateReviewMonth">
+                month 2 - mar {{expense.baseRateReviewMonth}}
+              </button>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm">
+              <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <input type="number" class="primary-input" placeholder="0,000%" [(ngModel)]="expense.baseRateReviewValue"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="primary-btn" (click)="saveExpense()">add expense</button>
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+     </div>
+  </ng-container>
+  <ng-container
+  *ngIf="secondaryActiveTab == bizzCalcTabs.FIXED_ASSETS_BASE_ASSUMPTIONS"
+  >
+  <div class="bizzcalc__column-header-left">Fixed Assets</div>
+  <div class="form-container">
+    <div class="row">
+      <div class="col-md-6">
+        <label class="primary-label">asset purchase month</label>
+      </div>
+      <div class="col-md-6">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-primary">
+          <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+          </button>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary btn-sm" style="font-size: small;" [textContent]="fixedAsset.purchasedMonth">
+              month 2 - mar {{fixedAsset.purchasedMonth}}
+            </button>
+          </div>
+          <button type="button" class="btn btn-primary">
+            <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <input type="text" class="primary-input" placeholder="asset description" [(ngModel)]="fixedAsset.FADescription"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <label class="primary-label">asset cost</label>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="primary-input" placeholder="unit cost" [(ngModel)]="fixedAsset.unitCost"/>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="primary-input" placeholder="unit purchased" [(ngModel)]="fixedAsset.UnitsPerchased"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <!-- <label class="primary-label">asset cost</label> -->
+        <select class="primary-input" [(ngModel)]="fixedAsset.SelectedCategory">
+          <option value="">Select a category</option>
+          <option value="Option 1">Option 1</option>
+          <option value="Option 2">Option 2</option>
+          <option value="Option 3">Option 3</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="primary-input" placeholder="% rate" [(ngModel)]="fixedAsset.CategoryInPercentage"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <button class="primary-btn" style="margin-top: 10px;" (click)="saveFixedAsset()">add assets</button>
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+  </div>
+  </ng-container>
+  <ng-container
+  *ngIf="secondaryActiveTab == bizzCalcTabs.FUNDING_CALCULATOR_BASE_ASSUMPTIONS"
+  >
+  <div class="bizzcalc__column-header-left">working capital days and other assets</div>
+  <div class="form-container">
+    <div class="row">
+      <div class="col-md-12">
+        <label class="primary-label">enter working capital days</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="primary-label">inventory</label>
+      </div>
+      <div class="col-md-6">
+      <input type="text" class="primary-input" placeholder="payable days" [(ngModel)]="fundingCalculator.DaysInventory"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="primary-label">receivables</label>
+      </div>
+      <div class="col-md-6">
+      <input type="text" class="primary-input" placeholder="value of floats" [(ngModel)]="fundingCalculator.DaysReceivables"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="primary-label">payables</label>
+      </div>
+      <div class="col-md-6">
+      <input type="text" class="primary-input" placeholder="value of deposits" [(ngModel)]="fundingCalculator.DaysPayables"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <label class="primary-label">enter value of other assets</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="primary-label">floats</label>
+      </div>
+      <div class="col-md-6">
+      <input type="text" class="primary-input" placeholder="value of petty cash" [(ngModel)]="fundingCalculator.CashFloat"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="primary-label">deposits</label>
+      </div>
+      <div class="col-md-6">
+      <input type="text" class="primary-input" placeholder="" [(ngModel)]="fundingCalculator.Deposits"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="primary-label">petty cash</label>
+      </div>
+      <div class="col-md-6">
+      <input type="text" class="primary-input" placeholder="" [(ngModel)]="fundingCalculator.PettyCash"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <button class="primary-btn" (click)="saveFundingCalculator(fundingCalculator)">save</button>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+  <ng-container
+  *ngIf="secondaryActiveTab == bizzCalcTabs.REPORTS_INCOME_STATEMENT"
+  >
+   <div class="form-container">
+    <div class="bizzcalc__table">
+      <thead>
+        <tr>
+          <th class="tableHeader">income statement</th>
+        </tr>
+      </thead>
+      <div class="bizzcalc__table-header">
+        <p>item</p>
+        <p>value</p>
+      </div>
+      <div class="bizzcalc__table-inner">
+        <div class="bizzcalc__table-row" *ngFor="let incomeStatement of this.incomeStatements">
+          <div class="bizzcalc__table-cell cell-half text-left">
+            <p>{{ incomeStatement.incomeStatementItem }}</p>
+          </div>
+          <div class="bizzcalc__table-cell cell-half text-right">
+            <p>{{incomeStatement.incomeStatementValue }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </ng-container>
+  <ng-container
+  *ngIf="secondaryActiveTab == bizzCalcTabs.REPORTS_BALANCE_SHEET"
+  >
+   <div class="form-container">
+    <div class="bizzcalc__table">
+      <thead>
+        <tr>
+          <th class="tableHeader">balance sheet</th>
+        </tr>
+      </thead>
+      <div class="bizzcalc__table-header">
+        <p>item</p>
+        <p>value</p>
+      </div>
+      <div class="bizzcalc__table-inner">
+        <div class="bizzcalc__table-row" *ngFor="let balance of this.balanceSheet">
+          <div class="bizzcalc__table-cell cell-half text-left" *ngIf="!balance.financeBy || balance.financeBy !== 'BizzCalc'">
+            <p>{{ balance.balanceSheetItem }}</p>
+          </div>
+          <div class="bizzcalc__table-cell cell-half text-right" *ngIf="!balance.financeBy || balance.financeBy !== 'BizzCalc'">
+            <p>{{balance.balanceSheetValue }}</p>
+          </div>
+        </div>
+      </div>
+      finance by:
+      <div class="bizzcalc__table-inner">
+        <div class="bizzcalc__table-row" *ngFor="let balance of this.balanceSheet">
+          <div class="bizzcalc__table-cell cell-half text-left" *ngIf="balance.financeBy == 'BizzCalc'">
+            <p>{{ balance.balanceSheetItem }}</p>
+          </div>
+          <div class="bizzcalc__table-cell cell-half test text-right" *ngIf="balance.financeBy == 'BizzCalc'">
+            <p>{{balance.balanceSheetValue }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </ng-container>
+  <ng-container
+  *ngIf="secondaryActiveTab == bizzCalcTabs.REPORTS_SCHEDULE_OF_EXPENSES"
+  >
+   <div class="form-container">
+    <div class="bizzcalc__table">
+      <thead>
+        <tr>
+          <th class="tableHeader">schedule of expenses</th>
+        </tr>
+      </thead>
+      <div class="bizzcalc__table-header">
+        <p>item</p>
+        <p>value</p>
+      </div>
+      <div class="bizzcalc__table-inner">
+        <div class="bizzcalc__table-row" *ngFor="let expense of this.scheduleOfExpenses">
+          <div class="bizzcalc__table-cell cell-half text-left">
+            <p>{{ expense.expenseItem }}</p>
+          </div>
+          <div class="bizzcalc__table-cell cell-half text-right">
+            <p>{{expense.expenseValue }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </ng-container>
+  <ng-container
+  *ngIf="secondaryActiveTab == bizzCalcTabs.REPORTS_GRAPH"
+  >
+   <!-- <div class="form-container">
+    <div class="bizzcalc__table">
+      <thead>
+        <tr>
+          <th class="tableHeader">graphs</th>
+        </tr>
+      </thead>
+      <div class="bizzcalc__table-header">
+        <p>item</p>
+        <p>value</p>
+      </div>
+      <div class="bizzcalc__table-inner">
+        <div class="bizzcalc__table-row" *ngFor="let incomeStatement of this.incomeStatements">
+          <div class="bizzcalc__table-cell cell-half text-left">
+            <p>{{ incomeStatement.incomeStatementItem }}</p>
+          </div>
+          <div class="bizzcalc__table-cell cell-half text-right">
+            <p>{{incomeStatement.incomeStatementValue }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div> -->
+  </ng-container>
+    </div>
+    <div
+      class="bizzcalc__column-last"
+      [ngClass]="{
+        'col-md-4': secondaryActiveTab != null,
+        'col-md-7': secondaryActiveTab == null
+      }"
+    >
+      <ng-container
+        *ngIf="
+          secondaryActiveTab != bizzCalcTabs.SETUP_DAYS_WORKED &&
+          secondaryActiveTab != bizzCalcTabs.SETUP_FIXED_ASSETS &&
+          secondaryActiveTab != bizzCalcTabs.REVENUE_CALCULATOR_BASE_ASSUMPTIONS &&
+          secondaryActiveTab != bizzCalcTabs.EMPLOYMENT_BASE_ASSUMPTIONS &&
+          secondaryActiveTab != bizzCalcTabs.OPERATING_EXPENSES_BASE_ASSUMPTIONS &&
+          secondaryActiveTab != bizzCalcTabs.FIXED_ASSETS_BASE_ASSUMPTIONS &&
+          secondaryActiveTab != bizzCalcTabs.REPORTS_INCOME_STATEMENT &&
+          secondaryActiveTab != bizzCalcTabs.REPORTS_SCHEDULE_OF_EXPENSES &&
+          secondaryActiveTab != bizzCalcTabs.REPORTS_BALANCE_SHEET  &&
+          secondaryActiveTab != bizzCalcTabs.REPORTS_GRAPH
+        "
+      >
+        <div class="bizzcalc__column-header">
+          {{ headerLookUp[primaryActiveTab] }}
+        </div>
+        <img
+          src="../../../assets/images/golf.png"
+          alt=""
+          class="bizzcalc__hero"
+        />
+        <button class="secondary-btn">
+          <fa-icon [icon]="faCamera"></fa-icon>
+          <span class="ml-3">setup</span>
+        </button>
+      </ng-container>
+      <ng-container
+        *ngIf="secondaryActiveTab == bizzCalcTabs.SETUP_DAYS_WORKED"
+      >
+        <div class="bizzcalc__column-header">days worked</div>
+        <div class="bizzcalc__table">
+          <div class="bizzcalc__table-header">
+            <p>month</p>
+            <p>days worked</p>
+          </div>
+          <div class="bizzcalc__table-inner">
+            <div class="bizzcalc__table-row" *ngFor="let month of monthArray">
+              <div class="bizzcalc__table-cell cell-half text-left">
+                <p>month {{ month }}</p>
+              </div>
+              <div class="bizzcalc__table-cell cell-half text-right">
+                <p>31</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container
+        *ngIf="secondaryActiveTab == bizzCalcTabs.SETUP_FIXED_ASSETS"
+      >
+        <div class="bizzcalc__column-header">depreciation rates</div>
+        <div class="bizzcalc__table">
+          <div class="bizzcalc__table-header">
+            <div class="cell-third">
+              <p>category</p>
+            </div>
+            <div class="cell-third text-right">
+              <p>rate</p>
+            </div>
+            <div class="cell-third text-center">
+              <p>action</p>
+            </div>
+          </div>
+          <div class="bizzcalc__table-inner">
+            <div
+              class="bizzcalc__table-row"
+              *ngFor="let asset of fixedAssetArray"
+            >
+              <div class="bizzcalc__table-cell cell-third text-left">
+                <p>{{ asset.category }}</p>
+              </div>
+              <div class="bizzcalc__table-cell cell-third text-right">
+                <p>{{ asset.rate }} %</p>
+              </div>
+              <div class="bizzcalc__table-cell cell-third action-col">
+                <fa-icon [icon]="faPencilAlt" class="cell-icon"></fa-icon>
+                <fa-icon [icon]="faXmark" class="cell-icon"></fa-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container
+      *ngIf="secondaryActiveTab == bizzCalcTabs.REVENUE_CALCULATOR_BASE_ASSUMPTIONS && revenue_Calculator"
+    >
+      <div class="bizzcalc__table">
+        <thead>
+          <tr>
+            <th class="tableHeader">monthly sales growth rate</th>
+          </tr>
+        </thead>
+        <div class="bizzcalc__table-header">
+          <p>month</p>
+          <p>% growth</p>
+        </div>
+        <div class="bizzcalc__table-inner">
+          <div class="bizzcalc__table-row" *ngFor="let month of configuredMonths">
+            <div class="bizzcalc__table-cell cell-half text-left">
+              <p>month {{ month.monthNo }}:{{ month.month }}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-half text-right">
+              <p>1.00%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container
+    *ngIf="secondaryActiveTab == bizzCalcTabs.EMPLOYMENT_BASE_ASSUMPTIONS"
+    >
+      <div class="bizzcalc__column-header">employment base rates</div>
+      <div class="bizzcalc__table">
+        <div class="bizzcalc__table-header">
+          <div class="cell-third">
+            <p>job title</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>mth</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>base rate</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>mth</p>
+          </div>
+          <div class="cell-third text-center">
+            <p>action</p>
+          </div>
+        </div>
+        <div class="bizzcalc__table-inner">
+          <div
+            class="bizzcalc__table-row"
+            *ngFor="let employee of employees"
+          >
+            <div class="bizzcalc__table-cell cell-third text-left">
+              <p>{{ employee.jobTitle }}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>1</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>{{ employee.employmentMonth }}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>1</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third action-col">
+              <fa-icon [icon]="faPencilAlt" class="cell-icon" (click)="editEmployee(employee)"></fa-icon>
+              <fa-icon [icon]="faXmark" class="cell-icon" (click)="openDeleteModal(employees[0], modalContent)"></fa-icon>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="padding: 10px;">
+            <button class="primary-btn" *ngIf="employees.length" (click)="SaveEmployees(employees)">save</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container
+    *ngIf="secondaryActiveTab == bizzCalcTabs.OPERATING_EXPENSES_BASE_ASSUMPTIONS"
+    >
+      <div class="bizzcalc__column-header">operating expenses</div>
+      <div class="bizzcalc__table">
+        <div class="bizzcalc__table-header">
+          <div class="cell-third">
+            <p>expense</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>base rate</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>mth</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>rate</p>
+          </div>
+          <div class="cell-third text-center">
+            <p>action</p>
+          </div>
+        </div>
+        <div class="bizzcalc__table-inner">
+          <div
+            class="bizzcalc__table-row"
+            *ngFor="let expense of expenses"
+          >
+            <div class="bizzcalc__table-cell cell-third text-left">
+              <p>{{ expense.expenseName }}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>{{expense.expenseBaseValue}}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>{{ expense.baseRateReviewMonth }}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>{{expense.baseRateReviewValue}}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third action-col">
+              <fa-icon [icon]="faPencilAlt" class="cell-icon" (click)="editExpense(expense)"></fa-icon>
+              <fa-icon [icon]="faXmark" class="cell-icon" (click)="openDeleteModal(expense, modalContent)"></fa-icon>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="padding: 10px;">
+            <button class="primary-btn"  *ngIf="expenses.length" (click)="saveAllExpense(expenses)">save</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container
+    *ngIf="secondaryActiveTab == bizzCalcTabs.FIXED_ASSETS_BASE_ASSUMPTIONS"
+    >
+      <div class="bizzcalc__column-header">fixed assets</div>
+      <div class="bizzcalc__table">
+        <div class="bizzcalc__table-header">
+          <div class="cell-third">
+            <p>assets</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>rate %</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>mth</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>qty</p>
+          </div>
+          <div class="cell-third text-right">
+            <p>cost</p>
+          </div>
+          <div class="cell-third text-center">
+            <p>action</p>
+          </div>
+        </div>
+        <div class="bizzcalc__table-inner">
+          <div
+            class="bizzcalc__table-row"
+            *ngFor="let fixedAsset of fixedAssets"
+          >
+            <div class="bizzcalc__table-cell cell-third text-left">
+              <p>Asset {{ fixedAsset.Id }}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>{{fixedAsset.percentage}}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>{{ fixedAsset.purchasedMonth }}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>{{fixedAsset.UnitsPerchased}}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third text-right">
+              <p>{{fixedAsset.unitCost}}</p>
+            </div>
+            <div class="bizzcalc__table-cell cell-third action-col">
+              <fa-icon [icon]="faPencilAlt" class="cell-icon" (click)="editFixedAsset(fixedAsset)"></fa-icon>
+              <fa-icon [icon]="faXmark" class="cell-icon" (click)="openDeleteModal(fixedAsset, modalContent)"></fa-icon>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="padding: 10px;">
+            <button class="primary-btn"  *ngIf="fixedAssets.length" (click)="saveAllFixedAssets(fixedAssets)">save</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{selectedItem.type == 'employee' ? "Delete Employment" : "Delete Expenses"}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete {{selectedItem.type == 'employee' ? selectedItem.jobTitle + " employee(s)?" : selectedItem.expenseName + "?" }} </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close()">Close</button>
+    <button type="button" class="btn btn-danger" (click)="selectedItem.type == 'employee' ? deleteEmployee() : deleteExpense()">Delete</button>
+  </div>
+</ng-template>
+  <div class="bizzcalc__footer">
+    <app-bizzcalc-footer></app-bizzcalc-footer>
+  </div>

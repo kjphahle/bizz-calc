@@ -1,0 +1,8 @@
+{
+  "/api/BizzBean/v1/*": {
+    "target": "https://api.asone.global",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

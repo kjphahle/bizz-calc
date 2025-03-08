@@ -1,0 +1,111 @@
+.p-toast-center {
+  width: 250px !important;
+}
+
+::ng-deep .test {
+  background: #10637c;
+  width: 250px !important;
+  color: white !important;
+  margin: auto !important;
+  padding-left: 17px;
+  font-size: 15px;
+  font-family: "Roboto";
+  text-align: center;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.p-toast .p-toast-message-success .p-toast-icon {
+  display: none !important;
+}
+::ng-deep .p-toast-icon-close {
+  background-color: transparent;
+  padding-top: 9px;
+  color: white !important;
+  display: none;
+}
+.instructiontextcolour {
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px !important;
+  color: #5085b6;
+}
+
+//consolidate form
+
+/* Form Container Styles */
+.form-container {
+  padding: 0;
+  max-width: 100%;
+}
+
+/* Row Styling for Compact Layout */
+.row {
+  margin-bottom: 0px; /* Minimal spacing between rows */
+  align-items: center;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 12px;
+}
+
+.error-message-row {
+  line-height: 1px;
+  height: 24px;
+  margin-top: -10px;
+}
+
+/* Input Field Styles */
+.primary-input {
+  padding: 2px 5px; /* Compact padding inside input fields */
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+/* Label Styles */
+.bizz-calc-form-label {
+  font-size: 11px;
+  margin-bottom: 1px; /* Tight spacing between label and input */
+}
+
+/* Small Text Styles */
+small {
+  font-size: 9px;
+  margin-top: 1px;
+}
+
+.text-danger {
+  font-size: 9px; /* Small but readable error messages */
+  margin-top: 1px;
+}
+
+/* Button Styling */
+.button {
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* Adjustment for App-specific Components */
+app-save-button {
+  margin: 4px 0;
+}
+
+/* Reduce Vertical Padding for Form Sections */
+.pt-3 {
+  padding-top: 6px !important;
+}
+
+.pt-2 {
+  padding-top: 4px !important;
+}
+
+.pt-0 {
+  padding-top: 0px !important;
+}
+
+/* Flex alignment tweaks */
+.d-flex.align-items-end {
+  display: flex;
+  align-items: flex-end;
+}

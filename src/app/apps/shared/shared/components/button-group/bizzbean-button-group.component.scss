@@ -1,0 +1,20 @@
+.primary-input:focus {
+    /* Styles for when the input is in focus */
+    border-color: #8cbf4a;
+    box-shadow: 0 0 5px rgba(140, 191, 74, 0.5);
+  }
+  
+  .btn-primary {
+    background-color: #9eca55;
+    border-color: #9eca55;
+  }
+  .btn-primary.clicked {
+    background-color: #8cbf4a;
+    border-color: #8cbf4a;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #8cbf4a;
+    border-color: #8cbf4a;
+  }
+  

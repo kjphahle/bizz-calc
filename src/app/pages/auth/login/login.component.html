@@ -1,0 +1,47 @@
+<div class="login">
+  <form [formGroup]="loginForm" class="login__form">
+    <h2 class="heading">
+      sign in
+    </h2>
+    <div class="input-group">
+      <input type="email" class="blue-input" placeholder="email address" formControlName="username" />
+    </div>
+    <div class="input-group">
+      <div class="password-container">
+        <input type="password" class="blue-input" placeholder="password" formControlName="password" placement="top"
+          ngbTooltip="make sure your password is 8 characters long and contains the following, lower case letter, upper case letter, number and symbol"
+          #passwordInput />
+        <fa-icon [icon]="passwordIcon" class="password-view" (mousedown)="showPassword()"
+          (mouseup)="hidePassword()"></fa-icon>
+      </div>
+
+      <span class="error-message" *ngIf="
+          loginForm.get('password').invalid && loginForm.get('password').dirty
+        ">Please enter a valid password.</span>
+    </div>
+    <div class="buttons">
+    <button class="primary-btn" (click)="navigateTo('/auth/forgot-password')">
+      reset password
+    </button>
+
+
+    <button class="primary-btn" (click)="login()">
+      <span class="loader" *ngIf="loading"></span>
+      <span *ngIf="!loading">sign in</span>
+    </button>
+
+
+    <div class="row mt-4" *ngIf="errorMessage != ''">
+        <div class="col-md-12 text-center">
+          <p class="text-danger error-message-section">{{ errorMessage }}</p>
+       </div>
+      </div>
+     </div>
+    <button class="secondary-btn" (click)="navigateTo('/auth/register')">
+      create account
+    </button>
+
+
+
+  </form>
+</div>

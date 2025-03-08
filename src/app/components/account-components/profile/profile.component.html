@@ -1,0 +1,77 @@
+<div class="profile">
+  <div class="profile__header">
+    <h1 class="profile__heading">my profile</h1>
+    <fa-icon
+      [icon]="faPencilAlt"
+      class="profile__edit-icon"
+      *ngIf="!isEditing"
+      (click)="toggleEdit()"
+    ></fa-icon>
+  </div>
+
+  <form>
+    <fieldset [disabled]="!isEditing">
+      <div class="profile__container">
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-label">name</div>
+            <input type="text" class="blue-input" />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-label">surname</div>
+            <input type="text" class="blue-input" />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-label">mobile number</div>
+            <input type="text" class="blue-input" />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-label">email address</div>
+            <input type="email" class="blue-input" />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-label">date of birth</div>
+            <input
+              class="blue-input"
+              placeholder="yyyy-mm-dd"
+              name="dp"
+              ngbDatepicker
+              #d="ngbDatepicker"
+              (click)="d.toggle()"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group">
+            <div class="input-label">title</div>
+            <select class="blue-input">
+              <option value="" disabled selected>Select an option</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Prof">Prof</option>
+              <option value="Dr">Dr</option>
+            </select>
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-label">ID number</div>
+            <input type="text" class="blue-input" />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-label">address</div>
+            <input type="text" class="blue-input" />
+          </div>
+          <div class="input-group mt-2">
+            <div class="input-label">country</div>
+            <input type="text" class="blue-input" />
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+  <div class="profile__buttons-container" *ngIf="isEditing">
+    <button class="secondary-btn mr-2" (click)="cancel()">cancel</button>
+    <button class="primary-btn ml-2" (click)="cancel()">save</button>
+  </div>
+</div>

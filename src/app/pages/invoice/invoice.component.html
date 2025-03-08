@@ -1,0 +1,296 @@
+
+<button (click)="makePDF()">download</button>
+<head>
+<style>@page { size: A4 }</style>
+<!-- Normalize or reset CSS with your favorite library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+<!-- Load paper.css for happy printing -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
+
+</head>
+
+<body class = "A4">
+      <!-- Each sheet element should have the class "sheet" -->
+  <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
+ 
+ <section class="sheet padding-10mm">
+    <div id="content" #content> 
+    <img class= "logo" src="assets\images\bizzbean-logo-min.png" alt="bizzbean-logo-min">
+    <h1>tax invoice</h1>
+
+
+
+        <table class = "customer">
+            <tr>
+                <td>customer name</td>
+                <td>Florencia</td>
+                <td>document number</td>
+                <td>100</td> 
+            </tr> 
+            <tr>
+                <td>address 1</td>
+                <td>unit 55 highroadvbnvhgr cfhrn </td>
+                <td>document date</td>
+                <td>25-07-2023</td> 
+            </tr> 
+            <tr>
+                <td>address 2 </td>
+                <td></td>
+                <td>account ID</td>
+                <td>ID-001000</td> 
+            </tr> 
+            <tr>
+                <td>address 3</td>
+                <td></td>
+                <td>customer vat number</td>
+                <td>258345671</td> 
+            </tr> 
+            <tr>
+                <td>zip code</td>
+                <td></td>
+                <td>order number</td>
+                <td>258345671</td> 
+            </tr> 
+
+        </table>
+    
+
+<table class = "customer_contact">
+    <tr>
+        <td>attention</td>
+        <td>customer contact</td>
+    </tr> 
+</table>
+
+<table class="details">
+    <tr>
+        <th>sku</th>
+        <th>application</th>
+        <th>quantity</th>
+        <th>unit price</th>
+        <th>line value</th>
+        <th>vat</th>
+        <th>value</th>
+    </tr> 
+    <tr>
+        <td>BA-001 </td>
+        <td>bizzcalc </td>
+        <td>100</td>
+        <td>216.52 </td>
+        <td>21,652.00</td>
+        <td>3,247.80</td>
+        <td>24,900.00</td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td> </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> (&nbsp;)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<table class = "total">
+    <tr>
+        <td colspan="4">total</td>
+        <td>216,5200.00</td>
+        <td>32,478.00</td>
+        <td>249,000.00</td>
+    </tr>
+</table>
+
+<table class="supplier" > 
+    <tr>
+        <th>supplier information</th>
+    </tr>
+</table>
+
+<table class = "supplier_contact">
+    <tr>
+        <td>company details</td>
+        <td>BIZZBEAN SA (PTY)LTD</td>
+        <td>registration no:</td>
+        <td>2016/088997/07</td>
+        <td>VAT registration no</td>
+        <td>1234567890</td>
+    </tr>
+
+    <tr>
+        <td>company details</td>
+        <td>67 blouberg etc</td>
+    </tr>
+    <tr>    
+        <td>banking details</td> 
+        <td>Nedbank</td>  
+    </tr>
+    <tr>    
+        <td>queries</td> 
+        <td>queries@thebizzbeanchannel.com</td>  
+    </tr>
+    <tr>    
+        <td>terms</td> 
+        <td>payable on presentation</td>  
+    </tr>
+</table>
+
+<div class="message">message board</div>
+</div>
+</section>
+
+</body>

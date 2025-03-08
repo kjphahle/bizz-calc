@@ -1,0 +1,23 @@
+<div class="container header-container bg-white px-0">
+  <section class="d-flex justify-content-between header-container-top align-items-center">
+    <div class="">
+      <img height="20px" src="../../../../../assets/images/bizzcalc/exit.svg" />
+    </div>
+    <div class="nav-title-label">{{ title }}</div>
+    <div class="" style="width: 20px;"></div>
+  </section>
+
+  <section class="d-flex justify-content-between bizzcalc-row header-container-navigations py-2">
+    <div [style.visibility]="showLeftIcon ? 'visible' : 'hidden'">
+      <a *ngIf="leftIconRoute" [routerLink]="leftIconRoute">
+        <img height="20px" src="../../../../../assets/images/bizzcalc/navigation_left.svg" />
+      </a>
+    </div>
+    <div class="nav-title-label">{{ headerLabel }}</div>
+    <div [style.visibility]="showRightIcon ? 'visible' : 'hidden'">
+      <a *ngIf="rightIconRoute" [routerLink]="rightIconRoute">
+        <img height="20px" src="../../../../../assets/images/bizzcalc/navigation_right.png" />
+      </a>
+    </div>
+  </section>
+</div>

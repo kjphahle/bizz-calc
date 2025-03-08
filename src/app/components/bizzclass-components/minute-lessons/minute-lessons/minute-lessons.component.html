@@ -1,0 +1,28 @@
+<swiper-container class="mySwiper" pagination="true" navigation="true" pagination-clickable="true" space-between="30"
+  [breakpoints]="swiperBreakpoints">
+  <swiper-slide class="videos__card" *ngFor="let video of bizzVideos" (click)="openModal(videoTemplate, video.media2)">
+    <div class="images">
+    <img
+    [src]="
+          'https://api.asone.global/api/BizzBean/v1/image/' +
+          video.media1
+        " />
+      </div>
+  </swiper-slide>
+</swiper-container>
+
+<ng-template #videoTemplate let-modal>
+  <div class="modal-body">
+    <div class="bizz-blog__modal-close-main">
+      <fa-icon [icon]="faXmark" (click)="closeModal()" class="close-icon"></fa-icon>
+    </div>
+    <iframe
+      class="video-modal-container"
+      [src]="safeSrc"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+</ng-template>

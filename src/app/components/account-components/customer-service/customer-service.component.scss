@@ -1,0 +1,51 @@
+@import "../../../../mixins";
+@import "../../../../theme.scss";
+
+.customer {
+  height: 100%;
+  width: 100%;
+  background-color: $white;
+  padding: 50px;
+  border-radius: 10px;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $primary-green;
+    margin-bottom: 20px;
+  }
+
+  &__heading {
+    font-size: 50px;
+    color: $primary-blue;
+  }
+
+  &__text {
+    color: $primary-blue;
+  }
+
+  &__buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    .primary-btn {
+      width: 200px;
+      padding: 0;
+      height: 35px;
+    }
+    .secondary-btn {
+      width: 200px;
+      height: 35px;
+      padding: 0;
+    }
+  }
+}
+
+.blue-input {
+  height: 200px !important;
+}

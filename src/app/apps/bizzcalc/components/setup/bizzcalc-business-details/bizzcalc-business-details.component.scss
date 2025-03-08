@@ -1,0 +1,121 @@
+.primary-input {
+    height: 45px;
+}
+
+label .primary-input {
+    height: 45px !important;
+}
+
+.primary-btn {
+    min-width: 110px;
+    line-height: 1;
+}
+
+
+.p-toast-center {
+  width: 250px !important;
+}
+
+
+::ng-deep .test {
+  background: #10637c;
+  width: 250px !important;
+  color: white !important;
+  margin: auto !important;
+  padding-left: 17px;
+  font-size: 15px;
+  font-family: "Roboto";
+  text-align: center;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+::ng-deep .p-toast-icon-close {
+  background-color: transparent;
+  padding-top: 9px;
+  color: white !important;
+  display: none;
+}
+
+
+//New css
+
+/* Compact Form Layout */
+.compact-form {
+  padding: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Reduced Form Spacing */
+.primary-input,
+.form-control {
+  padding: 6px;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px !important;
+  border-radius: 3px;
+}
+
+.bizzcalc-form-label {
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+/* Remove Margins Between Rows */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.mb-1 {
+  margin-bottom: 4px !important;
+}
+
+.mt-2 {
+  margin-top: 4px !important;
+}
+
+.compact-form .form-save-btn {
+  padding: 6px;
+  font-size: 14px;
+  width: 50%;
+  border-radius: 3px;
+}
+.bizzcalc-row {
+  margin-bottom: -10px;
+
+  padding: 5x ;
+  gap: 0px;
+
+
+}
+.container{
+  color: #5085b6;
+  font-size: 10px;
+  margin-top: 20px;
+}
+.container p {
+  margin-bottom: 0.5em; /* Adds space relative to the font size */
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+
+.capital-btn, .bizzcalc-btn {
+  background-color: #9fc754;
+  color: #ffffff;
+  border: none;
+
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin: 15px auto;
+  text-align: center;
+  height: 30px;
+  margin-top: 20px;
+}
+

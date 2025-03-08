@@ -1,0 +1,61 @@
+@import "../../../../mixins";
+@import "../../../../theme.scss";
+
+.profile {
+  height: 100%;
+  width: 100%;
+  background-color: $white;
+  padding: 50px;
+  border-radius: 10px;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $primary-green;
+    margin-bottom: 20px;
+  }
+
+  &__heading {
+    font-size: 50px;
+    color: $primary-blue;
+  }
+
+  &__edit-icon {
+    font-size: 20px;
+    color: $primary-blue;
+    cursor: pointer;
+
+    &--green {
+      font-size: 20px;
+      color: $primary-green;
+      cursor: pointer;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    .primary-btn {
+      width: 200px;
+      padding: 0;
+      height: 35px;
+    }
+    .secondary-btn {
+      width: 200px;
+      height: 35px;
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="bizzapps">
+ <!-- <h2 class="col-md-4">bizzapps</h2>-->
+
+  <div class="bizzapps__container">
+    <div class="bizzapps__card" *ngFor="let app of bizzApps">
+      <!-- Image -->
+      <img
+        class="bizzapps__card-img"
+        [src]="'https://api.asone.global/api/BizzBean/v1/image/' + app.media1"
+      />
+
+      <!-- Buttons below the image -->
+      <div class="btn-container" *ngIf="app.isFeatured !== 1; else comingSoon">
+        <button
+          class="secondary-btn w-200-btn"
+          (click)="openVideoModal(video, app.media2)"
+        >
+          watch video
+        </button>
+        <button class="secondary-btn w-200-btn">R{{ app.sellingPrice }}</button>
+        <button
+          class="secondary-btn w-200-btn"
+          (click)="navigateTo('https://www.app.bizzbean.com/auth/register')"
+        >
+          buy now
+        </button>
+      </div>
+
+      <!-- Coming Soon button -->
+      <ng-template #comingSoon>
+        <div class="btn-container">
+          <button class="primary-btn w-200-btn">coming soon</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<ng-template #video>
+  <div class="video-modal">
+    <div class="bizz-blog__modal-close-main">
+      <fa-icon (click)="closeModal()" >
+      <img
+        src="../../../assets/minified/close-min.png"
+        alt=""
+        class="close-icon"
+      />
+    </fa-icon>
+    </div>   
+    <iframe
+      [src]="safeSrc"
+      frameborder="0"
+      class="video-player"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+</ng-template>

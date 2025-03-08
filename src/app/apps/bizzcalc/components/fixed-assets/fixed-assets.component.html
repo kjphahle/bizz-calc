@@ -1,0 +1,21 @@
+<div class="container-fluid px-0 fixed-assets-container bg-white">
+
+    <app-bizzcalc-header 
+    [showLeftIcon]="true" 
+    [showRightIcon]="true" 
+    [title]="'fixed assets'" 
+    [leftIconRoute]="'/main/bizzcalc/employment'"
+    [rightIconRoute]="'/main/bizzcalc/funding-calculator'">
+  </app-bizzcalc-header>
+    <div class="bizzcalc__container">
+        <!-- base assumptions -->
+        <div class="col-12 bizzcalc__column py-0">
+            <app-info-title [title]="'base assumption'" (click)="openModalWithDynamicContent()"></app-info-title>
+            <app-bizz-calc-fixed-assets></app-bizz-calc-fixed-assets>
+        </div>
+        <!-- View data buttons -->
+        <!-- <div class="bizzbean-action-buttons pt-3" style="margin-top: 116px;">
+            <app-bizzbean-action-buttons></app-bizzbean-action-buttons>
+        </div> -->
+    </div>
+</div>

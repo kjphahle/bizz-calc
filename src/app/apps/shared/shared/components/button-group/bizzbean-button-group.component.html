@@ -1,0 +1,13 @@
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary" (click)="decrease()">
+      <fa-icon [icon]="faArrowCircleLeft"></fa-icon>
+    </button>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" style="font-size: small;">
+        {{ value }}
+      </button>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="increase()">
+      <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+    </button>
+  </div>

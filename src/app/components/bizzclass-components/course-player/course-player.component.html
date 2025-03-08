@@ -1,0 +1,43 @@
+<p class="message">to maximize your learning, please follow the courses in sequence.</p>
+
+<div class="course-player">
+ <!-- <img [src]="imageLookUp[courseId]" alt="" class="course-player__img" />-->
+  <div
+    class="course-player__playlist"
+    [ngClass]="{
+      'hide-playlist': hidePlaylist
+    }"
+  >
+    <app-playlist
+      [videos]="playlist"
+      [images]="imageList"
+      (videoClicked)="onVideoChange($event)"
+      *ngIf="!isHidden"
+    ></app-playlist>
+    <div
+      class="course-player__playlist-btn hide-mobile"
+      (click)="togglePlaylist()"
+      [ngClass]="{ 'flip-button': isHidden }"
+    >
+      <img
+        src="../../../../assets/images/left-arrow.png"
+        alt=""
+        class="course-player__playlist-img"
+      />
+    </div>
+  </div>
+  <div
+    class="course-player__media-player"
+    [ngClass]="{ 'full-screen': hidePlaylist }"
+  >
+    <app-media-player
+      [currentVideoSource]="
+        'https://api.asone.global/api/BizzBean/v1/video/' +
+        currentVideo.id
+      "
+      [thumbnailId]="currentImage.id"
+      class="course-player__component"
+    ></app-media-player>
+  </div>
+</div>
+

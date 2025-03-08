@@ -1,0 +1,86 @@
+<div class="container-fluid px-0 bg-white bizzcalc-fixed-assets-container">
+  <app-bizzcalc-header [showLeftIcon]="true" [showRightIcon]="true" [title]="'setup'"
+    [leftIconRoute]="'/main/bizzcalc/setup/days-worked'" [rightIconRoute]="'/main/bizzcalc/revenue-calculator'">
+  </app-bizzcalc-header>
+  <!-- Form container -->
+  <div class="bizzcalc__container">
+    <!-- business details -->
+    <div class="col-12 bizzcalc__column py-0">
+      <button class="secondary-btn bizzcalc-secondary-btn w-100" (click)="openModalWithDynamicContent()">
+        <span class="pe-2"><img height="25px" src="../../../../../../assets/images/bizzcalc/info.jpg" /></span>fixed
+        asset category depreciation rates
+      </button>
+    </div>
+    <!-- Business details form  -->
+    <div class="bizzcalc__column col-12 py-0">
+      <form class="business-days-form" [formGroup]="assetsCategoryDepreciationForm">
+        <!-- holiday name -->
+        <section class="business-days-form-row pb-0">
+          <label for="category-name" class="bizz-calc-label bizzcalc-form-label">select fixed asset category</label>
+          <app-bizzbean-category-list-control formControlName="categoryID"
+            (arrowCircleRightClicked)="onCategoryChange($event)" (arrowCircleLeftClicked)="onCategoryChange($event)"
+            [categoryList]="categories"></app-bizzbean-category-list-control>
+        </section>
+
+        <!-- Depreciation value -->
+        <section class="business-days-form-row pb-0">
+          <div class="row form-details-row">
+            <div class="col-6 py-0 pe-0 form-details-row">
+              <div style="height: 50px; padding-top: 23px;">
+                <small class="instructiontextcolour">fixed asset category</small>
+              </div>
+            </div>
+            <div class="col-6 py-0 justify-content-end form-details-row" style="height: 50px !important;">
+              <label style="padding-left: 10px" for="category-name"
+                class="bizz-calc-label bizzcalc-form-label text-end ps-0">enter category depreciation %</label>
+              <input type="number" class="primary-input" formControlName="rate" placeholder="1-100%" />
+            </div>
+            <small class="text-danger error-message-section" *ngIf="
+    assetsCategoryDepreciationForm.get('rate')?.hasError('required') &&
+    assetsCategoryDepreciationForm.get('rate')?.touched
+  ">
+              Rate is required.
+            </small>
+            <small class="text-danger error-message-section" *ngIf="
+    assetsCategoryDepreciationForm.get('rate')?.hasError('min') &&
+    assetsCategoryDepreciationForm.get('rate')?.touched
+  ">
+              Rate must be at least 1%.
+            </small>
+            <small class="text-danger error-message-section" *ngIf="
+    assetsCategoryDepreciationForm.get('rate')?.hasError('max') &&
+    assetsCategoryDepreciationForm.get('rate')?.touched
+  ">
+              Rate must be between 1% 100%.
+            </small>
+
+
+
+          </div>
+        </section>
+        <section class="business-days-form-row d-none">
+          <button type="submit" class="primary-btn bizzcalc-button bizz-calc-data-save-btn"
+            (click)="onAddDepreciationRate()">
+            add data
+          </button>
+        </section>
+
+        <!-- View data and save button -->
+        <p-toast position="center" key="br" />
+        <section class="business-days-form-row pb-3 d-flex justify-content-between bizzcal-action-buttons-row">
+          <button type="submit" class="primary-btn bizzcalc-button bizz-calc-data-save-btn"
+            (click)="onAddDepreciationRate()">
+            add data
+          </button>
+          <button type="submit" class="primary-btn bizzcalc-button bizz-calc-page-save-btn"
+            (click)="onViewDataBtnClicked()">
+            view data
+          </button>
+          <button (click)="onSaveClicked()" type="submit" class="primary-btn bizzcalc-button bizz-calc-page-save-btn">
+            save
+          </button>
+        </section>
+      </form>
+    </div>
+  </div>
+</div>

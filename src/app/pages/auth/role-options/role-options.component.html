@@ -1,0 +1,52 @@
+<div class="join-vas">
+  <h2 class="join-vas__header">create an account</h2>
+  <form class="join-vas__form" [formGroup]="roleOptionsForm" (ngSubmit)="onSubmit()">
+    <div class="input-group">
+      <label class="input-label">email address*</label>
+      <input type="email" class="blue-input" placeholder="email address" formControlName="EmailAddress" />
+      <span class="error-message" *ngIf="roleOptionsForm.get('EmailAddress').invalid && roleOptionsForm.get('EmailAddress').touched">
+        please enter a valid email address
+      </span>
+    </div>
+
+    <div class="radio-buttons-container">
+      <h2 class="join-vas__header">I want to:</h2>
+      <span class="error-message" *ngIf="roleOptionsForm.get('option').invalid && roleOptionsForm.get('EmailAddress').touched">
+        please choose an option
+      </span>
+      <div>
+
+        <label>
+          <input type="radio" formControlName="option" value="find out more"> find out more
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" formControlName="option" value="buy product"> buy product
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" formControlName="option" value="sign up for bizzmall"> sign up for bizzmall
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" formControlName="option" value="become a bizzpartner"> become a bizzpartner
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" formControlName="option" value="become a VAS"> become a VAS
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" formControlName="option" value="become a bizzcapital unit subscriber"> become a bizzcapital unit subscriber
+        </label>
+      </div>
+    </div>
+
+    <button class="primary-btn green-btn" type="submit">continue</button>
+  </form>
+</div>

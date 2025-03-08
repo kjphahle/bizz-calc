@@ -1,0 +1,253 @@
+$form-control-height: 40px;
+$button-height: 33px;
+$form-details-row: 50px;
+$form-details-font-size: 10px;
+$form-details-row-height: 50px;
+
+@media only screen and (max-width: 427px) {
+  .bizzcalc__container {
+    padding-top: 10px !important;
+  }
+
+  .bizzcal-action-buttons-row {
+    margin-top: 13px !important;
+    height: 30px !important;
+  }
+
+  .error-message-section {
+
+  }
+
+  label {
+    font-size:
+    $form-details-font-size;
+  }
+
+  .form-details-row {
+    min-height: $form-details-row !important;
+  }
+
+  .bizzcalc-row {
+    padding-top: 20px !important;
+  }
+
+  .bizzcalc-secondary-btn {
+    height: 40px;
+    text-align: left;
+    padding-left: 10px !important;
+  }
+
+  .form-control {
+    height: 30px !important;
+  }
+
+  .form-details-col {
+    height: 50px !important;
+  }
+
+  .bizzcalc-form-label {
+    font-size: 10px;
+    color: #5085b6;
+    margin-bottom: 0px !important;
+    line-height: 10px !important;
+  }
+
+  .bizzcalc__column_setup {
+    padding-bottom: 20px !important;
+  }
+
+  .bizzcalc-secondary-btn {
+    padding-left: 15px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    font-size: 12px !important;
+  }
+
+  .nav-title-label {
+    color: #5085b6 !important;
+    font-family: "Roboto" !important;
+    font-size: 15px !important;
+  }
+  .navbar-main {
+    display: none !important;
+  }
+  .primary-btn {
+    height: 37px !important;
+    line-height: 0px !important;
+  }
+
+  .primary-input {
+    height: 30px !important;
+    font-size: 12px;
+    color: #5085b6;
+    &::placeholder {
+      color: #5085b6;
+      font-size: 12px;
+    }
+  }
+
+  .primary-input::placeholder {
+    font-size: 13px;
+  }
+
+  select#category-name {
+    font-size: 15px;
+  }
+
+  input[type="text"] {
+    font-size: 13px;
+  }
+
+  .primary-label {
+    padding: 7px 5px;
+  }
+
+  .main {
+    border-bottom: unset !important;
+  }
+
+  .primary-input,
+  input[type="date"],
+  .bizz-calc-primary-label {
+    height: 30px !important;
+  }
+}
+
+// Footer
+.bizzcalc-header-title {
+  color: $primary-blue;
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: lighter;
+  letter-spacing: 3px;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+.bizzcalc-formcontrol-date {
+  height: $form-control-height;
+}
+
+.bizzcalc-button {
+  height: $button-height;
+  line-height: 0;
+  min-width: 85px !important;
+}
+
+.days-worked-holidays {
+  color: #5085b6;
+  font-size: 11px;
+  font-family: Roboto;
+}
+
+.business-days-form-row {
+  height: $form-details-row-height !important;;
+}
+
+input[type=checkbox] {
+  accent-color: #5889b3 !important;
+  border-radius:1#5889b3 ;
+}
+
+.primary-label {
+  height: 30px !important;
+  height: 30px !important;
+  font-size: 12px !important;
+}
+
+.bizz-calc-primary-label {
+  height: $button-height !important;
+}
+
+.bizz-calc-label {
+  color: #5085b6 !important;
+  font-family: Roboto;
+}
+
+table {
+  border: 1px solid #9fc754;
+  color: #5085b6;
+  width: 100%;
+}
+
+thead {
+  border: 1px solid #9fc754;
+}
+
+th {
+  width: 50%;
+}
+
+td {
+  border-right: 1px solid #9fc754;
+  padding-left: 5px;
+}
+.modal-content,
+.modal-dialog {
+  // height: 90%;
+}
+
+.forward-backward-arrow {
+  background-color: #ddebf7;
+  border-color: #ddebf7;
+  color: #5085b6;
+  font-size: 15px;
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+  color: #5085b6 !important;
+  background-color: #ddebf7 !important;
+  border-color: #ddebf7 !important;
+}
+
+.bizz-calc-mobile-label {
+  font-size: 13px;
+  color: #5085b6 !important;
+}
+
+.bizz-calc-form-label {
+  font-size: 12.5px;
+}
+
+// buttons categories
+.bizz-calc-page-save-btn, .bizz-calc-data-save-btn {
+  // width: 90px !important;
+  height: 30px !important;
+  padding: unset !important;
+  font-size: 12px;
+  font-family: "Roboto";
+  min-width: 85px !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.days-worked-td {
+  text-align: left !important;
+}
+
+.bizz-calc-data-save-btn {
+  // width: 150px !important;
+}
+
+.bizz-calc-view-data-btn {
+}
+
+small {
+  line-height: 10px !important;
+  font-size: 10px !important;
+}
+
+
+.form-group {
+  margin-bottom: 0px!important;
+}
+
+.bizzcalc__columnm, .bizzcalc__container, .bizzcalc__column {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+

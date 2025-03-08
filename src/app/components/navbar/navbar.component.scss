@@ -1,0 +1,405 @@
+@import "../../../theme.scss";
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import "../../../mixins";
+
+.navbar-main {
+  width: 100%;
+  height: 8vh;
+  background-color: $primary-blue;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid $white;
+  padding: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  @include breakpoint("small") {
+    height: 10vh;
+  }
+
+  @include breakpoint("large") {
+    padding-right: 20px !important;
+  }
+
+  &-extra {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.logo-container {
+  width: 40%;
+  height: 100%;
+  background-color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint("large") {
+    width: 15%;
+  }
+}
+
+.navbar-logo {
+  width: 80%;
+}
+
+.links-container {
+  align-items: center;
+  list-style: none;
+  margin-bottom: 0 !important;
+  display: none;
+
+  @include breakpoint("large") {
+    display: flex;
+    margin-left: 60px;
+  }
+}
+
+.link-item {
+  margin-right: 20px;
+  color: $white;
+  line-height: 28px;
+  font-weight: 400;
+  font-size: 22px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+
+  @include breakpoint("large") {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  @include breakpoint("xlarge") {
+    margin-right: 39px;
+  }
+}
+
+.link-item:hover {
+  text-decoration: underline;
+  text-decoration-color: $primary-green;
+  text-decoration-thickness: 2px;
+}
+
+.navbar-avatar {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.navbar-bell {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+  transition-duration: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.active {
+  text-decoration: underline;
+  text-decoration-color: $primary-green;
+  text-decoration-thickness: 2px;
+  margin-left: 20px;
+
+  @include breakpoint("large") {
+    margin-left: 0;
+  }
+}
+
+.navbar-side-menu {
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  background-color: $primary-blue;
+  z-index: 20;
+  padding: 50px;
+  transition-duration: 0.5s;
+
+  @include breakpoint("small") {
+    width: 375px;
+  }
+
+  &__icon {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 20px;
+    color: $white;
+    font-size: 25px;
+    width: fit-content;
+  }
+
+    .dropdown-menu {
+
+      .bizzclass__nav-list-item {
+        color: white; 
+ 
+  }
+    }
+
+}
+
+.menu-open {
+  top: 0;
+  right: 0;
+}
+
+.menu-close {
+  top: 0;
+  right: -500px;
+}
+
+.navbar-menu {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include breakpoint("large") {
+    display: none;
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+
+    @include breakpoint("large") {
+      display: none;
+    }
+  }
+}
+
+.profile-popover__main {
+  width: 90%;
+  margin: 20px;
+  z-index: 10;
+  background-color: $white;
+  position: absolute;
+  top: 8vh;
+  right: 0;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  @include breakpoint("medium") {
+    top: calc(10vh + 20px);
+    width: 400px;
+    right: 20px;
+    margin: 0;
+  }
+}
+
+.profile-popover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  &__badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $primary-green;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__avatar-container {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+  }
+
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+
+    &-edit {
+      height: 15px;
+      width: 15px;
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+
+    &-content {
+      border: 3px solid $primary-blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      width: 72px;
+      height: 72px;
+    }
+
+    &-text {
+      font-size: 15px;
+      line-height: 120%;
+    }
+  }
+  &__logout {
+    width: 100%;
+    height: 50px;
+    background-color: $primary-green;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &-text {
+      color: $white;
+      margin: 0 !important;
+    }
+  }
+
+  &__bean-points {
+    display: flex;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    &-img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__icon {
+    font-size: 30px;
+    color: $primary-blue;
+  }
+}
+
+.col-md-3 {
+  width: 25% !important;
+}
+.navbar-education-header {
+  color: $white;
+  display: none;
+
+  @include breakpoint("medium") {
+    font-size: 30px;
+    display: block;
+  }
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: fit-content;
+
+  &__icon {
+    color: $white;
+    margin-right: 10px;
+    font-size: 10px;
+  }
+
+  &__text {
+    margin-bottom: 0 !important;
+    color: $white;
+  }
+}
+
+.bizzclass-nav {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  right: 20px;
+
+  @include breakpoint("medium") {
+    justify-content: space-between;
+  }
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+
+.link-item {
+  position: relative; 
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none; // Hide by default
+  position: absolute; // Position relative to the parent
+  top: 100%; // Place it below the parent
+  left: 0;
+  background-color: $primary-blue; 
+  border-radius: none;
+  border: none; // Add border for visibility
+  z-index: 1000; // Make sure it appears above other elements
+}
+
+.link-item:hover .dropdown-menu,
+.dropdown-menu.show {
+  display: block; // Show when hovering or dropdown is active
+}
+
+.bizzclass__nav-list-item {
+  color: $white; 
+  padding: 10px 20px; // Padding for dropdown items
+  cursor: pointer;
+}
+
+.bizzclass__nav-list-item:hover {
+  background-color: $primary-blue-dark; // Highlight on hover
+}
+
+.bizzclass__nav-list-item {
+  color: $white;
+  padding: 10px 20px; // Padding for dropdown items
+  cursor: pointer;
+}

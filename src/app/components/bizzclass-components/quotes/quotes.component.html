@@ -1,0 +1,8 @@
+<swiper-container class="mySwiper" pagination="true" navigation="true" pagination-clickable="true" space-between="30"
+  [breakpoints]="swiperBreakpoints">
+  <swiper-slide *ngFor="let quote of quotes; let i = index">
+    <div class="images">
+      <img height="45px" [src]="'https://api.asone.global/api/BizzBean/v1/image/' + quote.mediaId" />
+    </div>
+  </swiper-slide>
+</swiper-container>

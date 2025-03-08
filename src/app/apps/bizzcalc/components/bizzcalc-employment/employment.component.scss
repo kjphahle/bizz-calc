@@ -1,0 +1,55 @@
+
+.p-toast-center {
+  width: 250px !important;
+}
+
+/* Hide the checkmark in the PrimeNG toast */
+
+
+::ng-deep .test {
+  background: #10637c;
+  width: 250px !important;
+  color: white !important;
+  margin: auto !important;
+  padding-left: 17px;
+  font-size: 15px;
+  font-family: "Roboto";
+  text-align: center;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+::ng-deep .p-toast-icon-close {
+  background-color: transparent;
+  padding-top: 9px;
+  color: white !important;
+  display: none;
+}
+
+.modal-body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #0c5a9e;
+
+  strong {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  ul {
+    margin-top: 10px;
+    padding-left: 20px;
+
+    li {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.instructiontextcolour {
+ 
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px !important;
+  color: #5085b6;
+}

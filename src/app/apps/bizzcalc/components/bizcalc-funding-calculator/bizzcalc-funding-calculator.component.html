@@ -1,0 +1,238 @@
+<div class="container-fluid px-0 bizzcalc-days-worked-container bg-white">
+
+  <app-bizzcalc-header
+    [showLeftIcon]="true"
+    [showRightIcon]="true"
+    [title]="'funding calculator'"
+    [leftIconRoute]="'/main/bizzcalc/fixed-assets'"
+    [rightIconRoute]="'/main/bizzcalc/reports'">
+  </app-bizzcalc-header>
+
+    <div class="bizzcalc__container">
+      <!-- base assumptions -->
+      <div class="col-12 bizzcalc__column pt-0">
+                    <app-info-title [title]="'base assumption'" (click)="openModalWithDynamicContent()"></app-info-title>
+
+      </div>
+      <div class="col-12 bizzcalc__column pt-2">
+        <form class="form-container" [formGroup]="fundingCalculatorForm">
+          <div class="bizzcalc__column-header-left primary-label pb-2">enter working capital days - between 0 and 90</div>
+          <div class="form-container">
+            <!-- inventory row -->
+            <div class="row pt-2">
+              <div class="col-6 col-md-6 pe-1">
+                <label class="primary-label">inventory</label>
+              </div>
+              <div class="col-6 col-md-6 ps-1">
+                <input type="number" class="primary-input" placeholder="payable days"
+                formControlName="InventoryDays"  />
+              </div>
+
+              <small
+              class="text-danger error-message-section"
+              *ngIf="
+                fundingCalculatorForm.get('InventoryDays')?.hasError('required') &&
+                fundingCalculatorForm.get('InventoryDays')?.touched
+              "
+            >
+              Inventory Days is required.
+            </small>
+            <!-- Error message for min value -->
+            <small
+              class="text-danger error-message-section"
+              *ngIf="
+                fundingCalculatorForm.get('InventoryDays')?.hasError('min') &&
+                fundingCalculatorForm.get('InventoryDays')?.touched
+              "
+            >
+              Value must be at least 0.
+            </small>
+            <!-- Error message for max value -->
+            <small
+              class="text-danger error-message-section"
+              *ngIf="
+                fundingCalculatorForm.get('InventoryDays')?.hasError('max') &&
+                fundingCalculatorForm.get('InventoryDays')?.touched
+              "
+            >
+              Value must not exceed 90.
+            </small>
+
+            </div>
+            <!-- receivables row -->
+            <div class="row pt-2">
+              <div class="col-6 col-md-6 pe-1">
+                <label class="primary-label">receivables</label>
+              </div>
+              <div class="col-6 col-md-6 ps-1">
+                <input type="text" class="primary-input" placeholder="value of floats"
+                formControlName="ReceivablesDays"  />
+              </div>
+              <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('ReceivablesDays')?.hasError('required') &&
+          fundingCalculatorForm.get('ReceivablesDays')?.touched
+        "
+      >
+        Receivables Days is required.
+      </small>
+      <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('ReceivablesDays')?.hasError('min') &&
+          fundingCalculatorForm.get('ReceivablesDays')?.touched
+        "
+      >
+        Value must be at least 0.
+      </small>
+      <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('ReceivablesDays')?.hasError('max') &&
+          fundingCalculatorForm.get('ReceivablesDays')?.touched
+        "
+      >
+        Value must not exceed 90.
+      </small>
+            </div>
+            <!-- payables row -->
+            <div class="row pt-2">
+              <div class="col-6 col-md-6 pe-1">
+                <label class="primary-label">payables</label>
+              </div>
+              <div class="col-6 col-md-6 ps-1">
+                <input type="number" class="primary-input" placeholder="value of deposits"
+                formControlName="PayablesDays"  />
+              </div>
+              <small
+              class="text-danger error-message-section"
+              *ngIf="
+                fundingCalculatorForm.get('PayablesDays')?.hasError('required') &&
+                fundingCalculatorForm.get('PayablesDays')?.touched
+              "
+            >
+              Payables Days is required.
+            </small>
+            <small
+              class="text-danger error-message-section"
+              *ngIf="
+                fundingCalculatorForm.get('PayablesDays')?.hasError('min') &&
+                fundingCalculatorForm.get('PayablesDays')?.touched
+              "
+            >
+              Value must be at least 0.
+            </small>
+            <small
+              class="text-danger error-message-section"
+              *ngIf="
+                fundingCalculatorForm.get('PayablesDays')?.hasError('max') &&
+                fundingCalculatorForm.get('PayablesDays')?.touched
+              "
+            >
+              Value must not exceed 90.
+            </small>
+            </div>
+            <div class="row pt-2">
+              <div class="col-12 col-md-12">
+                <label class="primary-label">enter value of  assets - of 0 or greater</label>
+              </div>
+            </div>
+            <!-- floats -->
+            <div class="row pt-2">
+              <div class="col-6 col-md-6 pe-1">
+                <label class="primary-label">floats</label>
+              </div>
+              <div class="col-6 col-md-6 ps-1">
+                <input type="number" class="primary-input" placeholder="value of petty cash"
+                formControlName="Floats"  />
+              </div>
+              <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('Floats')?.hasError('required') &&
+          fundingCalculatorForm.get('Floats')?.touched
+        "
+      >
+        Floats are required.
+      </small>
+      <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('Floats')?.hasError('min') &&
+          fundingCalculatorForm.get('Floats')?.touched
+        "
+      >
+        Value must be at least 0.
+      </small>
+            </div>
+            <!-- deposits row -->
+            <div class="row pt-2">
+              <div class="col-6 col-md-6 pe-1">
+                <label class="primary-label">deposits</label>
+              </div>
+              <div class="col-6 col-md-6 ps-1">
+                <input type="number" class="primary-input" placeholder=""
+                formControlName="Deposits"  />
+              </div>
+              <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('Deposits')?.hasError('required') &&
+          fundingCalculatorForm.get('Deposits')?.touched
+        "
+      >
+        Deposits are required.
+      </small>
+      <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('Deposits')?.hasError('min') &&
+          fundingCalculatorForm.get('Deposits')?.touched
+        "
+      >
+        Value must be at least 0.
+      </small>
+            </div>
+            <!-- petty cash -->
+            <div class="row pt-2">
+              <div class="col-6 col-md-6 pe-1">
+                <label class="primary-label">petty cash</label>
+              </div>
+              <div class="col-6 col-md-6 ps-1">
+                <input type="number" class="primary-input" placeholder=""
+                formControlName="PettyCash"  />
+              </div>
+              <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('PettyCash')?.hasError('required') &&
+          fundingCalculatorForm.get('PettyCash')?.touched
+        "
+      >
+        Petty Cash is required.
+      </small>
+      <small
+        class="text-danger error-message-section"
+        *ngIf="
+          fundingCalculatorForm.get('PettyCash')?.hasError('min') &&
+          fundingCalculatorForm.get('PettyCash')?.touched
+        "
+      >
+        Value must be at least 0.
+      </small>
+            </div>
+            <p-toast position="center" key="br" />
+            <!--  -->
+            <div class="row pt-2" style="margin-bottom: 22px;">
+              <div class="col-12">
+                <div class="button" style="text-align: center;">
+                  <app-save-button (saveClicked)="onSaveClicked()"></app-save-button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

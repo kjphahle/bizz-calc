@@ -1,0 +1,49 @@
+<div class="documents">
+  <div class="documents__header">
+    <h1 class="documents__heading">documents</h1>
+  </div>
+  <div class="documents__container" *ngIf="documentScreen == documentsType.BUTTONS">
+    <button class="secondary-btn mb-5" (click)="setContent(documentsType.PRIVACY)">
+      privacy
+    </button>
+    <button class="secondary-btn mb-5" (click)="setContent(documentsType.LICENSE)">
+      license
+    </button>
+    <button class="secondary-btn" (click)="setContent(documentsType.PAYMENT)">
+      payment
+    </button>
+  </div>
+  <ng-container *ngIf="documentScreen == documentsType.PRIVACY">
+    <div class="documents__content">
+      <div class="documents__back-container" (click)="setContent(documentsType.BUTTONS)">
+        <fa-icon [icon]="faChevronLeft" class="mr-2"></fa-icon>
+        <span>back to documents</span>
+      </div>
+      <div class="documents__content-header">
+        <h1 class="documents__content-heading">privacy</h1>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="documentScreen == documentsType.PAYMENT">
+    <div class="documents__content">
+      <div class="documents__back-container" (click)="setContent(documentsType.BUTTONS)">
+        <fa-icon [icon]="faChevronLeft" class="mr-2"></fa-icon>
+        <span>back to documents</span>
+      </div>
+      <div class="documents__content-header">
+        <h1 class="documents__content-heading">Payment</h1>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="documentScreen == documentsType.LICENSE">
+    <div class="documents__content">
+      <div class="documents__back-container" (click)="setContent(documentsType.BUTTONS)">
+        <fa-icon [icon]="faChevronLeft" class="mr-2"></fa-icon>
+        <span>back to documents</span>
+      </div>
+      <div class="documents__content-header">
+        <h1 class="documents__content-heading">License</h1>
+      </div>
+    </div>
+  </ng-container>
+</div>

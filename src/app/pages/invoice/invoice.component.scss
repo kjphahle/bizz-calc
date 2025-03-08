@@ -1,0 +1,186 @@
+
+//@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+@page { margin: 0 }
+body { margin: 0 }
+.sheet {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  page-break-after: always;
+}
+
+/** Paper sizes **/
+body.A3               .sheet { width: 297mm; height: 419mm }
+body.A3.landscape     .sheet { width: 420mm; height: 296mm }
+body.A4               .sheet { width: 210mm; height: 296mm }
+body.A4.landscape     .sheet { width: 297mm; height: 209mm }
+body.A5               .sheet { width: 148mm; height: 209mm }
+body.A5.landscape     .sheet { width: 210mm; height: 147mm }
+body.letter           .sheet { width: 216mm; height: 279mm }
+body.letter.landscape .sheet { width: 280mm; height: 215mm }
+body.legal            .sheet { width: 216mm; height: 356mm }
+body.legal.landscape  .sheet { width: 357mm; height: 215mm }
+
+/** Padding area **/
+.sheet.padding-10mm { padding: 10mm }
+.sheet.padding-15mm { padding: 15mm }
+.sheet.padding-20mm { padding: 20mm }
+.sheet.padding-25mm { padding: 25mm }
+
+/** For screen preview **/
+@media screen {
+  body { background: #e0e0e0 }
+  .sheet {
+    background: white;
+    box-shadow: 0 .5mm 2mm rgba(0,0,0,.3);
+    margin: 5mm auto;
+  }
+}
+
+/** Fix for Chrome issue #273306 **/
+@media print {
+           body.A3.landscape { width: 420mm }
+  body.A3, body.A4.landscape { width: 297mm }
+  body.A4, body.A5.landscape { width: 210mm }
+  body.A5                    { width: 148mm }
+  body.letter, body.legal    { width: 216mm }
+  body.letter.landscape      { width: 280mm }
+  body.legal.landscape       { width: 357mm }
+}
+
+
+*{
+  font-family: "Raleway", sans-serif !important;
+  font-size: 10px;
+
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+h1{
+  text-align: center;
+  //font-size: 8px;
+}
+
+  .customer{
+    border: 1px solid;
+    border-bottom: none ;
+    border-color: black;
+    padding:5px;
+    width: 100%;
+    table-layout: fixed;
+
+    .tr,td{
+      border:none;
+    }
+
+    td:nth-child(4) {
+      text-align: right;
+      }
+  }
+
+  .customer_contact{
+    border: 1px solid;;
+    border-top: none ;
+    border-bottom: none;
+    border-color: black;
+    padding:5px;
+    width: 100%;
+    table-layout: fixed;
+
+    .tr,td{
+      border:none;
+    }
+  }
+
+.details{
+  width:100%;
+  //table-layout: fixed;
+  border-top: none;
+  border-collapse: collapse;
+  
+  th {
+    border: 1px solid;
+    padding: 5px;
+  }
+
+  td:nth-child(n) { //select all but first one
+    padding: 5px;
+    border-left:1px solid;
+    border-right:1px solid;
+    }
+
+    td:nth-child(n+3) { //select all but first two
+      text-align: right;
+      }
+
+      td:nth-child(1) { //select all but first two
+        width:7%;
+        } 
+
+        td:nth-child(3) { //select all but first two
+          width:7%;
+          } 
+      td:nth-child(n+4) { //select all but first two
+        width:14.285%;
+        } 
+
+}
+
+.total{
+  width:100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid;
+  
+  th, td{
+    border: 1px solid;
+    border-top: none;
+    padding: 5px;
+  }
+    td:nth-child(n+2) { //select all but first two
+      text-align: right;
+      }
+      
+}
+
+.supplier{
+  border: 1px solid;
+  border-color: black;
+  border-top:none;
+  border-bottom: none;
+  background-color: lightgray;
+  text-align: left;
+  width: 100%;
+  table-layout: fixed;
+  padding:5px;
+}
+
+.supplier_contact{
+  border: 1px solid;
+  border-bottom: none ;
+  border-color: black;
+  padding:5px;
+  width: 100%;
+  table-layout: fixed;
+
+  .tr,td{
+    border:none;
+  }
+
+}
+.message{
+  border: 1px solid;
+  border-color: black;
+  text-align: center;
+  padding:5px;
+  height: auto; //will grow according to text volume
+}

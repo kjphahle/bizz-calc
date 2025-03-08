@@ -1,0 +1,310 @@
+<div class="navbar-main">
+  <div class="logo-container">
+    <img
+      src="../../../assets/images/bizzbean-logo.png"
+      alt="bizzbean"
+      class="navbar-logo"
+      *ngIf="!isOnCoursePlayer"
+    />
+    <img
+      src="../../../assets/images/bizzclass.png"
+      alt=""
+      class="navbar-logo"
+      *ngIf="isOnCoursePlayer"
+    />
+  </div>
+  <ul class="links-container" *ngIf="!isOnCoursePlayer">
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'dashboard' }"
+      (click)="changeRoute('/main/dashboard')"
+    >
+      home
+    </li>
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'bizzapps' }"
+      (click)="changeRoute('/main/bizzapps')"
+    >
+      bizzapps
+    </li>
+    <li
+    class="link-item"
+    [ngClass]="{ active: activeRoute == 'courses' }"
+    (click)="changeRoute('/main/courses')"
+  >
+    bizzcourses
+  </li>
+  <li
+  class="link-item"
+  [ngClass]="{ active: activeRoute == 'bizzclass' }"
+  (click)="toggleDropdown()"
+>
+  bizzclass
+  <ul class="dropdown-menu" *ngIf="isDropdownOpen">
+    <li
+      class="bizzclass__nav-list-item"
+      [ngClass]="{ active: activeRoute == 'quotes' }"
+      (click)="changeRoute('/main/bizzclass/quotes')"
+    >
+      a thought
+    </li>
+    <li
+      class="bizzclass__nav-list-item"
+      [ngClass]="{ active: activeRoute == 'videos' }"
+      (click)="changeRoute('/main/bizzclass/videos')"
+    >
+      videos
+    </li>
+    <li
+      class="bizzclass__nav-list-item"
+      [ngClass]="{ active: activeRoute == 'podcasts' }"
+      (click)="changeRoute('/main/bizzclass/podcasts')"
+    >
+      podcasts
+    </li>
+    <li
+      class="bizzclass__nav-list-item"
+      [ngClass]="{ active: activeRoute == 'minute-lessons' }"
+      (click)="changeRoute('/main/bizzclass/minute-lessons')"
+    >
+      1-minute lessons
+    </li>
+    <li
+      class="bizzclass__nav-list-item"
+      [ngClass]="{ active: activeRoute == 'bizzblog' }"
+      (click)="changeRoute('/main/bizzclass/bizzblog')"
+    >
+      bizzblog
+    </li>
+  </ul>
+</li>
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'bizzmoney' }"
+      (click)="changeRoute('/main/bizzmoney')"
+    >
+      bizzmoney
+    </li>
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'bizzspark' }"
+      (click)="changeRoute('/main/bizzspark')"
+    >
+      bizzspark
+    </li>
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'bizzmall' }"
+      (click)="changeRoute('/main/bizzmall')"
+    >
+      bizzmall
+    </li>
+    <li
+      class="link-item" style="color: #5085b6 !important; text-decoration-color: #5085b6;"
+      [ngClass]="{ active: activeRoute == 'bizzcalc' }"
+      (click)="moveToBizzCalcRoute('/main/bizzcalc')"
+    >
+      bizzcalc
+    </li>
+  </ul>
+
+  <div class="navbar-main-extra" *ngIf="!isOnCoursePlayer; else coursesHeader">
+    <img src="../../../assets/images/bell.png" alt="bell" class="navbar-bell" />
+    <img
+      src="../../../assets/images/Avatar.svg"
+      alt="avatar"
+      class="navbar-avatar"
+      (click)="toggleProfile()"
+    />
+    <img
+      src="../../../assets/images/hamburger.png"
+      alt=""
+      class="navbar-menu__icon"
+      (click)="openMenu()"
+    />
+  </div>
+</div>
+
+<div
+  class="navbar-side-menu"
+  [ngClass]="{ 'menu-open': sideMenuOpen, 'menu-close': !sideMenuOpen }"
+  *ngIf="!isOnCoursePlayer"
+>
+  <img
+    src="../../../assets/images/close.png"
+    alt=""
+    class="navbar-side-menu__icon"
+    (click)="closeMenu()"
+  />
+  <ul class="navbar-side-menu__container">
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'dashboard' }"
+      (click)="changeRoute('/main/dashboard'); closeMenu()"
+    >
+      home
+    </li>
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'bizzapps' }"
+      (click)="changeRoute('/main/bizzapps'); closeMenu()"
+    >
+      bizzapps
+    </li>
+    <li
+    class="link-item"
+    [ngClass]="{ active: activeRoute == 'courses' }"
+    (click)="changeRoute('/main/courses'); closeMenu()"
+  >
+    bizzcourses
+  </li>
+    <li
+    class="link-item"
+    [ngClass]="{ active: activeRoute == 'bizzclass' }"
+    (click)="toggleDropdown()"
+    >
+      bizzclass
+      <ul class="dropdown-menu" *ngIf="isDropdownOpen">
+        <li
+          class="bizzclass__nav-list-item"
+          [ngClass]="{ active: activeRoute == 'quotes' }"
+          (click)="changeRoute('/main/bizzclass/quotes'); closeMenu()"
+        >
+          a thought
+        </li>
+        <li
+          class="bizzclass__nav-list-item"
+          [ngClass]="{ active: activeRoute == 'videos' }"
+          (click)="changeRoute('/main/bizzclass/videos'); closeMenu()"
+        >
+          videos
+        </li>
+        <li
+          class="bizzclass__nav-list-item"
+          [ngClass]="{ active: activeRoute == 'podcasts' }"
+          (click)="changeRoute('/main/bizzclass/podcasts'); closeMenu()"
+        >
+          podcasts
+        </li>
+        <li
+          class="bizzclass__nav-list-item"
+          [ngClass]="{ active: activeRoute == 'minute-lessons' }"
+          (click)="changeRoute('/main/bizzclass/minute-lessons'); closeMenu()"
+        >
+          1-minute lessons
+        </li>
+        <li
+          class="bizzclass__nav-list-item"
+          [ngClass]="{ active: activeRoute == 'bizzblog' }"
+          (click)="changeRoute('/main/bizzclass/bizzblog'); closeMenu()"
+        >
+          bizzblog
+        </li>
+      </ul>
+
+    </li>
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'bizzmoney' }"
+      (click)="changeRoute('/main/bizzmoney'); closeMenu()"
+    >
+      bizzmoney
+    </li>
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'bizzspark' }"
+      (click)="changeRoute('/main/bizzspark'); closeMenu()"
+    >
+      bizzspark
+    </li>
+    <li
+      class="link-item"
+      [ngClass]="{ active: activeRoute == 'bizzmall' }"
+      (click)="changeRoute('/main/bizzmall'); closeMenu()"
+    >
+      bizzmall
+    </li>
+  </ul>
+</div>
+
+<div class="profile-popover__main" *ngIf="showProfilePopover">
+  <div class="profile-popover">
+    <div class="profile-popover__avatar-container">
+      <img
+        src="../../../assets/images/avatar-blue.svg"
+        alt=""
+        class="profile-popover__avatar"
+      />
+      <div class="profile-popover__badge">
+        <img
+          src="../../../assets/images/pen.png"
+          alt=""
+          class="profile-popover__avatar-edit"
+        />
+      </div>
+    </div>
+    <h5>{{ username }}</h5>
+    <div class="profile-popover__buttons">
+      <div class="row justify-center">
+        <div class="col-md-3">
+          <div
+            class="profile-popover__btn"
+            (click)="changeRoute('/main/account/profile')"
+          >
+            <div class="profile-popover__btn-content">
+              <fa-icon [icon]="faUser" class="profile-popover__icon"></fa-icon>
+            </div>
+            <p class="profile-popover__btn-text">my profile</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div
+            class="profile-popover__btn"
+            (click)="changeRoute('/main/account/documents')"
+          >
+            <div class="profile-popover__btn-content">
+              <fa-icon [icon]="faFile" class="profile-popover__icon"></fa-icon>
+            </div>
+            <p class="profile-popover__btn-text">documents</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div
+            class="profile-popover__btn"
+            (click)="changeRoute('/main/account/customer-service')"
+          >
+            <div class="profile-popover__btn-content">
+              <fa-icon
+                [icon]="faHeadset"
+                class="profile-popover__icon"
+              ></fa-icon>
+            </div>
+            <p class="profile-popover__btn-text">customer service</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="profile-popover__logout" (click)="logout()">
+    <p class="profile-popover__logout-text">logout</p>
+  </div>
+  <!-- <div class="profile-popover__bean-points">
+    <p>120</p>
+    <img
+      src="../../../assets/images/coffee-bean.svg"
+      alt=""
+      class="profile-popover__bean-points-img"
+    />
+  </div> -->
+</div>
+
+<ng-template #coursesHeader>
+  <div class="bizzclass-nav">
+    <div class="back-btn" (click)="changeRoute('/main/courses')">
+      <fa-icon [icon]="faChevronLeft" class="back-btn__icon"></fa-icon>
+      <p class="back-btn__text">back to courses</p>
+    </div>
+    <h2 class="navbar-education-header">educational centre</h2>
+  </div>
+</ng-template>

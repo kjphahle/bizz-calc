@@ -1,0 +1,113 @@
+@import "../../../../mixins";
+@import "../../../../theme";
+
+
+.join-vas {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  //overflow-y: auto;
+
+  @include breakpoint("small") {
+    padding: 0 90px 90px 90px;
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 600px;
+  }
+
+}
+
+.heading {
+  width: 100%;
+  color: $white;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  background-color: $primary-blue;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+.input-group {
+  margin-bottom: 20px;
+  padding:0px;
+  
+}
+
+.primary-btn {
+  
+  width: 33.33%;
+  height: 50px;
+  margin:10px;
+  margin-left:0;
+  padding:0;
+  border-radius: 0%;
+  font-weight: 300;
+
+  @include breakpoint("medium") {
+    height: 40px;
+  }
+  @include breakpoint("large") {
+    height: 40px;
+  }
+
+}
+
+.secondary-btn {
+  width: 100%;
+  height: 50px;
+  margin:10px;
+  margin-left:0;
+  padding:0;
+  border-radius: 0%;
+  font-size: 18px;
+  font-weight: 300;
+
+  @include breakpoint("medium") {
+    height: 40px;
+  }
+  @include breakpoint("large") {
+    height: 40px;
+  }
+}
+
+
+.error-message {
+  color: red;
+  font-size: 14px;
+}
+
+.password-container {
+  width: 100%;
+  position: relative;
+
+}
+
+.password-view {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: $primary-blue;
+}
+
+.number {
+  display: flex;
+  gap: 20px; /* space between the two input groups */
+}
+
+.pLabel{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px; /* Space between label and input */
+}

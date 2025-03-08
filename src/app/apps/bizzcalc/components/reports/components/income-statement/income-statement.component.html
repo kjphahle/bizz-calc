@@ -1,0 +1,31 @@
+
+<div class="modal-header justify-content-between" style="background-color: #9FC754;">
+    <h6 class="modal-title modal-basic-title" style="color: white;" id="modal-basic-title">income statement</h6>
+    <i
+    class="bi bi-x-lg modal-close-button"
+    (click)="activeModal.dismiss('Cross click')"
+  ></i>
+</div>
+<!-- Modal body -->
+<div class="modal-body">
+  <section [innerHTML]="this.reportData">
+  </section>
+  <table class="d-none">
+    <thead>
+        <tr>
+        <th>item</th>
+        <th>value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let statement of incomeStatement">
+        <td>{{statement.item}}</td>
+        <td>{{statement.value | currency}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Modal footer -->
+<div class="modal-footer">
+  <!-- <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Save</button> -->
+</div>

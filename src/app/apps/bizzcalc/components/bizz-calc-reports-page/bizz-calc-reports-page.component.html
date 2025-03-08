@@ -1,0 +1,17 @@
+<div class="bizzcalc__container pt-0">
+  <!-- Navigations -->
+  <app-bizzcalc-header [showLeftIcon]="false" [showRightIcon]="false" [title]="'report'"></app-bizzcalc-header>
+
+  <!-- business details -->
+  <!-- <div class="col-12 bizzcalc__column bizzcalc__container">
+      <button class="secondary-btn bizzcalc-secondary-btn w-100" (click)="goToIncomeStatement()">
+        income statement
+      </button>
+    </div> -->
+  <!-- days worked -->
+  <div class="col-12 bizzcalc__column py-2" *ngFor="let report of reports">
+      <button class="secondary-btn bizzcalc-secondary-btn w-100" (click)="goToBalanceSheet(report.ID)">
+        {{report.ReportName}}
+      </button>
+  </div>
+</div>

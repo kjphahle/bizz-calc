@@ -1,0 +1,57 @@
+.p-toast-center {
+  width: 250px !important;
+}
+
+::ng-deep .test {
+  background: #10637c;
+  width: 250px !important;
+  color: white !important;
+  margin: auto !important;
+  padding-left: 17px;
+  font-size: 15px;
+  font-family: "Roboto";
+  text-align: center;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.p-toast .p-toast-message-success .p-toast-icon {
+  display: none !important;
+}
+::ng-deep .p-toast-icon-close {
+  background-color: transparent;
+  padding-top: 9px;
+  color: white !important;
+  display: none;
+}
+.instructiontextcolour {
+ 
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px !important;
+  color: #5085b6;
+}
+
+.row.pt-2 {
+  margin-bottom: -10px;
+ 
+  padding: 5x ;
+  gap: 0px;
+  
+  
+}
+
+
+
+.bizz-calc-page-save-btn-fund{
+  // width: 90px !important;
+  height: 30px !important;
+  padding: unset !important;
+  font-size: 12px;
+  font-family: "Roboto";
+  min-width: 85px !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  margin-top: 0px;
+
+}
+

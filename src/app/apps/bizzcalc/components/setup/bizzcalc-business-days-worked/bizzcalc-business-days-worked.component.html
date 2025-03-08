@@ -1,0 +1,277 @@
+<div class="container-fluid px-0 bizzcalc-days-worked-container bg-white" style="height: calc(100vh - 53px);">
+  <app-bizzcalc-header [showLeftIcon]="true" [showRightIcon]="true" [title]="'setup'"
+    [leftIconRoute]="'/main/bizzcalc/setup/business-details'"
+    [rightIconRoute]="'/main/bizzcalc/setup/assets-depreciation'">
+  </app-bizzcalc-header>
+
+
+  <div class="bizzcalc__container h-100">
+    <!-- business details -->
+    <div class="col-12 bizzcalc__column py-0">
+      <button class="secondary-btn bizzcalc-secondary-btn w-100" style="text-align: justify"
+        (click)="openModalWithDynamicContent()">
+        <span class="pe-2"><img height="25px" src="../../../../../../assets/images/bizzcalc/info.jpg" /></span>days
+        worked calculation
+      </button>
+    </div>
+    <!-- Business details form  -->
+    <div class="bizzcalc__column col-12 pt-0">
+      <form class="business-days-form" [formGroup]="nonworkingDaysForm">
+        <!-- select non-working days -->
+        <section class="bizzcalc__column__business-details-form business-days-form-row d-flex align-items-center">
+          <small class="instructiontextcolour">uncheck non-working days</small>
+        </section>
+        <!-- Non working days checkboxes row -->
+        <section class="business-days-form-row flex align-items-centers flex-column">
+          <div class="d-flex flex-row justify-content-between w-100">
+            <div class="day-1 d-flex align-items-center flex-column">
+              <label for="day1" class="bizzcalc-mobile-label days-worked-holidays">mon</label>
+              <input type="checkbox" id="day1" name="day1" formControlName="Day1" />
+            </div>
+            <div class="day-2 d-flex text-center flex-column">
+              <label for="day2" class="bizzcalc-mobile-label days-worked-holidays">tue</label>
+              <input type="checkbox" id="day2" name="day2" formControlName="Day2" />
+            </div>
+            <div class="day-3 text-center d-flex flex-column">
+              <label for="day3" class="bizzcalc-mobile-label days-worked-holidays">wed</label>
+              <input type="checkbox" id="day3" name="day3" formControlName="Day3" />
+            </div>
+            <div class="day-4 text-center d-flex flex-column">
+              <label for="day4" class="bizzcalc-mobile-label days-worked-holidays">thu</label>
+              <input type="checkbox" id="day4" name="day4" formControlName="Day4" />
+            </div>
+            <div class="day-5 text-center d-flex flex-column">
+              <label for="day5" class="bizzcalc-mobile-label days-worked-holidays">fri</label>
+              <input type="checkbox" id="day5" name="day5" formControlName="Day5" />
+            </div>
+            <div class="day-6 text-center d-flex flex-column">
+              <label for="day6" class="bizzcalc-mobile-label days-worked-holidays">sat</label>
+              <input type="checkbox" id="day6" name="day2" formControlName="Day6" />
+            </div>
+            <div class="day-7 text-center d-flex flex-column">
+              <label for="day7" class="bizzcalc-mobile-label days-worked-holidays">sun</label>
+              <input type="checkbox" id="day7" name="day7" formControlName="Day7" />
+            </div>
+          </div>
+          <div class="text-start">
+            <small *ngIf="showError" class="text-danger error-message-section">
+              {{ errorMessage }}
+            </small>
+          </div>
+        </section>
+        <!-- deduct holidays label -->
+        <form class="holiday-form needs-validation" [formGroup]="holidaysForm" novalidate>
+          <section class="business-days-form-row business-days-form-row d-flex align-items-center">
+            <small class="instructiontextcolour">deduct holidays</small>
+          </section>
+          <!-- holiday name -->
+          <section class="business-days-form-row d-flex align-items-end">
+            <div class="w-100">
+              <label class="bizzcalc-form-label" for="holidayName">add holiday</label>
+              <input type="text" id="holidayName" class="primary-input" formControlName="HolidayName" placeholder="holiday name"
+                required />
+              <small class="text-danger error-message-section" *ngIf="
+                holidaysForm.get('HolidayName')?.invalid &&
+                holidaysForm.get('HolidayName')?.touched
+              ">
+                Please enter a holiday name.
+              </small>
+            </div>
+
+
+
+          </section>
+
+
+
+          <!-- holiday start and end date -->
+          <section class="business-days-form-row">
+            <div class="row">
+              <div class="col-6 py-0 business-days-form-row">
+                <!-- <label for="start">holiday start day</label>
+                <input
+                  class="bizzcalc-formcontrol-date"
+                  formControlName="HolidayStartDt"
+                  style="width: 95%"
+                  type="date"
+                  id="start"
+                  name="trip-start"
+                  value="2018-07-22"
+                  min="2018-01-01"
+                  max="2018-12-31"
+                />
+              </div> -->
+                <div class="business-days-form-row">
+                  <label class="bizzcalc-mobile-label bizzcalc-form-label" for="holiday-start-date">holiday start
+                    date</label>
+                  <input type="text" id="holiday-start-date" class="form-control" isAnimated="true"
+                    formControlName="HolidayStartDt" placement="bottom" tooltip="Holiday start date." [bsConfig]="{
+                      adaptivePosition: true,
+                      dateInputFormat: 'YYYY-MM-DD',
+                      containerClass: 'theme-dark-blue'
+                    }" [minDate]="startHolidayMinDate" bsDatepicker />
+                </div>
+              </div>
+
+              <div class="col-6 py-0 business-days-form-row">
+                <!-- <label for="start">holiday end day</label>
+                <input
+                  class="bizzcalc-formcontrol-date w-100"
+                  formControlName="HolidayEndDt"
+                  type="date"
+                  id="start"
+                  name="trip-start"
+                  value="2018-07-22"
+                  min="2018-01-01"
+                  max="2018-12-31"
+                /> -->
+                <div class="business-days-form-row">
+                  <label class="bizzcalc-mobile-label bizzcalc-form-label" for="holiday-end-date">holiday end
+                    day</label>
+                  <input type="text" id="holiday-end-date" [bsValue]="minDate" class="form-control" isAnimated="true"
+                    placement="bottom" formControlName="HolidayEndDt" tooltip="Holiday end date." [bsConfig]="{
+                      adaptivePosition: true,
+                      dateInputFormat: 'YYYY-MM-DD',
+                      containerClass: 'theme-dark-blue'
+                    }" [minDate]="minDate" bsDatepicker />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Add holiday button -->
+          <section class="business-days-form-row d-flex justify-content-between bizzcal-action-buttons-row">
+            <button type="submit" class="primary-btn bizzcalc-button bizz-calc-data-save-btn"
+              (click)="onAddHolidayClicked()">
+              add data
+            </button>
+            <button type="submit" class="primary-btn bizzcalc-button bizz-calc-page-save-btn"
+              (click)="onViewDataBtnClicked(content)">
+              view data
+            </button>
+            <button type="submit" class="primary-btn bizzcalc-button bizz-calc-page-save-btn"
+              (click)="onSaveBtnClicked()">
+              save
+            </button>
+          </section>
+        </form>
+
+        <!-- Modal code ends here -->
+        <p-toast position="center" key="br" />
+        <!-- View data and save button -->
+        <section style="position: relative; bottom: -40px;"
+          class="business-days-form-row d-flex justify-content-between d-none">
+          <button type="submit" class="primary-btn bizzcalc-button bizz-calc-page-save-btn"
+            (click)="onViewDataBtnClicked(content)">
+            view data
+          </button>
+          <button type="submit" class="primary-btn bizzcalc-button bizz-calc-page-save-btn"
+            (click)="onSaveBtnClicked()">
+            save
+          </button>
+        </section>
+
+        <!--I might remove this 8888888888888888888888888888 -->
+        <div class="bizzcalc__checkbox-list d-none">
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">mon</label>
+            <input formControlName="Day1" type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">tue</label>
+            <input formControlName="Day2" type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">wed</label>
+            <input formControlName="Day3" type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">thu</label>
+            <input formControlName="Day4" type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">fri</label>
+            <input formControlName="Day5" type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">sat</label>
+            <input formControlName="Day6" type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          <div class="bizzcalc__checkbox-list-group">
+            <label for="" class="bizzcalc__checkbox-list-label">sun</label>
+            <input formControlName="Day7" type="checkbox" class="bizzcalc__checkbox-list-box" />
+          </div>
+          >
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <!-- Modal header -->
+  <div class="modal-header" style="background-color: #9fc754">
+    <h6 class="modal-title modal-basic-title" style="color: white" id="modal-basic-title">
+      holidays
+    </h6>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onModalClose()"></button>
+  </div>
+  <!-- Modal body -->
+  <div class="modal-body">
+    <!-- <pre>{{ user }}</pre> -->
+    <table>
+      <tr>
+        <th>holiday</th>
+        <th>start date</th>
+        <th>end date</th>
+        <th>action</th>
+      </tr>
+      <tr>
+        <td>holiday</td>
+        <td>05-23</td>
+        <td>05-23</td>
+        <td>
+          <div class="d-flex flex-row">
+            <!-- Edit icon -->
+            <div class="edit-icon pe-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil"
+                viewBox="0 0 16 16">
+                <path
+                  d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325" />
+              </svg>
+            </div>
+            <!-- Delete icon -->
+            <div class="remove-icon ps-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
+                viewBox="0 0 16 16">
+                <path
+                  d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+              </svg>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>holiday</td>
+        <td>05-23</td>
+        <td>05-23</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>holiday</td>
+        <td>05-23</td>
+        <td>05-23</td>
+        <td></td>
+      </tr>
+    </table>
+
+  </div>
+
+  <!-- Modal footer -->
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
+      Save
+    </button>
+  </div>
+</ng-template>

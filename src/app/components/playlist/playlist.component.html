@@ -1,0 +1,19 @@
+<div class="playlist">
+  <img *ngIf="mediaB1" 
+       class="playlist__b1-img" 
+       [src]="mediaB1" 
+       alt="B1 Image" />
+  <div class="playlist__main">
+    <button class="secondary-btn content-btn" (click)="downloadContent()">download course content</button>
+    <ul class="playlist__content">
+      <li
+        class="playlist__content-item"
+        *ngFor="let video of videos; let i = index"
+        (click)="onVideoClick(video, i)"
+        [ngClass]="{ active: currentVideoIndex == i }"
+      >
+        {{ video.comments }}
+      </li>
+    </ul>
+  </div>
+</div>

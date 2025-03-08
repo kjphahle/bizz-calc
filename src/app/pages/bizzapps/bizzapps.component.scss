@@ -1,0 +1,138 @@
+@import "../../../mixins";
+@import "../../../theme.scss";
+
+.bizzapps {
+  width: 100%;
+}
+
+.bizzapps h2 {
+  color: $primary-blue;
+  padding: 60px;
+  margin: 0;
+}
+
+.bizzapps__container {
+  margin:50px;
+  margin-top: 140px;
+  display: grid;
+  grid-template-columns: 1fr; // Default: 1 column on small screens
+  gap: 20px; // Space between cards
+
+  @include breakpoint("medium") {
+    grid-template-columns: 1fr 1fr; // 2 columns on medium screens
+  }
+
+  @include breakpoint("large") {
+    grid-template-columns: 1fr 1fr 1fr; // 3 columns on large screens
+  }
+}
+
+.bizzapps__card {
+  background-color: white;
+  margin: 0;
+  box-shadow: 5px 5px 15px #aaaaaa;
+ // border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; // Ensures content flows vertically inside the card
+  justify-content: space-between; // Space between image and buttons
+  box-sizing: border-box;
+}
+
+.bizzapps__card-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+ // flex-wrap: wrap; // Allow buttons to wrap if needed on smaller screens
+  gap: 10px; // Space between buttons
+}
+
+.secondary-btn,
+.primary-btn {
+  width: 100%; // Full width button on small screens
+  max-width: 250px;
+  text-align: center;
+  padding: 10px 0;
+ // margin-top: 20px;
+  font-size: 10px;
+
+  @include breakpoint("medium") {
+    font-size: 14px;
+  }
+
+  @include breakpoint("large") {
+    font-size: 14px;
+  }
+}
+
+.w-200-btn {
+  width: 100%;
+}
+
+.video {
+  width: 100%;
+  min-height: 30vh;
+
+  @include breakpoint("medium") {
+    height: 60vh;
+  }
+}
+
+.video-modal {
+  width: 100%;
+  padding: 20px;
+  background-color: #326492;
+  //border-radius: 10px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-player {
+  width: 300px;
+  height: 300px;
+
+  @include breakpoint("medium") {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+.bizz-blog__modal-close-main{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 15px;
+  background-color: $primary-green;
+  display: flex;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+
+  @include breakpoint("medium") {
+    width: 30px;
+    height: 30px;
+    padding: 25px;
+  }
+}
+
+.close-icon {
+  height: 10px;
+  width: 10px;
+  z-index: 20;
+  cursor: pointer;
+
+  @include breakpoint("medium") {
+    height: 20px;
+    width: 20px;
+  }
+}

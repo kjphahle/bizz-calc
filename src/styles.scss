@@ -1,0 +1,330 @@
+@import "./theme.scss";
+@import "./mixins";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import "bootstrap/scss/bootstrap";
+@import "primeicons/primeicons.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: $white !important;
+}
+
+// TODO: Move to separate class
+// @media only screen and (max-width: 427px) {
+@media only screen and (max-width: 427px) {
+
+  .header-container-navigations {
+    line-height: 34px !important;
+  }
+  .header-container-top {
+    height: 2.812rem !important;
+  }
+  app-navbar {
+
+    //if this is on then my nav-bar gets removed on all my mobile displays for dashboard- flo
+ //   display: none !important;
+  }
+  .main {
+    margin: 0;
+    padding: 0 !important;
+    border-top: 5px solid #5085b6;
+    border-bottom: 7px solid #9eca55;
+  }
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
+.input-label {
+  font-size: 14px;
+  color: $primary-blue;
+  font-weight: 300;
+  line-height: 23px;
+}
+
+.primary-text-area {
+  color: $primary-blue;
+  font-size: 18px;
+  background-color: $white;
+  border: 1px solid $primary-blue;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.primary-input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid $primary-blue;
+  // border-radius: 5px;
+  outline: none;
+  background-color: $secondary-blue;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.primary-input:disabled {
+  background-color: unset !important;
+}
+
+.primary-label {
+  width: 100%;
+  background-color: $white;
+  color: $primary-blue;
+  border: 1px solid $primary-blue;
+  padding: 10px 5px;
+  // border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.primary-btn {
+  border: none;
+  background-color: $primary-green;
+  color: $white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  &:hover {
+    background-color: $secondary-green;
+  }
+}
+
+.primary-btn-sm {
+  border: none;
+  background-color: $primary-green;
+  color: $white;
+  padding: 5px;
+  border-radius: 8px;
+  font-size: 10px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  &:hover {
+    background-color: $secondary-green;
+  }
+}
+
+.secondary-btn {
+  border: none;
+  background-color: $primary-blue;
+  color: $white;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  &:hover {
+    background-color: $primary-blue-dark;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.display {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+.blue-input {
+  background-color: $secondary-blue;
+}
+
+.loader {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  color: #fff;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  25% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
+  }
+  50% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
+  }
+  75% {
+    box-shadow: 14px 0 0 2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  100% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+}
+
+.blue-input {
+  color: $primary-blue;
+  border: 1px solid $primary-blue;
+  outline: none;
+  background-color: $light-blue;
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  // border-radius: 0.25rem;
+  outline: none !important;
+
+  &::placeholder {
+    color: $primary-blue;
+  }
+}
+
+/* Importing Bootstrap SCSS file. */
+
+@import "bootstrap/scss/bootstrap";
+
+.swiper-button-next svg {
+  color: red !important;
+}
+
+:root {
+  --swiper-navigation-color: #9eca55;
+  --swiper-theme-color: #9eca55;
+  --swiper-pagination-color: #9eca55;
+}
+
+@import "bootstrap/scss/bootstrap";
+
+// // Footer
+// .bizzcalc-header-title {
+//   font-size: 24px;
+//   color: $primary-blue;
+//   font-size: 19px;
+//   font-weight: bold;
+
+// }
+
+// label {
+//   margin-bottom: 0;
+// }
+
+// $form-control-height: 40px;
+// $button-height: 40px;
+
+// .bizzcalc-formcontrol-date {
+//   height: $form-control-height;
+// }
+
+// .bizzcalc-button {
+//   height: $button-height;
+//   line-height: 0;
+//   min-width: 95px;
+// }
+
+::ng-deep ngb-modal-backdrop {
+  z-index: 1045 !important;
+}
+
+::ng-deep ngb-modal-backdrop {
+  z-index: 1050 !important;
+}
+
+.custom-backdrop {
+  z-index: 1050 !important; /* Example z-index, adjust as needed */
+}
+
+ngb-modal-backdrop.modal-backdrop.fade.show {
+  z-index: unset !important;
+}
+
+@import "./bizzcalc-styles";
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+input#scenario-start-date,
+input#holiday-start-date,
+input#holiday-end-date {
+  background-color: #ddebf7 !important;
+  color: #5085b6 !important;
+  border-color: #5085b6 !important;
+  border-radius: 0 !important;
+  text-align: center !important;
+}
+
+.modal {
+  top: 25%;
+}
+
+.modal-close-button {
+  color: white !important;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+.custom-modal-content {
+  margin-top: -30px; /* Move content up */
+  //.padding-top: 10px; /* Optional: space between the content and the top edge */
+}
+
+
+.p-toast-center {
+  width: 250px !important;
+}
+
+::ng-deep .test {
+  background: #10637c;
+  width: 250px !important;
+  color: white !important;
+  margin: auto !important;
+  padding-left: 17px;
+  font-size: 15px;
+  font-family: "Roboto";
+}
+
+::ng-deep .p-toast-icon-close {
+  background-color: transparent;
+  padding-top: 9px;
+  color: white !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

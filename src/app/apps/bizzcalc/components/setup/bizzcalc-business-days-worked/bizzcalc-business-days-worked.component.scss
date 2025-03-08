@@ -1,0 +1,62 @@
+label {
+  margin-bottom: 0;
+}
+
+$form-control-height: 40px;
+$button-height: 40px;
+
+.bizzcalc-formcontrol-date {
+  height: $form-control-height;
+}
+
+.bizzcalc-button {
+  height: $button-height;
+  line-height: 0;
+  min-width: 95px;
+}
+
+ngb-modal-backdrop {
+  z-index: 1045 !important;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.7);
+  // margin-left: 5px;
+  accent-color: #ddebf7;
+}
+
+
+
+::ng-deep .test {
+  background: #10637c;
+  width: 250px !important;
+  color: white !important;
+  margin: auto !important;
+  padding-left: 17px;
+  font-size: 15px;
+  font-family: "Roboto";
+  text-align: center;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+::ng-deep .p-toast-icon-close {
+  background-color: transparent;
+  padding-top: 9px;
+  color: white !important;
+  display: none !important;
+}
+
+
+.instructiontextcolour {
+ 
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px !important;
+  color: #5085b6;
+}
+
+
+
+
+//new css

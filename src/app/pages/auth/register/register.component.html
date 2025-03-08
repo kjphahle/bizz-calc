@@ -1,0 +1,134 @@
+<div class="join-vas">
+
+  <form #f="ngForm" class="join-vas__form" [formGroup]="registerForm">
+
+
+      <div class="input-group">
+        <h2 class="heading">
+          create an account
+        </h2>
+        <input type="text" class="blue-input" placeholder="email address" formControlName="EmailAddress" />
+        <span class="error-message"
+          *ngIf="registerForm.get('EmailAddress').invalid && registerForm.get('EmailAddress').dirty">
+          please enter your email
+        </span>
+      </div>
+
+      <div class="input-group">
+        <div class="pLabel">
+          <label class="input-label">password*</label>
+        </div>
+        <div class="password-container">
+          <input type="password" class="blue-input" placeholder="password" formControlName="Password"
+            ngbTooltip="make sure your password is 8 characters long and contains the following: lower case letter, upper case letter, number, and symbol" />
+          <fa-icon [icon]="passwordIcon" class="password-view" (mousedown)="showPassword()"
+            (mouseup)="hidePassword()"></fa-icon>
+        </div>
+        <span class="error-message" *ngIf="registerForm.get('Password').invalid && registerForm.get('Password').dirty">
+          please enter a valid password
+        </span>
+      </div>
+
+      <div class="input-group">
+        <div class="pLabel">
+          <label class="input-label">confirm password*</label>
+        </div>
+        <div class="password-container">
+          <input type="password" class="blue-input" placeholder="password" formControlName="confirmPassword"
+            ngbTooltip="make sure your password is 8 characters long and contains the following: lower case letter, upper case letter, number, and symbol" />
+          <fa-icon [icon]="confirmPasswordIcon" class="password-view" (mousedown)="showConfirmPassword()"
+            (mouseup)="hideConfirmPassword()"></fa-icon>
+        </div>
+        <span class="error-message"
+          *ngIf="registerForm.get('confirmPassword').invalid && registerForm.get('confirmPassword').dirty && !confirmValid">
+          please enter a valid password
+        </span>
+        <span *ngIf="!confirmValid" class="error-message">passwords do not match</span>
+      </div>
+
+
+      <div class="input-group">
+        <label class="input-label">first name</label>
+        <input type="text" class="blue-input" placeholder="first name" formControlName="FirstName" />
+        <span class="error-message"
+          *ngIf="registerForm.get('FirstName').invalid && registerForm.get('FirstName').dirty">
+          please enter your first name
+        </span>
+      </div>
+      <div class="input-group">
+        <label class="input-label">last name</label>
+        <input type="text" class="blue-input" placeholder="last name" formControlName="LastName" />
+        <span class="error-message" *ngIf="registerForm.get('LastName').invalid && registerForm.get('LastName').dirty">
+          please enter your last name
+        </span>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label"  >select country</label>
+        <div class="country-selector">
+          <select class="blue-input" id="country" formControlName="country" (change)="onCountryChange($event)">
+            <option value="">country</option>
+            <option *ngFor="let country of countries" [value]="country.name">{{country.name }}</option>
+          </select>
+        </div>
+        <span class="error-message" *ngIf="registerForm.get('country').invalid && registerForm.get('country').dirty">
+            please enter your country
+          </span>
+      </div>
+
+      <div class="number">
+
+
+        <div class="input-group">
+          <label class="input-label">number</label>
+          <input type="tel" id="phone" class="blue-input" placeholder="mobile" formControlName="MobileNo" />
+          <span class="error-message"
+            *ngIf="registerForm.get('MobileNo').invalid && registerForm.get('MobileNo').dirty">
+            please enter a valid mobile number
+          </span>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">number</label>
+          <input type="tel" class="blue-input" placeholder="WhatsApp" formControlName="WhatsappNo" />
+          <span class="error-message"
+            *ngIf="registerForm.get('WhatsappNo').invalid && registerForm.get('WhatsappNo').dirty">
+            please enter a valid whatsApp number
+          </span>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">select</label>
+        <input type="text" id="province" class="blue-input" placeholder="province" formControlName="province" />
+        <span class="error-message" *ngIf="registerForm.get('province').invalid && registerForm.get('province').dirty">
+          please enter your province
+        </span>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">enter town</label>
+        <input type="text" class="blue-input" placeholder="town" formControlName="town" />
+        <span class="error-message" *ngIf="registerForm.get('town').invalid && registerForm.get('town').dirty">
+          please enter your town
+        </span>
+      </div>
+
+
+
+      <!--  <div class="col-md-6 mt-2">
+          <button class="secondary-btn blue-btn" (click)="navigateTo('/auth/login')">back to Sign In</button>
+        </div>-->
+
+          <button class="secondary-btn" (click)="register()">submit</button>
+
+          <p class="input-label">* required</p>
+      <div class="row mt-3">
+        <div class="col-md-12 text-center">
+          <p class="text-danger error-message-section">{{ errorMessage }}</p>
+        </div>
+      </div>
+
+
+  </form>
+</div>

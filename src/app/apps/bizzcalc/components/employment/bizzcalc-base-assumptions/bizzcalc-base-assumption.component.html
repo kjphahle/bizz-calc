@@ -1,0 +1,137 @@
+<div class="container-fluid px-0 bizzcalc-days-worked-container bg-white">
+  <div class="bizzcalc__container">
+    <!-- <pre>{{employmentForm.value | json }}</pre> -->
+    <!-- <pre>{{employees | json}}</pre> -->
+    <!-- <pre>{{ startDate }}</pre> -->
+    <div class="form-container">
+      <div class="col-12 bizzcalc__column">
+        <app-info-title [title]="'base assumption'"></app-info-title>
+      </div>
+
+      <!-- <pre>{{ customMonths | json }}</pre> -->
+
+      <div class="col-12 bizzcalc__column pt-3">
+        <p>Emp</p>
+        <form [formGroup]="employmentForm">
+          <div class="row">
+            <div class="col-7 col-md-6">
+            
+              <app-bizzbean-form-label
+                [label]="'employment month'"
+              ></app-bizzbean-form-label>
+            </div>
+            <div class="col-5 ps-0 col-md-6">
+              <app-bizzbean-nav-control
+                [customMonths]="customMonths"
+                [btnLabel]="employmentMonthNum?.month"
+                (arrowCircleRightClicked)="onArrowCircleRightClicked($event)"
+                (arrowCircleLeftClicked)="onArrowCircleLeftClicked($event)"
+              ></app-bizzbean-nav-control>
+            </div>
+          </div>
+          <!-- Row: job title -->
+          <div class="row pt-2">
+            <div class="col-6 col-md-6">
+              <app-bizzbean-input-control
+  [id]="'jobTitle'"
+  [label]="'Job Title'"
+  [placeholder]="'  Job Title'"
+  formControlName="jobTitle"
+>
+</app-bizzbean-input-control>
+
+
+
+
+<div class="invalid-feedback">Please choose a username.</div>
+
+
+
+              <!-- <input type="text" class="primary-input" placeholder="job title" [(ngModel)]="employee.jobTitle"/> -->
+            </div>
+            <div class="col-3 col-md-2">
+              <app-bizzbean-input-control
+                [id]="'numberEmployed'"
+                [label]="'Number of Employees'"
+                [placeholder]="'Enter a number'"
+                formControlName="NumberOfEmployees"
+                type="number"
+                (keypress)="preventNonNumericInput($event)"
+              ></app-bizzbean-input-control>
+            </div>
+            <div class="col-3 col-md-4">
+              <app-bizzbean-input-control
+                [id]="'monthlyBaseRate'"
+                [label]="'rate'"
+                [placeholder]="'rate'"
+                formControlName="EmployeeSalary"
+              ></app-bizzbean-input-control>
+              <!-- <input type="text" class="primary-input" placeholder="1,000%" [(ngModel)]="employee.employeeRate"/> -->
+            </div>
+          </div>
+          <div class="row pt-3">
+            <div class="col-12 col-md-12">
+              <app-bizzbean-form-label
+                [label]="'base rate review 1'"
+              ></app-bizzbean-form-label>
+            </div>
+          </div>
+          <div class="row pt-2">
+            <div class="col-6 col-md-12">
+              <div class="h-100" style="padding-top: 25px">
+                <app-bizzbean-nav-control
+                  [customMonths]="baseRateCustomMonths"
+                  [btnLabel]="baseRateMonthNum?.month"
+                  (arrowCircleRightClicked)="
+                    onBaseRateArrowCircleRightClicked($event)
+                  "
+                  (arrowCircleLeftClicked)="
+                    onBaseRateArrowCircleLeftClicked($event)
+                  "
+                ></app-bizzbean-nav-control>
+              </div>
+            </div>
+            <div class="col-6 col-md-12">
+              <app-bizzbean-input-control
+                [id]="'Percent'"
+                [label]="'% rate'"
+                [placeholder]="'% rate'"
+                formControlName="ReviewPercentage"
+                type="number"
+              ></app-bizzbean-input-control>
+            </div>
+
+            
+          </div>
+          <div class="row d-none">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <app-bizzbean-input-control
+                [id]="'rate'"
+                [label]="'% rate'"
+                [placeholder]="'% rate'"
+                formControlName="ReviewPercentage"
+                type="number"
+              ></app-bizzbean-input-control>
+            </div>
+          </div>
+   
+
+          <p-toast position="center" key="br" />
+          <div class="row">
+            <div class="col-md-6">
+              <button
+                class="primary-btn"
+                style="margin-top: 10px"
+                (click)="onAddPositionClicked()"
+              >
+                add data
+              </button>
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

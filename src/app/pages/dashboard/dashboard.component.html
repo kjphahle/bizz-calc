@@ -1,0 +1,37 @@
+<div class="dashboard">
+  <div class="row mt-3">
+    <h3 class="mb-4">Welcome {{ username }}</h3>
+    
+    <!-- Welcome Section -->
+    <div class="col-md-4 mb-3">
+      <ng-container *ngFor="let dashboard of allDashboards">
+        <div class="dashboard__card" *ngIf="dashboard.productCode === 'BN-001'">
+          <img [src]="'https://api.asone.global/api/BizzBean/v1/image/' + dashboard.media1" alt="Welcome Image"
+            class="new-img" />
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- What's New Section -->
+    <div class="col-md-4 mb-3">
+     <!-- <h3 class="mb-4">what is new</h3>
+      <ng-container *ngFor="let dashboard of allDashboards">
+        <div class="dashboard__card" *ngIf="dashboard.productCode === 'BN-002'">
+          <img [src]="'https://api.asone.global/api/BizzBean/v1/image/' + dashboard.media3" alt="What's New Image"
+            class="new-img" />
+        </div>
+      </ng-container>-->
+      <div class="dashboard__card">
+        <img [src]="currentWhatsNewImage" *ngIf="currentWhatsNewImage" class="new-img"/>
+      </div>
+    </div>
+
+    <!--A thought-->
+    <div class="col-md-4 mb-3">
+     <!-- <h3 class="mb-4">a thought</h3>-->
+      <div class="dashboard__card">
+        <img [src]="currentImage" *ngIf="currentImage" class="new-img"/>
+      </div>
+
+  </div>
+</div>
