@@ -52,7 +52,7 @@ export class BizzbeanNavControlComponent
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['customMonths']) {
-      this.arrowCircleLeftClicked.emit(this.customMonths[0]);
+      // this.arrowCircleLeftClicked.emit(this.customMonths[0]);
       // this.btnLabel = this.customMonths[0].monthNo;
     }
 

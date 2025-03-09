@@ -1,18 +1,16 @@
 <div class="container-fluid px-0 bizzcalc-days-worked-container bg-white">
 
-    <app-bizzcalc-header
-  [showLeftIcon]="true"
-  [showRightIcon]="true"
-  [title]="'operating expenses'"
-  [leftIconRoute]="'/main/bizzcalc/employment'"
-  [rightIconRoute]="'/main/bizzcalc/fixed-assets'">
-</app-bizzcalc-header>
+  <app-bizzcalc-header [showLeftIcon]="true" [showRightIcon]="true" [title]="'operating expenses'"
+    [leftIconRoute]="'/main/bizzcalc/employment'" [rightIconRoute]="'/main/bizzcalc/fixed-assets'">
+  </app-bizzcalc-header>
 
   <div class="col-12 bizzcalc__column bizzcalc__container pb-0">
     <app-info-title [title]="'base assumption'" (click)="openModalWithDynamicContent()"></app-info-title>
   </div>
   <div class="col-12  pt-0 bizzcalc__column bg-white pb-2">
     <div class="form-container" [formGroup]="operatingExpenseForm">
+
+      <pre>{{operatingExpenseForm.value | json}}</pre>
       <!-- Expense base value -->
       <!-- Row 1 Select expense-->
       <div class="row bizzcalc-row">
@@ -30,13 +28,17 @@
           <small class="instructiontextcolour">expense base value</small>
         </div>
         <div class="col-6 col-md-6">
-          <input  type="number" class="primary-input" placeholder=">1" formControlName="Allocation" />
+          <input type="number" class="primary-input" placeholder=">1" formControlName="Allocation" />
         </div>
 
-        <small *ngIf="operatingExpenseForm.get('Allocation')?.hasError('required') && operatingExpenseForm.get('allocation')?.touched" class="text-danger error-message-section">
+        <small
+          *ngIf="operatingExpenseForm.get('Allocation')?.hasError('required') && operatingExpenseForm.get('allocation')?.touched"
+          class="text-danger error-message-section">
           Allocation is required.
         </small>
-        <small *ngIf="operatingExpenseForm.get('Allocation')?.hasError('min') && operatingExpenseForm.get('allocation')?.touched" class="text-danger error-message-section">
+        <small
+          *ngIf="operatingExpenseForm.get('Allocation')?.hasError('min') && operatingExpenseForm.get('allocation')?.touched"
+          class="text-danger error-message-section">
           Allocation must be greater than 1.
         </small>
 
@@ -48,11 +50,8 @@
 
         </div>
         <div class="col-4">
-          <app-bizzbean-nav-control
-
-          [btnLabel]="baseRateCustomMonths[0].monthNo"
-          [customMonths]="baseRateCustomMonths" formControlName="AdjustmentMonth"
-            (arrowCircleRightClicked)="
+          <app-bizzbean-nav-control [btnLabel]="adjustmentMonthCtrl?.value" [customMonths]="baseRateCustomMonths"
+            formControlName="AdjustmentMonth" (arrowCircleRightClicked)="
           onArrowCircleRightClicked($event)
         " (arrowCircleLeftClicked)="
           onArrowCircleLeftClicked($event)
@@ -61,41 +60,44 @@
         <div class="col-4">
           <input type="number" class="primary-input" placeholder="-99-100%" formControlName="Adjustment" />
         </div>
-
-        <small *ngIf="operatingExpenseForm.get('Adjustment')?.hasError('required') && operatingExpenseForm.get('adjustment')?.touched" class="text-danger error-message-section">
-      Adjustment is required.
-    </small>
-    <small *ngIf="operatingExpenseForm.get('Adjustment')?.hasError('min') && operatingExpenseForm.get('adjustment')?.touched" class="text-danger error-message-section">
-      Adjustment cannot be less than -99.
-    </small>
-    <small *ngIf="operatingExpenseForm.get('Adjustment')?.hasError('max') && operatingExpenseForm.get('adjustment')?.touched" class="text-danger error-message-section">
-      Adjustment cannot be greater than 100.
-    </small>
-
+        @if(adjustmentCtrl?.hasError('required') && adjustmentCtrl?.touched){
+        <small class="text-danger error-message-section"> Adjustment is required. </small>
+        }@else if(adjustmentCtrl?.hasError('min') && adjustmentCtrl?.touched){
+        <small class="text-danger error-message-section"> Adjustment cannot be less than -99.</small>
+        } @else if(adjustmentCtrl?.hasError('max') && adjustmentCtrl?.touched){
+        <small class="text-danger error-message-section">
+          Adjustment cannot be greater than 100.
+        </small>
+        }
       </div>
       <!-- Month and rate -->
       <!-- add data button -->
       <div class="row pt-2">
         <div class="col-md-12">
           <div class="d-flex justify-content-between">
-            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;" (click)="saveExpense()">add data</button>
-            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;" (click)="onViewDataBtnClicked()">view data</button>
-            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;" (click)="onSaveBtnClicked()">save</button>
+            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;" (click)="saveExpense()">add
+              data</button>
+            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
+              (click)="onViewDataBtnClicked()">view data</button>
+            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
+              (click)="onSaveBtnClicked()">save</button>
           </div>
         </div>
-        </div>
-        <div class="col-md-6"></div>
       </div>
+      <div class="col-md-6"></div>
     </div>
   </div>
+</div>
 
-  <p-toast position="center" key="br" />
+<p-toast position="center" key="br" />
 
-  <div class="bizzbean-action-buttons d-none" style="margin-top: 132px">
-    <div class="col-12 bizzcalc__column bg-white pb-2">
-      <div class="d-flex justify-content-between">
-        <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;" (click)="onViewDataBtnClicked()">view data</button>
-        <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;" (click)="onSaveBtnClicked()">save</button>
-      </div>
+<div class="bizzbean-action-buttons d-none" style="margin-top: 132px">
+  <div class="col-12 bizzcalc__column bg-white pb-2">
+    <div class="d-flex justify-content-between">
+      <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
+        (click)="onViewDataBtnClicked()">view data</button>
+      <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
+        (click)="onSaveBtnClicked()">save</button>
+    </div>
   </div>
 </div>

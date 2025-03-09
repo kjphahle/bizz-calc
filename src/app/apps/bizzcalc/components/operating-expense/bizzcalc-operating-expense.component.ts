@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { Expense, Expense2 } from '../../models/Expense';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { BizzCalcService } from '../../services/bizz-calc.service';
@@ -49,23 +49,10 @@ export class OperatingExpenseComponent implements OnInit {
     private bizzCalcService: BizzCalcService,
     private modalService: NgbModal
   ) {
-    this.generateOperatingExpenseForm();
-  
-    // Adding validators to the form
-    this.operatingExpenseForm = this.formBuilder.group({
-      Allocation: [
-        null, // Default value
-        [Validators.required, Validators.min(1)] // Validator: required and greater than 1
-      ],
-      Adjustment: [
-        null, // Default value
-        [Validators.required, Validators.min(-99), Validators.max(100)] // Validator: between -99 and 100
-      ]
-    });
   }
-  
+
   employees: Employee[] = [];
-  
+
   public onViewDataBtnClicked(): void {
     this.modalRef = this.modalService.open(OperatingExpensesModalComponent, {
       ariaLabelledBy: 'modal-basic-title',
@@ -116,17 +103,17 @@ export class OperatingExpenseComponent implements OnInit {
       }
     );
   }
-  
+
 
   public onSaveBtnClicked(): void {
     // Mark all fields as touched to trigger validation errors if any
     this.operatingExpenseForm.markAllAsTouched();
-  
+
     if (this.operatingExpenseForm.valid) {
       const expenses = {
         Expenses: this.expenses,
       };
-  
+
       this.bizzCalcService.PostOperatingExpense(expenses).subscribe({
         next: (data) => {
           this.bizzCalcService.showToastMessage(
@@ -155,44 +142,47 @@ export class OperatingExpenseComponent implements OnInit {
       );
     }
   }
-  
+
 
   public openModalWithDynamicContent() {
     const modalRef = this.modalService.open(BaseAssumptionModalComponent, {
       backdropClass: 'custom-backdrop',
     });
-  
+
     modalRef.componentInstance.title = 'operating expense';
     modalRef.componentInstance.contentHtml = `
     <div class="custom-modal-content">
     <p>    To determine the operating expenses of your business, enter the data required in the blue fields.</p>
-    
+
     <ul>
       <li>
       scroll through the pre-determined expense list and select those appropriate to your business.</li>
-      
+
       <li>enter the monthly base value for the expense.</li>
       <li> use the slider to choose the month of review and insert a rate %.</li>
-      
+
       <li>click on the view data button to review and amend your decisions, if necessary.</li>
       <li>save the data.</li>
     </ul>
     </div> `;
   }
+
+  public reviewMonth = this.bizzCalcService.reviewMonth;
+
   private generateOperatingExpenseForm(): void {
     this.operatingExpenseForm = this.formBuilder.group({
       GLID: [''],
-      AdjustmentMonth: [''],
-      Adjustment: [''],
-      Allocation: [''],
+      AdjustmentMonth: [this.reviewMonth()],
+      Adjustment: ['', [Validators.required, Validators.min(-99), Validators.max(100)]],
+      Allocation: ['', [Validators.required, Validators.min(1)]],
     });
   }
   ngOnInit(): void {
-    const startingMonth = this.bizzCalcService.getMonthNumber();
+    const startingMonth = this.bizzCalcService.businessStartMonth();
+    const reviewMonth = this.bizzCalcService.reviewMonth();
     const startMonth = startingMonth + 1;
     this.baseRateCustomMonths = this.bizzCalcService.configureMonthsArray(
       startMonth > 12 ? 1 : startMonth,
-      
     );
 
     this.bizzCalcService.getExpensesList().subscribe({
@@ -200,20 +190,31 @@ export class OperatingExpenseComponent implements OnInit {
         this.categories = fixedAssets;
       },
     });
+
+    this.generateOperatingExpenseForm();
   }
 
   onArrowCircleRightClicked(event: ICustomMonths): void {
     // this.employmentMonthNum = event;
+    let month = this.reviewMonth() + 1;
+    if(month > 12) {
+      month = 1;
+    }
     this.operatingExpenseForm
       .get('AdjustmentMonth')
-      .setValue('mth - ' + event?.monthNo);
+      .setValue('mth - ' + month);
   }
 
+  public leftClicked = false;
   onArrowCircleLeftClicked(event: ICustomMonths): void {
+    let month = this.reviewMonth() - 1;
+    if(month === 0) {
+      month = 12;
+    }
     this.baseRateMonthNum = event;
     this.operatingExpenseForm
       .get('AdjustmentMonth')
-      .setValue('mth - ' + this.baseRateMonthNum.monthNo);
+      .setValue('mth - ' + event.monthNo);
   }
 
   onBaseRateArrowCircleRightClicked(event: ICustomMonths): void {
@@ -235,8 +236,7 @@ export class OperatingExpenseComponent implements OnInit {
   }
 
   saveExpense() {
-    this.operatingExpenseForm.markAllAsTouched(); // Highlight all errors
-  
+    debugger
     if (this.operatingExpenseForm.valid) {
       const idExists = this.expenses.some(
         (expense) => expense.GLID === this.expense.GLID
@@ -253,17 +253,17 @@ export class OperatingExpenseComponent implements OnInit {
         );
       }
     } else {
-      // Optional: show global error toast if necessary
-      this.bizzCalcService.showToastMessage(
-        '',
-        '',
-        'please fix the errors in the form',
-        3000
-      );
+      this.operatingExpenseForm.markAllAsTouched();
+      // this.bizzCalcService.showToastMessage(
+      //   '',
+      //   '',
+      //   'please fix the errors in the form',
+      //   3000
+      // );
     }
   }
-  
-  
+
+
   deleteExpense() {
     // const index = this.expenses.findIndex(
     //   (expense) =>
@@ -277,5 +277,17 @@ export class OperatingExpenseComponent implements OnInit {
   }
   editExpense(expense) {
     this.expense = expense;
+  }
+
+  get adjustmentCtrl() {
+    return this.operatingExpenseForm.get("Adjustment")
+  }
+
+  get adjustmentMonthCtrl() {
+    return this.operatingExpenseForm.get("AdjustmentMonth")
+  }
+
+  get GLIDCtrl() {
+    return this.operatingExpenseForm.get("GLID")
   }
 }

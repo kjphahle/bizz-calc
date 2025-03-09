@@ -20,9 +20,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": {
-              "base": "dist/Bizzbean"
-            },
+            "browser": "src/main.ts",
+            "outputPath": "dist/Bizzbean",
             "index": "src/index.html",
             "polyfills": [
               "src/polyfills.ts"
@@ -46,12 +45,7 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "browser": "src/main.ts",
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "."
-              ]
-            }
+            "inlineStyleLanguage": "scss"
           },
           "configurations": {
             "production": {

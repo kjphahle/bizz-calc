@@ -270,16 +270,16 @@ ngb-modal-backdrop.modal-backdrop.fade.show {
 
 @import "./bizzcalc-styles";
 /* Importing Bootstrap SCSS file. */
-@import "./node_modules/bootstrap/scss/bootstrap";
+// @import "./node_modules/bootstrap/dist/css/bootstrap.css";
 
 /* Importing Datepicker SCSS file. */
-@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+// @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
 /* Importing Bootstrap SCSS file. */
-@import "./node_modules/bootstrap/scss/bootstrap";
+// @import "./node_modules/bootstrap/scss/bootstrap";
 
 /* Importing Datepicker SCSS file. */
-@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+// @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
 input#scenario-start-date,
 input#holiday-start-date,

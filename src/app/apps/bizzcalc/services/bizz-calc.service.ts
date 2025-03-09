@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -126,6 +126,20 @@ export class BizzCalcService {
     return this.http.get<any>(`${this.apiUrl}BBReport/${reportId}`, {
       headers,
     });
+  }
+
+
+
+
+  businessStartMonth = signal(0);
+  reviewMonth = signal(0);
+
+  setBusinessStartMonth(startMonth: number) {
+    this.businessStartMonth.set(startMonth);
+  }
+
+  setReviewMonth(reviewMonth: number) {
+    this.reviewMonth.set(reviewMonth);
   }
 
   public getMonthNumber(): number {

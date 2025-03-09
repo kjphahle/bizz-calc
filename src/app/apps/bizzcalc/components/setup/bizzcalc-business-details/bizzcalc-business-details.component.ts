@@ -31,7 +31,7 @@ export class BizzcalcBusinessDetailsComponent implements OnInit {
   }`;
   public bsConfig: Partial<BsDatepickerConfig>;
 
-  
+
 
   public minDate = new Date();
   versions = [
@@ -93,8 +93,15 @@ export class BizzcalcBusinessDetailsComponent implements OnInit {
   }
 
   public onDateValueChange(event: Date): void {
-    // this.bizzCalcService.setScenarioStartDate(event);
     this.bizzCalcService.setUpStartDate = event;
+    const month = event.getMonth() + 1;
+    if(month === 12) {
+      this.bizzCalcService.setReviewMonth(1);
+    } else {
+      this.bizzCalcService.setReviewMonth(month + 1);
+    }
+
+    debugger
   }
 
   public onScenarioNameChange(scenarioName: any): void {
@@ -150,7 +157,7 @@ export class BizzcalcBusinessDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.businessDetailsForm = this.formBuilder.nonNullable.group({
       BusinessName: ['', Validators.required],
-     
+
       VersionNumber: ['LEARN', Validators.required],
       ProjectDate: [new Date(), Validators.required],
       ProjectMonth: ['04', Validators.required],
@@ -171,20 +178,20 @@ export class BizzcalcBusinessDetailsComponent implements OnInit {
   public onSaveBtnClicked(): void {
     // Mark all fields as touched to display validation errors
     this.businessDetailsForm.markAllAsTouched();
-  
+
     if (this.businessDetailsForm.valid) {
       console.log("Valid");
-  
+
       // Extract form values
       const businessDetails = this.businessDetailsForm.value;
-  
+
       // Create payload for API
       const businessDetailsData = {
         BusinessName: businessDetails.BusinessName,
         ScenarionName: businessDetails.VersionNumber,
         StartMonth: `${businessDetails.ProjectMonth}/${businessDetails.ProjectYear}`,
       };
-  
+
       // Call service to save data
       this.bizzCalcService.createBusinessDetails(businessDetailsData).subscribe({
         next: (response) => {
@@ -216,32 +223,32 @@ export class BizzcalcBusinessDetailsComponent implements OnInit {
     const modalRef = this.modalService.open(BaseAssumptionModalComponent, {
       backdropClass: 'custom-backdrop',
     });
-  
+
     modalRef.componentInstance.title = 'business details';
     modalRef.componentInstance.contentHtml = `
-   
+
     <div class="custom-modal-content">
-    
+
     <p>Consider your business name carefully because it cannot be changed.
     </p>
-    <p>There are four business scenarios, as listed in the dropdown menu. 
-      Each scenario is named for an intended purpose as described in a downloadable 
+    <p>There are four business scenarios, as listed in the dropdown menu.
+      Each scenario is named for an intended purpose as described in a downloadable
       video called Learn how to Earn access to CAPITAL.</p>
-      <p> The app only recognizes complete months. In other words, all transactions 
-      will be assumed to start on the first day of each month. This will apply to 
-      all expenses and depreciation calculations. The start month will be recognized 
+      <p> The app only recognizes complete months. In other words, all transactions
+      will be assumed to start on the first day of each month. This will apply to
+      all expenses and depreciation calculations. The start month will be recognized
       as the first month of trading. So, if you chose to start your business in March,
        March will be recognized as month 1. April will be month 2 and so on.
       </p>
     <ul>
-      
-     
+
+
     </ul>
     </div>
- 
+
     `;
   }
-  
+
   // Helper method to get invalid field names
   private getInvalidFields(): string[] {
     const invalidFields: string[] = [];
