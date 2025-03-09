@@ -100,8 +100,6 @@ export class BizzcalcBusinessDetailsComponent implements OnInit {
     } else {
       this.bizzCalcService.setReviewMonth(month + 1);
     }
-
-    debugger
   }
 
   public onScenarioNameChange(scenarioName: any): void {

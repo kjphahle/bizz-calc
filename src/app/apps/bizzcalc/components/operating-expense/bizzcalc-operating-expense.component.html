@@ -10,7 +10,7 @@
   <div class="col-12  pt-0 bizzcalc__column bg-white pb-2">
     <div class="form-container" [formGroup]="operatingExpenseForm">
 
-      <pre>{{operatingExpenseForm.value | json}}</pre>
+      <!-- <pre>{{operatingExpenseForm.value | json}}</pre> -->
       <!-- Expense base value -->
       <!-- Row 1 Select expense-->
       <div class="row bizzcalc-row">
@@ -50,12 +50,14 @@
 
         </div>
         <div class="col-4">
+          <!-- <pre>{{adjustmentMonthCtrl?.value}}</pre> -->
           <app-bizzbean-nav-control [btnLabel]="adjustmentMonthCtrl?.value" [customMonths]="baseRateCustomMonths"
-            formControlName="AdjustmentMonth" (arrowCircleRightClicked)="
-          onArrowCircleRightClicked($event)
-        " (arrowCircleLeftClicked)="
-          onArrowCircleLeftClicked($event)
-        "></app-bizzbean-nav-control>
+            formControlName="AdjustmentMonth"
+            [currentMonthIndex]="reviewMonth() - 1"
+            (arrowCircleLeftClicked)="onArrowCircleLeftClicked($event)"
+            (arrowCircleRightClicked)="onArrowCircleRightClicked($event)"
+            >
+          </app-bizzbean-nav-control>
         </div>
         <div class="col-4">
           <input type="number" class="primary-input" placeholder="-99-100%" formControlName="Adjustment" />
@@ -71,6 +73,7 @@
         }
       </div>
       <!-- Month and rate -->
+      <!-- <pre>{{operatingExpenseForm?.value | json}}</pre> -->
       <!-- add data button -->
       <div class="row pt-2">
         <div class="col-md-12">

@@ -172,7 +172,7 @@ export class OperatingExpenseComponent implements OnInit {
   private generateOperatingExpenseForm(): void {
     this.operatingExpenseForm = this.formBuilder.group({
       GLID: [''],
-      AdjustmentMonth: [this.reviewMonth()],
+      AdjustmentMonth: ["mth - " +this.reviewMonth()],
       Adjustment: ['', [Validators.required, Validators.min(-99), Validators.max(100)]],
       Allocation: ['', [Validators.required, Validators.min(1)]],
     });
@@ -195,40 +195,21 @@ export class OperatingExpenseComponent implements OnInit {
   }
 
   onArrowCircleRightClicked(event: ICustomMonths): void {
-    // this.employmentMonthNum = event;
-    let month = this.reviewMonth() + 1;
+    let month = event.monthNo;
     if(month > 12) {
       month = 1;
     }
-    this.operatingExpenseForm
-      .get('AdjustmentMonth')
-      .setValue('mth - ' + month);
+    this.operatingExpenseForm.get('AdjustmentMonth').setValue('mth - ' + month);
   }
 
   public leftClicked = false;
   onArrowCircleLeftClicked(event: ICustomMonths): void {
-    let month = this.reviewMonth() - 1;
+    let month = event.monthNo;
     if(month === 0) {
       month = 12;
     }
     this.baseRateMonthNum = event;
-    this.operatingExpenseForm
-      .get('AdjustmentMonth')
-      .setValue('mth - ' + event.monthNo);
-  }
-
-  onBaseRateArrowCircleRightClicked(event: ICustomMonths): void {
-    this.baseRateMonthNum = event;
-    // this.employmentForm
-    //   .get('EmploymentMonth')
-    //   .setValue('mth - ' + this.baseRateMonthNum.monthNo);
-  }
-
-  onBaseRateArrowCircleLeftClicked(event: ICustomMonths): void {
-    this.baseRateMonthNum = event;
-    // this.employmentForm
-    //   .get('EmploymentMonth')
-    //   .setValue('mth - ' + this.baseRateMonthNum.monthNo);
+    this.operatingExpenseForm.get('AdjustmentMonth').setValue('mth - ' + month);
   }
 
   public onCategoryChange($event: any): void {
@@ -236,7 +217,6 @@ export class OperatingExpenseComponent implements OnInit {
   }
 
   saveExpense() {
-    debugger
     if (this.operatingExpenseForm.valid) {
       const idExists = this.expenses.some(
         (expense) => expense.GLID === this.expense.GLID

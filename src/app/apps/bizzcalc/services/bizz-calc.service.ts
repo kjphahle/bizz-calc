@@ -129,10 +129,8 @@ export class BizzCalcService {
   }
 
 
-
-
-  businessStartMonth = signal(0);
-  reviewMonth = signal(0);
+  businessStartMonth = signal(1);
+  reviewMonth = signal(1);
 
   setBusinessStartMonth(startMonth: number) {
     this.businessStartMonth.set(startMonth);

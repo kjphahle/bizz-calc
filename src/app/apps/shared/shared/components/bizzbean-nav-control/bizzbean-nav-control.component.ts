@@ -42,6 +42,7 @@ export class BizzbeanNavControlComponent
 {
   faArrowCircleLeft = faArrowCircleLeft;
   faArrowAltCircleRight = faArrowAltCircleRight;
+  @Input()
   public currentMonthIndex = 0;
   @Input() btnLabel;
   @Input() customMonths: ICustomMonths[] = [];
@@ -77,7 +78,8 @@ export class BizzbeanNavControlComponent
   }
 
   public onArrowCircleRight(): void {
-    if(this.disableForwardArrow) {
+
+    if(this.disableForwardArrow || this.currentMonthIndex === 11) {
       return;
     }
     if (this.currentMonthIndex < 12) {
