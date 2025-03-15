@@ -29,16 +29,11 @@ input[type="checkbox"] {
 
 ::ng-deep .test {
   background: #10637c;
-  width: 250px !important;
+  width: 100% !important;
   color: white !important;
-  margin: auto !important;
-  padding-left: 17px;
   font-size: 15px;
   font-family: "Roboto";
   text-align: center;
-  height: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
 
 ::ng-deep .p-toast-icon-close {
@@ -50,7 +45,7 @@ input[type="checkbox"] {
 
 
 .instructiontextcolour {
- 
+
   font-family: 'Roboto', sans-serif;
   font-size: 12px !important;
   color: #5085b6;

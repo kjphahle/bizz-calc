@@ -86,7 +86,7 @@ export class BizzcalcBaseAssumptionComponent implements OnChanges, OnInit {
             this.bizzCalcService.showToastMessage(
               'success',
               '',
-              'Employment details saved successfully.',
+              'Employment details saved',
               3000
             );
           },
@@ -106,18 +106,18 @@ export class BizzcalcBaseAssumptionComponent implements OnChanges, OnInit {
 
   public preventNonNumericInput(event: KeyboardEvent): void {
     const allowedKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Delete', 'Tab'];
-  
+
     // Allow special keys like backspace, arrow keys, delete, and tab
     if (allowedKeys.includes(event.key)) {
       return;
     }
-  
+
     // Allow only numeric keys (0-9)
     if (!/^[0-9]$/.test(event.key)) {
       event.preventDefault();
     }
   }
-  
+
 
   openDeleteModal(employee: any, content: any) {
     this.selectedItem = employee;
@@ -164,7 +164,7 @@ export class BizzcalcBaseAssumptionComponent implements OnChanges, OnInit {
       ],
       EmployeeSalary: [0, Validators.required],
       ReviewMonth: [this.baseRateReviewMonth, Validators.required],
-    
+
       ReviewPercentage: [
         null, // Default value
         [0,Validators.required, Validators.min(0), Validators.max(100)], // Validation rules
@@ -257,7 +257,7 @@ export class BizzcalcBaseAssumptionComponent implements OnChanges, OnInit {
     }
   }
 
-  
+
   public onSaveBtnClicked(): void {
     //   alert('businessDaysWorked ');
     //   console.dir(businessDaysWorked);

@@ -120,7 +120,7 @@ export class BizzcalcComponent implements OnInit {
           //   Deposits: null,
           //   PettyCash: null,
           // };
-          console.log('Funding calculator saved successfully', response);
+          console.log('Funding calculator saved', response);
         },
         (error) => {
           console.error('Error saving funding calculator', error);

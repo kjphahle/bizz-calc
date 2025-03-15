@@ -13,7 +13,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BizzcalcFundingCalculatorComponent {
   fundingCalculatorForm: FormGroup;
- 
+
 
   constructor(private router: Router, private bizzCalcService: BizzCalcService,private modalService: NgbModal) {
     this.fundingCalculatorForm = new FormGroup({
@@ -24,7 +24,7 @@ export class BizzcalcFundingCalculatorComponent {
       ReceivablesDays: new FormControl('', [Validators.required, Validators.min(0), Validators.max(90)],),
       PayablesDays: new FormControl('', [Validators.required,Validators.min(0),Validators.max(90),]),
     });
-    
+
   }
 
   public goToBaseAssumptions() {
@@ -50,7 +50,7 @@ export class BizzcalcFundingCalculatorComponent {
         <P>working capital days</p>
         <ul>
           <li>Enter the number of days anticipated for each working capital element.</li>
-          
+
           <li>
           enter the number of days anticipated for each working capital element .</li>
           </ul>
@@ -68,17 +68,17 @@ export class BizzcalcFundingCalculatorComponent {
   public onSaveClicked(): void {
     // Mark all fields as touched to trigger validation feedback
     this.fundingCalculatorForm.markAllAsTouched();
-  
+
     // Check if the form is valid and required fields are filled
     if (this.fundingCalculatorForm.valid && !this.isFieldEmpty()) {
       const fundingCalculator = this.fundingCalculatorForm.value;
-  
+
       this.bizzCalcService.PostFundingCalculator(fundingCalculator).subscribe({
         next: () => {
           this.bizzCalcService.showToastMessage(
             '',
             '',
-            'funding calculator added successfully.',
+            'funding calculator added.',
             3000
           );
         },
@@ -96,7 +96,7 @@ export class BizzcalcFundingCalculatorComponent {
       );
     }
   }
-  
+
   // Example custom check for empty fields
   private isFieldEmpty(): boolean {
     return (
@@ -106,4 +106,3 @@ export class BizzcalcFundingCalculatorComponent {
     }
   }
   ``
-  

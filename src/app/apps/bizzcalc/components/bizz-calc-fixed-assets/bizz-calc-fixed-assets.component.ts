@@ -115,11 +115,11 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
     this.fixedAssetsForm.get('FAPurchaseMonth').setValue(event?.monthNo);
   }
 
- 
+
   private generateFixedAssetsForm(): void {
     this.fixedAssetsForm = this.formBuilder.group({
       FADescription: [
-        '', 
+        '',
         [Validators.required, Validators.minLength(5)] // Required and minimum length of 5 characters
       ],
       FADepreciationRate: [{ value: '', disabled: true }], // Disabled field
@@ -159,7 +159,7 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
         FAPurchaseMonth: this.fixedAssetsForm.get('FAPurchaseMonth')?.value,
         PageNumber: 1, // Default value
       });
-  
+
       // Clear the form after successful addition
       this.fixedAssetsForm.reset();
     } else {
@@ -167,18 +167,18 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
       this.fixedAssetsForm.markAllAsTouched();
     }
   }
-  
+
   public onViewDataBtnClicked(): void {
     if (this.fixedAssets.length > 0) {
       console.log('Fixed Assets Data:', this.fixedAssets);
-  
+
       this.bizzCalcService.showToastMessage(
         'info',
         '',
         `You have ${this.fixedAssets.length} fixed asset(s) added.`,
         3000
       );
-  
+
       // Optionally, you could implement a modal or table to display this data in the UI
       // Example: Emit an event or set a variable to pass data to a table or modal.
     } else {
@@ -190,11 +190,11 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
       );
     }
   }
-  
+
   public onSaveBtnClicked(): void {
     // Mark all fields as touched to display validation errors
     this.fixedAssetsForm.markAllAsTouched();
-  
+
     if (this.fixedAssetsForm.valid) {
       // Prepare the fixedAssets object for submission
       const fixedAssets = {
@@ -209,14 +209,14 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
           PageNumber: asset.PageNumber,
         })),
       };
-  
+
       // Call the service to save the fixed assets
       this.bizzCalcService.createFixedAssets(fixedAssets).subscribe({
         next: () => {
           this.bizzCalcService.showToastMessage(
             'success',
             'Success',
-            'Fixed assets added successfully!',
+            'Fixed assets added',
             3000
           );
           // Clear the form and reset the fixedAssets array
@@ -244,7 +244,7 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
       );
     }
   }
-  
+
   // Helper method to get the names of invalid fields
   private getInvalidFields(): string[] {
     const invalidFields: string[] = [];
@@ -256,8 +256,8 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
     });
     return invalidFields;
   }
-  
-  
+
+
 
   onArrowCircleRightClicked(event: ICustomMonths): void {
     // this.employmentMonthNum = event;

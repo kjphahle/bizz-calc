@@ -196,7 +196,7 @@ export class BizzcalcBusinessDetailsComponent implements OnInit {
           this.bizzCalcService.showToastMessage(
             '',
             '',
-            'business details added successfully',
+            'business details added',
             3000
           );
           this.confirm(); // Proceed with next action after successful save

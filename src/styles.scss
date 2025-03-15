@@ -308,15 +308,13 @@ input#holiday-end-date {
 
 
 .p-toast-center {
-  width: 250px !important;
+  width: 285px !important;
 }
 
 ::ng-deep .test {
   background: #10637c;
-  width: 250px !important;
+  width: 100% !important;
   color: white !important;
-  margin: auto !important;
-  padding-left: 17px;
   font-size: 15px;
   font-family: "Roboto";
 }
@@ -329,3 +327,7 @@ input#holiday-end-date {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button.p-toast-close-button {
+  padding-top: 8px !important;
+}

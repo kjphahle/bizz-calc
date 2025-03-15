@@ -119,7 +119,7 @@ export class OperatingExpenseComponent implements OnInit {
           this.bizzCalcService.showToastMessage(
             'contrast',
             '',
-            'Operating expense saved successfully.',
+            'Operating expense saved',
             3000
           );
         },

@@ -213,7 +213,7 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
       this.bizzCalcService.showToastMessage(
         'contrast',
         '',
-        'holiday added successfully',
+        'holiday added',
         3000
       );
     } else {
@@ -334,7 +334,7 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
           this.bizzCalcService.showToastMessage(
             'success',
             '',
-            'Business days added successfully',
+            'Business days added',
             3000
           );
           this.isSaving = false; // Reset loading state

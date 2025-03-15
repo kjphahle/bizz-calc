@@ -4,16 +4,11 @@
 
 ::ng-deep .test {
   background: #10637c;
-  width: 250px !important;
+  width: 100% !important;
   color: white !important;
-  margin: auto !important;
-  padding-left: 17px;
   font-size: 15px;
   font-family: "Roboto";
   text-align: center;
-  height: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
 .p-toast .p-toast-message-success .p-toast-icon {
   display: none !important;

@@ -61,7 +61,7 @@ export class EmploymentComponent implements AfterViewInit {
             this.bizzCalcService.showToastMessage(
               '',
               '',
-              'employment details saved successfully',
+              'employment details saved',
               3000
             );
           },
@@ -247,7 +247,7 @@ export class EmploymentComponent implements AfterViewInit {
 
       if (empIndex !== -1) {
         this.employees[empIndex] = employee;
-        this.showToast('Employee updated successfully.');
+        this.showToast('Employee updated.');
       } else {
         this.employees.push(employee);
         this.showToast('employee added ');

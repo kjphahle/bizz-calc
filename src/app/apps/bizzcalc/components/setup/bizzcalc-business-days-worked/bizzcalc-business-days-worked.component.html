@@ -68,7 +68,7 @@
           <section class="business-days-form-row d-flex align-items-end">
             <div class="w-100">
               <label class="bizzcalc-form-label" for="holidayName">add holiday</label>
-              <input type="text" id="holidayName" class="primary-input" formControlName="HolidayName" placeholder="holiday name"
+              <input autocomplete="off" type="text" id="holidayName" class="primary-input" formControlName="HolidayName" placeholder="holiday name"
                 required />
               <small class="text-danger error-message-section" *ngIf="
                 holidaysForm.get('HolidayName')?.invalid &&

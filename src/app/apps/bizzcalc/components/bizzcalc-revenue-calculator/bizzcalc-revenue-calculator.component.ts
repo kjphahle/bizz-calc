@@ -257,7 +257,7 @@ export class BizzcalcRevenueCalculatorComponent {
           this.bizzCalcService.showToastMessage(
             'contrast',
             '',
-            'Revenue added successfully.',
+            'Revenue added',
             3000
           );
         },
