@@ -27,13 +27,15 @@ input[type="checkbox"] {
 
 
 
-::ng-deep .test {
+::ng-deep .test, .toast {
   background: #10637c;
+  width: 250px !important;
   width: 100% !important;
   color: white !important;
   font-size: 15px;
   font-family: "Roboto";
   text-align: center;
+  padding: 10px !important;
 }
 
 ::ng-deep .p-toast-icon-close {

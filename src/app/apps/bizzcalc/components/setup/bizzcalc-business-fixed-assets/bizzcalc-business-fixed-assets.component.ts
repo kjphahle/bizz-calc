@@ -8,12 +8,11 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { FixedAssetsCategoriesModalComponent } from '../modals/fixed-assets-categories-modal/fixed-assets-categories-modal.component';
 import { BaseAssumptionModalComponent } from '../modals/base-assumption-modal/base-assumption-modal.component';
 
-
 @Component({
-    selector: 'app-bizzcalc-business-fixed-assets',
-    templateUrl: './bizzcalc-business-fixed-assets.component.html',
-    styleUrls: ['./bizzcalc-business-fixed-assets.component.scss'],
-    standalone: false
+  selector: 'app-bizzcalc-business-fixed-assets',
+  templateUrl: './bizzcalc-business-fixed-assets.component.html',
+  styleUrls: ['./bizzcalc-business-fixed-assets.component.scss'],
+  standalone: false,
 })
 export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
   public assetsCategoryDepreciationForm: FormGroup;
@@ -29,6 +28,37 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
     private modalService: NgbModal,
     private bizzCalcService: BizzCalcService
   ) {}
+
+  public userDepreciationRates = [];
+
+  private getDepreciationRates(): void {
+    this.bizzCalcService.getDepreciationRates().subscribe({
+      next: (depRate) => {
+        console.log(this.categories);
+        this.depreciationRates = [];
+
+        // Build depreciation rates based on categories and fetched data
+        this.categories.forEach((category) => {
+          depRate.forEach((rate) => {
+            const categoryExists = this.depreciationRates.findIndex(
+              (existingRate) => existingRate.CategoryID === rate.CategoryID
+            );
+            if (category.ID === rate.CategoryID && categoryExists === -1) {
+              this.depreciationRates.push({
+                CategoryID: +category.ID,
+                GLDescription: category.GLDescription,
+                ID: category.ID,
+                Rate: rate.DepreciationRate,
+              });
+            }
+          });
+        });
+      },
+      error: (error) => {
+        console.error('Error fetching depreciation rates:', error);
+      },
+    });
+  }
 
   ngOnInit() {
     this.assetsCategoryDepreciationForm = this.formBuilder.nonNullable.group({
@@ -49,23 +79,20 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
         this.assetsCategoryDepreciationForm.get('rate').setValue(0);
       },
     });
+
+    this.getDepreciationRates();
   }
-
-
 
   public onAddDepreciationRate(): void {
     // Check if the form is valid
     if (this.assetsCategoryDepreciationForm.valid) {
-      const categoryRate = this.assetsCategoryDepreciationForm.get('rate')?.value;
+      const categoryRate =
+        this.assetsCategoryDepreciationForm.get('rate')?.value;
 
       // Update the depreciation rates array
-      this.depreciationRates.map((c) => {
-        if (c.CategoryID === this.selectedCategory.ID) {
-          c.Rate = categoryRate ?? 0;
-          c.GLDescription = this.selectedCategory.GLDescription;
-        }
-        return c;
-      });
+      const depreciationRate = this.depreciationRates.filter((c) => c.CategoryID === this.selectedCategory.ID);
+
+      debugger;
 
       // Show success toast message
       this.bizzCalcService.showToastMessage(
@@ -76,7 +103,14 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
       );
 
       // Reset form after success
-      this.assetsCategoryDepreciationForm.reset();
+      // this.assetsCategoryDepreciationForm.reset();
+      if (depreciationRate) {
+        this.userDepreciationRates.push({
+          CategoryID: depreciationRate[0].ID,
+          GLDescription: depreciationRate[0].GLDescription,
+          Rate: categoryRate,
+        });
+      }
     } else {
       // Mark all fields as touched to trigger validation
       this.assetsCategoryDepreciationForm.markAllAsTouched();
@@ -84,77 +118,48 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
   }
 
   public onViewDataBtnClicked(): void {
-    // Fetch depreciation rates from the service
-    this.bizzCalcService.getDepreciationRates().subscribe({
-      next: (depRate) => {
-        console.log(this.categories);
-        this.depreciationRates = [];
+    // Open the modal for fixed assets categories
+    this.modalRef = this.modalService.open(
+      FixedAssetsCategoriesModalComponent,
+      {
+        ariaLabelledBy: 'modal-basic-title',
+        backdropClass: 'custom-backdrop',
+      }
+    );
 
-        // Build depreciation rates based on categories and fetched data
-        this.categories.forEach((category) => {
-          depRate.forEach((rate) => {
-            const categoryExists = this.depreciationRates.findIndex(
-              (existingRate) => existingRate.CategoryID === rate.CategoryID
-            );
-
-            if (category.ID === rate.CategoryID && categoryExists === -1) {
-              this.depreciationRates.push({
-                CategoryID: +category.ID,
-                GLDescription: category.GLDescription,
-                ID: category.ID,
-                Rate: rate.DepreciationRate,
-              });
-            }
-          });
-        });
-
-        // Open the modal for fixed assets categories
-        this.modalRef = this.modalService.open(
-          FixedAssetsCategoriesModalComponent,
-          {
-            ariaLabelledBy: 'modal-basic-title',
-            backdropClass: 'custom-backdrop',
-          }
-        );
-
-        // Pass depreciation rates to the modal
-        this.modalRef.componentInstance.depreciationRates = this.depreciationRates;
-
-        // Handle modal result
-        this.modalRef.result.then(
-          (result: { mode: number; data: IDepreciationRate }) => {
-            if (result.mode === 0) {
-              // Handle mode 0: Remove an item based on GLDescription
-              this.depreciationRates = this.depreciationRates.filter(
-                (item) => item.GLDescription !== result.data.GLDescription
-              );
-            } else if (result.mode === 1) {
-              // Handle mode 1: Update rate in the form
-              this.assetsCategoryDepreciationForm
-                .get('rate')
-                .setValue(result.data.Rate);
-            }
-          },
-          (result) => {
-            console.log('Modal dismissed:', result);
-            if (result.mode === 0) {
-              // Handle mode 0: Remove an item based on GLDescription
-              this.depreciationRates = this.depreciationRates.filter(
-                (item) => item.GLDescription !== result.data.GLDescription
-              );
-            } else if (result.mode === 1) {
-              // Handle mode 1: Update rate in the form
-              this.assetsCategoryDepreciationForm
-                .get('rate')
-                .setValue(result.data.Rate);
-            }
-          }
-        );
+    // Pass depreciation rates to the modal
+    this.modalRef.componentInstance.depreciationRates = this.userDepreciationRates;
+    // Handle modal result
+    this.modalRef.result.then(
+      (result: { mode: number; data: IDepreciationRate }) => {
+        alert(result.mode);
+        if (result.mode === 0) {
+          // Handle mode 0: Remove an item based on GLDescription
+          this.depreciationRates = this.depreciationRates.filter(
+            (item) => item.GLDescription !== result.data.GLDescription
+          );
+        } else if (result.mode === 1) {
+          // Handle mode 1: Update rate in the form
+          this.assetsCategoryDepreciationForm
+            .get('rate')
+            .setValue(result.data.Rate);
+        }
       },
-      error: (error) => {
-        console.error('Error fetching depreciation rates:', error);
-      },
-    });
+      (result) => {
+        console.log('Modal dismissed:', result);
+        if (result.mode === 0) {
+          // Handle mode 0: Remove an item based on GLDescription
+          this.userDepreciationRates = this.userDepreciationRates.filter(
+            (item) => item.GLDescription !== result.data.GLDescription
+          );
+        } else if (result.mode === 1) {
+          // Handle mode 1: Update rate in the form
+          this.assetsCategoryDepreciationForm
+            .get('rate')
+            .setValue(result.data.Rate);
+        }
+      }
+    );
   }
 
   public openModalWithDynamicContent() {
@@ -177,31 +182,30 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
     `;
   }
 
-
   public onSaveClicked(): void {
     if (this.assetsCategoryDepreciationForm.valid) {
-      this.bizzCalcService.createDepreciationAsset(this.depreciationRates).subscribe({
-        next: () => {
-          this.bizzCalcService.showToastMessage(
-            'contrast',
-            '',
-            'Fixed assets added.',
-            3000
-          );
+      this.bizzCalcService
+        .createDepreciationAsset(this.depreciationRates)
+        .subscribe({
+          next: () => {
+            this.bizzCalcService.showToastMessage(
+              'contrast',
+              '',
+              'Fixed assets added.',
+              3000
+            );
 
-          // Reset the form after successful submission
-          this.assetsCategoryDepreciationForm.reset();
-        },
-      });
+            // Reset the form after successful submission
+            this.assetsCategoryDepreciationForm.reset();
+          },
+        });
     } else {
       // Mark all fields as touched to trigger validation errors
       this.assetsCategoryDepreciationForm.markAllAsTouched();
     }
   }
 
-
   public onCategoryChange($event: any): void {
-
     if ($event) {
       this.assetsCategoryDepreciationForm.get('rate').setValue(null);
       this.assetsCategoryDepreciationForm
@@ -221,7 +225,6 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
       }
     }
   }
-
 
   private createHolidayGroup() {}
 }

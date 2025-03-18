@@ -13,6 +13,7 @@ import {
 import { HolidaysModalComponent } from '../modals/holidays-modal/holidays-modal.component';
 import { DatePipe } from '@angular/common';
 import { BaseAssumptionModalComponent } from '../modals/base-assumption-modal/base-assumption-modal.component';
+import { IHolidayResponse } from '../../../models/holidays.interface copy';
 
 
 @Component({
@@ -69,6 +70,33 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
       PageNumber: [''],
       // Ensure 'required' validator is added
     });
+
+    this.getBusinessDays();
+
+  }
+
+  private getBusinessDays(): void {
+    this.bizzCalcService.getBusinessDays().subscribe({
+      next: (data) => {
+        console.dir(data);
+        this.updateNonWorkingDaysForm(data);
+        this.holidays = data.Holiday;
+        this.holidays.map(c => {
+          c.DateEnd = this.convertDateFormat(c.DateEnd).replace(/\//g, "/"),
+          c.DateStart = this.convertDateFormat(c.DateStart).replace(/\//g, "/")
+          return c;
+        })
+      },
+      error: (err) => {
+        console.dir(err);
+      }
+      ,
+    });
+  }
+
+  private updateNonWorkingDaysForm(holidayResponse: IHolidayResponse): void {
+
+    this.updateDaysWorked(holidayResponse);
   }
 
 
@@ -112,54 +140,33 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
       3000
     );
 
-    this.bizzCalcService.getBusinessDetails().subscribe({
-      next: (days) => {
-        this.updateDaysWorked(days);
-        // this.holidaysForm.get("updateDaysWorked").setValue(days.);
-      },
-    });
-
-
     this.holidaysForm.get("HolidayStartDt").valueChanges.subscribe({next: date => {
       this.holidaysForm.get("HolidayEndDt").setValue(date);
     }})
-
-    // alert(this.bizzCalcService.setUpStartDate);
-
-    // this.bizzCalcService.scenarioStartDate$.subscribe({next: date => {
-    //   console.log("****************************************");
-    //   // this.minDate = date;
-    //   // this.minDate = date;
-    //   //const currentDate = new Date();
-    //   const tempDate = this.datePipe.transform(date, 'yyyy-MM-dd');
-    //   this.minDate = new Date(tempDate);
-    //   // alert("Constructor B");
-    //   // this.holidaysForm.get('HolidayStartDt').setValue(this.minDate);
-    // }});
   }
 
-  private updateDaysWorked(days: any): void {
+  private updateDaysWorked(holidayResponse: IHolidayResponse): void {
     this.nonworkingDaysForm
       .get('Day1')
-      ?.setValue(days.Day1 === 1 ? true : false);
+      ?.setValue(holidayResponse.Day1 === 1 ? true : false);
     this.nonworkingDaysForm
       .get('Day2')
-      ?.setValue(days.Day2 === 1 ? true : false);
+      ?.setValue(holidayResponse.Day2 === 1 ? true : false);
     this.nonworkingDaysForm
       .get('Day3')
-      ?.setValue(days.Day3 === 1 ? true : false);
+      ?.setValue(holidayResponse.Day3 === 1 ? true : false);
     this.nonworkingDaysForm
       .get('Day4')
-      ?.setValue(days.Day4 === 1 ? true : false);
+      ?.setValue(holidayResponse.Day4 === 1 ? true : false);
     this.nonworkingDaysForm
       .get('Day5')
-      ?.setValue(days.Day5 === 1 ? true : false);
+      ?.setValue(holidayResponse.Day5 === 1 ? true : false);
     this.nonworkingDaysForm
       .get('Day6')
-      ?.setValue(days.Day6 === 1 ? true : false);
+      ?.setValue(holidayResponse.Day6 === 1 ? true : false);
     this.nonworkingDaysForm
       .get('Day7')
-      ?.setValue(days.Day7 === 1 ? true : false);
+      ?.setValue(holidayResponse.Day7 === 1 ? true : false);
   }
 
   public isAddingHoliday: boolean = false;
@@ -202,8 +209,8 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
       // Add holiday
       this.holidays.push({
         HolidayName: holiday.HolidayName,
-        DateStart: this.convertDateFormat(holiday.HolidayStartDt),
-        DateEnd: this.convertDateFormat(holiday.HolidayEndDt),
+        DateStart: this.convertDateFormat(holiday.HolidayStartDt).replace(/\//g, "/"),
+        DateEnd: this.convertDateFormat(holiday.HolidayEndDt).replace(/\//g, "/"),
         PageNumber: this.pageNumber.toString(),
       });
       this.pageNumber++;
@@ -229,16 +236,6 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
     this.modalRef = this.modalService.open(HolidaysModalComponent, {
       ariaLabelledBy: 'modal-basic-title',
       backdropClass: 'custom-backdrop',
-    });
-
-    this.bizzCalcService.getBusinessDays().subscribe({
-      next: (data) => {
-        console.dir(data);
-      },
-      error: (err) => {
-        console.dir(err);
-      }
-      ,
     });
 
     // https://api.asone.global/api/BizzBean/v1/relay/BBholidays
@@ -274,22 +271,14 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
             .setValue(reason.data.HolidayName);
           this.holidaysForm
             .get('HolidayStartDt')
-            .setValue(reason.data.HolidayStartDt);
+            .setValue(this.convertDateFormat(reason.data.HolidayStartDt));
           this.holidaysForm
             .get('HolidayEndDt')
-            .setValue(reason.data.HolidayEndDt);
+            .setValue(this.convertDateFormat(reason.data.HolidayEndDt));
           this.holidaysForm.get('PageNumber').setValue(reason.data.PageNumber);
         }
       }
     );
-    // this.bizzCalcService.getHolidays().subscribe({
-    //   next: (data) => {
-    //     console.log('--------------------------');
-    //     console.dir(data);
-    //     debugger;
-    //     this.openModal(data.Holiday);
-    //   },
-    // });
   }
 
   public showError: boolean = false; // Flag to control error message display
@@ -313,6 +302,12 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
 
     this.showError = false;
 
+    const _holidays = this.holidays.map(c => {
+      c.DateEnd = c.DateEnd.replace(/\//g, "/"),
+      c.DateStart = c.DateStart.replace(/\//g, "/")
+      return c;
+    })
+
     const businessDaysWorked = {
       Day1: nonWorkingDays.Day1,
       Day2: nonWorkingDays.Day2,
@@ -321,7 +316,7 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
       Day5: nonWorkingDays.Day5,
       Day6: nonWorkingDays.Day6,
       Day7: nonWorkingDays.Day7,
-      Holidays: this.holidays,
+      Holidays: _holidays
     } as IDaysWorked;
 
     console.dir(businessDaysWorked);
@@ -339,6 +334,7 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
           );
           this.isSaving = false; // Reset loading state
           // this.nonworkingDaysForm.reset(); // Reset form
+          this.getBusinessDays();
         },
         error: (error) => {
           console.error('Error adding business days:', error);
@@ -388,5 +384,6 @@ export class BizzcalcBusinessDaysWorkedComponent implements OnInit {
     const month = ('0' + (date.getMonth() + 1)).slice(-2); // Months are zero-based
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
+    // return `${year}/${month}/${day}`;
   }
 }

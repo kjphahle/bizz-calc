@@ -16,6 +16,7 @@ import { IExpenseModal } from '../models/ExpenseModal';
 import { IFundingCalculatorModal2 } from '../models/FundingCalculatorModal2';
 import { IFixedAssetModal } from '../models/FixedAsset';
 import { MessageService } from 'primeng/api';
+import { IHolidayResponse } from '../models/holidays.interface copy';
 
 @Injectable({
   providedIn: 'root',
@@ -113,9 +114,9 @@ export class BizzCalcService {
     });
   }
 
-  public getBusinessDays(): Observable<any> {
+  public getBusinessDays(): Observable<IHolidayResponse> {
     const headers = this.headers;
-    return this.http.get<any>(`${this.apiUrl}BBholidays`, {
+    return this.http.get<IHolidayResponse>(`${this.apiUrl}BBholidays`, {
       headers,
     });
   }
