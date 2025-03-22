@@ -240,6 +240,7 @@ export class EmploymentComponent implements AfterViewInit {
   }
 
   public onAddPositionClicked(): void {
+    debugger
     if (this.employmentForm.valid) {
       // Add or update employee in the list
       const employee = this.createEmployeeFromForm();
@@ -254,7 +255,7 @@ export class EmploymentComponent implements AfterViewInit {
       }
 
       // Clear the form after successful addition
-      this.employmentForm.reset();
+      // this.employmentForm.reset();
     } else {
       // Mark all controls as touched to show validation errors
       this.employmentForm.markAllAsTouched();

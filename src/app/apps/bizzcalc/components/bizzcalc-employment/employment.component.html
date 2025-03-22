@@ -10,6 +10,7 @@
 
   <div class="bizzcalc__container">
 
+    <!-- <pre>{{employmentForm.value | json}}</pre> -->
 
     <div class="container-fluid px-0 bizzcalc-days-worked-container bg-white">
       <div class="bizzcalc__container pt-0">
@@ -72,51 +73,58 @@
                 <div class="col-6 col-md-6 pt-0">
                   <app-bizzbean-input-control [id]="'jobTitle'" [label]="'job title'" [placeholder]="'job title'"
                     formControlName="jobTitle"></app-bizzbean-input-control>
-                  <!-- <input type="text" class="primary-input" placeholder="job title" [(ngModel)]="employee.jobTitle"/> -->
                 </div>
 
-                <small
-                class="text-danger error-message-section"*ngIf="
-                employmentForm.get('jobTitle')?.invalid &&
-                employmentForm.get('jobTitle')?.touched">
-                Please enter Job title.
-               </small>
-
+                <!-- Number of employees -->
                 <div class="col-3 col-md-2 pt-0">
                   <app-bizzbean-input-control  type="number"
                   (keypress)="preventNonNumericInput($event)" [id]="'numberEmployed'" [label]="'number'" [placeholder]="'+1'"
                     formControlName="NumberOfEmployees"></app-bizzbean-input-control>
-                  <!-- <input type="text" class="primary-input" placeholder="2" [(ngModel)]="employee.employmentMonths"/> -->
-                  <small class="text-danger error-message-section"
-  *ngIf="employmentForm.get('NumberOfEmployees')?.hasError('min') ||
-        employmentForm.get('NumberOfEmployees')?.hasError('max') &&
-        (employmentForm.get('NumberOfEmployees')?.touched || employmentForm.invalid)">
-  Number of employees must be between 1 and 100.
-</small>
                 </div>
+                <!-- Employee salary -->
                 <div class="col-3 col-md-4 pt-0">
                   <app-bizzbean-input-control  type="number"
                   (keypress)="preventNonNumericInput($event)" [id]="'monthlyBaseRate'" [label]="'rate'" [placeholder]="'>1'"
                     formControlName="EmployeeSalary"></app-bizzbean-input-control>
-
-
                   <!-- <input type="text" class="primary-input" placeholder="1,000%" [(ngModel)]="employee.employeeRate"/> -->
                 </div>
-                <small
-                class="text-danger error-message-section"
-                  *ngIf="
-                    employmentForm.get('EmployeeSalary')?.hasError('min')
+              </div>
+              <div class="row-errors">
+                @if(employmentForm.get('jobTitle')?.invalid && employmentForm.get('jobTitle')?.touched){
+                  <small
+                  class="text-danger error-message-section">
+                  Please enter Job title.
+                 </small>
+                }@else if (employmentForm.get('NumberOfEmployees')?.hasError('min') && employmentForm.get('NumberOfEmployees')?.touched) {
+                  <small class="text-danger error-message-section">
+                  Number of employees must be between 1 and 100.
+                </small>
+              }
+                @else if (employmentForm.get('NumberOfEmployees')?.hasError('required') && employmentForm.get('NumberOfEmployees')?.touched) {
+                  <small class="text-danger error-message-section">
+                  Number of employees must be between 1 and 100.
+                </small>
+                }@else if (employmentForm.get('NumberOfEmployees')?.hasError('max') && employmentForm.get('NumberOfEmployees')?.touched) {
+                  <small class="text-danger error-message-section">
+                  Number of employees must be between 1 and 100.
+                </small>
+                }
+                @else if (employmentForm.get('EmployeeSalary')?.hasError('min') && employmentForm.get('EmployeeSalary').touched) {
+                  <small class="text-danger error-message-section">
+                    Please enter a value greater than 1.
+                </small>
+                }
+                @else if (employmentForm.get('EmployeeSalary')?.hasError('required') && employmentForm.get('EmployeeSalary').touched) {
+                  <small class="text-danger error-message-section">
+                    Please enter a value greater than 1.
+                </small>
+                }
 
-                  "
-                >
-                Please enter a value greater than 1.
-              </small>
               </div>
               <div class="row bizzcalc-row align-items-end" *ngIf="+employmentForm.get('EmploymentMonth')?.value !== 12">
 
                 <div class="col-5 pt-0 pe-0 height: 32px !important;">
                   <small class="instructiontextcolour">base rate review</small>
-
                 </div>
                 <div class="col-4 pt-0 px-1">
                   <div class="h-100" style="display: inline-block;
@@ -136,23 +144,7 @@
                   (keypress)="preventNonNumericInput($event)" type="number" [id]="'Percent'" [label]="'% rate'" [placeholder]="'-99-100%'"
                     formControlName="ReviewPercentage"></app-bizzbean-input-control>
                 </div>
-
-                <small class="text-danger error-message-section"
-                *ngIf="employmentForm.get('ReviewPercentage')?.hasError('required') &&
-                      (employmentForm.get('ReviewPercentage')?.touched || employmentForm.invalid)">
-                Review percentage is required.
-              </small>
-              <small
-  class="text-danger error-message-section"
-  *ngIf="employmentForm.get('ReviewPercentage')?.hasError('min') ||
-         employmentForm.get('ReviewPercentage')?.hasError('max') &&
-        (employmentForm.get('ReviewPercentage')?.touched || employmentForm.invalid)">
-  Please enter a review rate between -99% and 100%.
-</small>
-
-
               </div>
-
               <div class="row d-none">
                 <div class="col-md-6"></div>
                 <div class="col-md-6">
