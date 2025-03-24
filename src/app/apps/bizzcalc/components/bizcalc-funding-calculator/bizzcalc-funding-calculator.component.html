@@ -24,7 +24,7 @@
                 <label class="primary-label">inventory</label>
               </div>
               <div class="col-6 col-md-6 ps-1">
-                <input type="number" class="primary-input" placeholder="payable days"
+                <input type="number" class="primary-input" placeholder="inventory days"
                 formControlName="InventoryDays"  />
               </div>
 
@@ -35,7 +35,7 @@
                 fundingCalculatorForm.get('InventoryDays')?.touched
               "
             >
-              Inventory Days is required.
+              inventory days is required.
             </small>
             <!-- Error message for min value -->
             <small
@@ -45,7 +45,7 @@
                 fundingCalculatorForm.get('InventoryDays')?.touched
               "
             >
-              Value must be at least 0.
+              value must be at least 0.
             </small>
             <!-- Error message for max value -->
             <small
@@ -55,7 +55,7 @@
                 fundingCalculatorForm.get('InventoryDays')?.touched
               "
             >
-              Value must not exceed 90.
+              value must not exceed 90.
             </small>
 
             </div>
@@ -65,7 +65,7 @@
                 <label class="primary-label">receivables</label>
               </div>
               <div class="col-6 col-md-6 ps-1">
-                <input type="text" class="primary-input" placeholder="value of floats"
+                <input type="text" class="primary-input" placeholder="receivables"
                 formControlName="ReceivablesDays"  />
               </div>
               <small
@@ -75,7 +75,7 @@
           fundingCalculatorForm.get('ReceivablesDays')?.touched
         "
       >
-        Receivables Days is required.
+        receivables days is required.
       </small>
       <small
         class="text-danger error-message-section"
@@ -84,7 +84,7 @@
           fundingCalculatorForm.get('ReceivablesDays')?.touched
         "
       >
-        Value must be at least 0.
+        value must be at least 0.
       </small>
       <small
         class="text-danger error-message-section"
@@ -93,7 +93,7 @@
           fundingCalculatorForm.get('ReceivablesDays')?.touched
         "
       >
-        Value must not exceed 90.
+        value must not exceed 90.
       </small>
             </div>
             <!-- payables row -->
@@ -102,7 +102,7 @@
                 <label class="primary-label">payables</label>
               </div>
               <div class="col-6 col-md-6 ps-1">
-                <input type="number" class="primary-input" placeholder="value of deposits"
+                <input type="number" class="primary-input" placeholder="payables"
                 formControlName="PayablesDays"  />
               </div>
               <small
@@ -112,7 +112,7 @@
                 fundingCalculatorForm.get('PayablesDays')?.touched
               "
             >
-              Payables Days is required.
+              payables days is required.
             </small>
             <small
               class="text-danger error-message-section"
@@ -121,7 +121,7 @@
                 fundingCalculatorForm.get('PayablesDays')?.touched
               "
             >
-              Value must be at least 0.
+              value must be at least 0.
             </small>
             <small
               class="text-danger error-message-section"
@@ -130,12 +130,12 @@
                 fundingCalculatorForm.get('PayablesDays')?.touched
               "
             >
-              Value must not exceed 90.
+              value must not exceed 90.
             </small>
             </div>
             <div class="row pt-2">
               <div class="col-12 col-md-12">
-                <label class="primary-label">enter value of  assets - of 0 or greater</label>
+                <label class="primary-label">enter value of  assets - 0 or greater</label>
               </div>
             </div>
             <!-- floats -->
@@ -144,7 +144,7 @@
                 <label class="primary-label">floats</label>
               </div>
               <div class="col-6 col-md-6 ps-1">
-                <input type="number" class="primary-input" placeholder="value of petty cash"
+                <input type="number" class="primary-input" placeholder="value of floats"
                 formControlName="Floats"  />
               </div>
               <small
@@ -154,7 +154,7 @@
           fundingCalculatorForm.get('Floats')?.touched
         "
       >
-        Floats are required.
+        floats are required.
       </small>
       <small
         class="text-danger error-message-section"
@@ -163,7 +163,7 @@
           fundingCalculatorForm.get('Floats')?.touched
         "
       >
-        Value must be at least 0.
+        value must be at least 0.
       </small>
             </div>
             <!-- deposits row -->
@@ -172,7 +172,7 @@
                 <label class="primary-label">deposits</label>
               </div>
               <div class="col-6 col-md-6 ps-1">
-                <input type="number" class="primary-input" placeholder=""
+                <input type="number" class="primary-input" placeholder="value of deposits"
                 formControlName="Deposits"  />
               </div>
               <small
@@ -182,7 +182,7 @@
           fundingCalculatorForm.get('Deposits')?.touched
         "
       >
-        Deposits are required.
+        deposits are required.
       </small>
       <small
         class="text-danger error-message-section"
@@ -191,7 +191,7 @@
           fundingCalculatorForm.get('Deposits')?.touched
         "
       >
-        Value must be at least 0.
+        value must be at least 0.
       </small>
             </div>
             <!-- petty cash -->
@@ -200,7 +200,7 @@
                 <label class="primary-label">petty cash</label>
               </div>
               <div class="col-6 col-md-6 ps-1">
-                <input type="number" class="primary-input" placeholder=""
+                <input type="number" class="primary-input" placeholder="value of petty cash"
                 formControlName="PettyCash"  />
               </div>
               <small
@@ -210,7 +210,7 @@
           fundingCalculatorForm.get('PettyCash')?.touched
         "
       >
-        Petty Cash is required.
+        petty cash is required.
       </small>
       <small
         class="text-danger error-message-section"
@@ -219,7 +219,7 @@
           fundingCalculatorForm.get('PettyCash')?.touched
         "
       >
-        Value must be at least 0.
+        value must be at least 0.
       </small>
             </div>
             <p-toast position="center" key="br" />

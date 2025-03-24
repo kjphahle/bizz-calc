@@ -17,12 +17,12 @@ export class BizzcalcFundingCalculatorComponent {
 
   constructor(private router: Router, private bizzCalcService: BizzCalcService,private modalService: NgbModal) {
     this.fundingCalculatorForm = new FormGroup({
-      Floats: new FormControl('', [Validators.required,Validators.min(0)],),
-      Deposits: new FormControl('', [Validators.required,Validators.min(0)]),
-      PettyCash: new FormControl('', [Validators.required,Validators.min(0)]),
-      InventoryDays: new FormControl('',  [Validators.required, Validators.min(0), Validators.max(90)],),
-      ReceivablesDays: new FormControl('', [Validators.required, Validators.min(0), Validators.max(90)],),
-      PayablesDays: new FormControl('', [Validators.required,Validators.min(0),Validators.max(90),]),
+      InventoryDays: new FormControl(0,  [Validators.required, Validators.min(0), Validators.max(90)],),
+      ReceivablesDays: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(90)],),
+      PayablesDays: new FormControl(0, [Validators.required,Validators.min(0),Validators.max(90),]),
+      Floats: new FormControl(0, [Validators.required,Validators.min(0)],),
+      Deposits: new FormControl(0, [Validators.required,Validators.min(0)]),
+      PettyCash: new FormControl(0, [Validators.required,Validators.min(0)]),
     });
 
   }
@@ -70,7 +70,7 @@ export class BizzcalcFundingCalculatorComponent {
     this.fundingCalculatorForm.markAllAsTouched();
 
     // Check if the form is valid and required fields are filled
-    if (this.fundingCalculatorForm.valid && !this.isFieldEmpty()) {
+    if (this.fundingCalculatorForm.valid) {
       const fundingCalculator = this.fundingCalculatorForm.value;
 
       this.bizzCalcService.PostFundingCalculator(fundingCalculator).subscribe({
