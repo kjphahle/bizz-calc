@@ -27,7 +27,11 @@
               "src/polyfills.ts"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.ico",
+            {
+              "glob": "**/*",
+              "input": "public"
+           }],
             "styles": [
               "src/styles.scss",
               "node_modules/@progress/kendo-theme-default/dist/all.css",
@@ -101,7 +105,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.ico",
+            {
+              "glob": "**/*",
+              "input": "public"
+           }
+          ],
             "styles": ["src/styles.scss"],
             "scripts": []
           }
