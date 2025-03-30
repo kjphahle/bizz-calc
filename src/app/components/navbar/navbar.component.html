@@ -1,13 +1,13 @@
 <div class="navbar-main">
   <div class="logo-container">
     <img
-      src="../../../assets/images/bizzbean-logo.png"
+      src="../../../assets/minified/bizzbean-logo.png"
       alt="bizzbean"
       class="navbar-logo"
       *ngIf="!isOnCoursePlayer"
     />
     <img
-      src="../../../assets/images/bizzclass.png"
+      src="../../../assets/minified/bizzclass.png"
       alt=""
       class="navbar-logo"
       *ngIf="isOnCoursePlayer"
@@ -110,15 +110,15 @@
   </ul>
 
   <div class="navbar-main-extra" *ngIf="!isOnCoursePlayer; else coursesHeader">
-    <img src="../../../assets/images/bell.png" alt="bell" class="navbar-bell" />
+    <img src="../../../assets/minified/bell.png" alt="bell" class="navbar-bell" />
     <img
-      src="../../../assets/images/Avatar.svg"
+      src="../../../assets/minified/Avatar.svg"
       alt="avatar"
       class="navbar-avatar"
       (click)="toggleProfile()"
     />
     <img
-      src="../../../assets/images/hamburger.png"
+      src="../../../assets/minified/hamburger.png"
       alt=""
       class="navbar-menu__icon"
       (click)="openMenu()"
@@ -132,7 +132,7 @@
   *ngIf="!isOnCoursePlayer"
 >
   <img
-    src="../../../assets/images/close.png"
+    src="../../../assets/minified/close.png"
     alt=""
     class="navbar-side-menu__icon"
     (click)="closeMenu()"
@@ -232,13 +232,13 @@
   <div class="profile-popover">
     <div class="profile-popover__avatar-container">
       <img
-        src="../../../assets/images/avatar-blue.svg"
+        src="../../../assets/minified/avatar-blue.svg"
         alt=""
         class="profile-popover__avatar"
       />
       <div class="profile-popover__badge">
         <img
-          src="../../../assets/images/pen.png"
+          src="../../../assets/minified/pen.png"
           alt=""
           class="profile-popover__avatar-edit"
         />
@@ -292,7 +292,7 @@
   <!-- <div class="profile-popover__bean-points">
     <p>120</p>
     <img
-      src="../../../assets/images/coffee-bean.svg"
+      src="../../../assets/minified/coffee-bean.svg"
       alt=""
       class="profile-popover__bean-points-img"
     />
