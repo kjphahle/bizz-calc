@@ -13,10 +13,10 @@ export class SummaryComponent implements OnInit {
   faQuestion = faQuestion;
 
   imageLookUp = {
-    244545: '../../../../assets/minified/costrecovery-min.png',
-    244546: '../../../../assets/minified/profitoptimizer-min.png',
-    244547: '../../../../assets/minified/financialreports-min.png',
-    244548: '../../../../assets/minified/businesstools-min.png',
+    244545: 'minified/costrecovery-min.png',
+    244546: 'minified/profitoptimizer-min.png',
+    244547: 'minified/financialreports-min.png',
+    244548: 'minified/businesstools-min.png',
   };
 
   product = undefined;

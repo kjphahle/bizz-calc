@@ -1,13 +1,13 @@
 <div class="navbar-main">
   <div class="logo-container">
     <img
-      src="../../../assets/minified/bizzbean-logo.png"
+      src="minified/bizzbean-logo.png"
       alt="bizzbean"
       class="navbar-logo"
       *ngIf="!isOnCoursePlayer"
     />
     <img
-      src="../../../assets/minified/bizzclass.png"
+      src="minified/bizzclass.png"
       alt=""
       class="navbar-logo"
       *ngIf="isOnCoursePlayer"
@@ -110,15 +110,15 @@
   </ul>
 
   <div class="navbar-main-extra" *ngIf="!isOnCoursePlayer; else coursesHeader">
-    <img src="../../../assets/minified/bell.png" alt="bell" class="navbar-bell" />
+    <img src="minified/bell.png" alt="bell" class="navbar-bell" />
     <img
-      src="../../../assets/minified/Avatar.svg"
+      src="minified/Avatar.svg"
       alt="avatar"
       class="navbar-avatar"
       (click)="toggleProfile()"
     />
     <img
-      src="../../../assets/minified/hamburger.png"
+      src="minified/hamburger.png"
       alt=""
       class="navbar-menu__icon"
       (click)="openMenu()"
@@ -132,7 +132,7 @@
   *ngIf="!isOnCoursePlayer"
 >
   <img
-    src="../../../assets/minified/close.png"
+    src="minified/close.png"
     alt=""
     class="navbar-side-menu__icon"
     (click)="closeMenu()"
@@ -232,13 +232,13 @@
   <div class="profile-popover">
     <div class="profile-popover__avatar-container">
       <img
-        src="../../../assets/minified/avatar-blue.svg"
+        src="minified/avatar-blue.svg"
         alt=""
         class="profile-popover__avatar"
       />
       <div class="profile-popover__badge">
         <img
-          src="../../../assets/minified/pen.png"
+          src="minified/pen.png"
           alt=""
           class="profile-popover__avatar-edit"
         />
@@ -292,7 +292,7 @@
   <!-- <div class="profile-popover__bean-points">
     <p>120</p>
     <img
-      src="../../../assets/minified/coffee-bean.svg"
+      src="minified/coffee-bean.svg"
       alt=""
       class="profile-popover__bean-points-img"
     />

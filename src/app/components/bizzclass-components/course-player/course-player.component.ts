@@ -20,10 +20,10 @@ export class CoursePlayerComponent implements OnInit {
   courseId;
 
   imageLookUp = {
-    244545: '../../../assets/minified/costrecovery-min.png',
-    244546: '../../../assets/minified/profitoptimizer-min.png',
-    244547: '../../../assets/minified/financialreports-min.png',
-    244548: '../../../assets/minified/businesstools-min.png',
+    244545: 'minified/costrecovery-min.png',
+    244546: 'minified/profitoptimizer-min.png',
+    244547: 'minified/financialreports-min.png',
+    244548: 'minified/businesstools-min.png',
   };
 
   onVideoChange(videoObj) {
@@ -58,11 +58,11 @@ export class CoursePlayerComponent implements OnInit {
   async ngOnInit() {
     this.courseId = this.acitvateRoute.snapshot.paramMap.get('id');
     let courseResponse = await this.bizzclassService.getCurrentCourse(this.courseId);
-  
+
     // Set playlist and imageList correctly
     this.playlist = courseResponse.videoList; // Should contain all videos starting from C
     this.imageList = courseResponse.imageList; // Should contain all images starting from C
-  
+
     // Ensure current video and image start from the first respective elements
     this.currentVideo = this.playlist.length > 0 ? this.playlist[0] : {};
     this.currentImage = this.imageList.length > 0 ? this.imageList[0] : {};

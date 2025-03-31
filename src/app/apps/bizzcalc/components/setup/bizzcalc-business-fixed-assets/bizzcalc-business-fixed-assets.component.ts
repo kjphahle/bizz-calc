@@ -85,6 +85,7 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
 
   public onAddDepreciationRate(): void {
     // Check if the form is valid
+    debugger
     if (this.assetsCategoryDepreciationForm.valid) {
       const categoryRate =
         this.assetsCategoryDepreciationForm.get('rate')?.value;
@@ -146,6 +147,7 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
         }
       },
       (result) => {
+        alert(result.mode);
         console.log('Modal dismissed:', result);
         if (result.mode === 0) {
           // Handle mode 0: Remove an item based on GLDescription
@@ -154,6 +156,11 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
           );
         } else if (result.mode === 1) {
           // Handle mode 1: Update rate in the form
+          this.assetsCategoryDepreciationForm
+            .get('rate')
+            .setValue(result.data.Rate);
+        } else {
+          alert("heloo")
           this.assetsCategoryDepreciationForm
             .get('rate')
             .setValue(result.data.Rate);
@@ -185,7 +192,7 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
   public onSaveClicked(): void {
     if (this.assetsCategoryDepreciationForm.valid) {
       this.bizzCalcService
-        .createDepreciationAsset(this.depreciationRates)
+        .createDepreciationAsset(this.userDepreciationRates)
         .subscribe({
           next: () => {
             this.bizzCalcService.showToastMessage(
@@ -196,7 +203,7 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
             );
 
             // Reset the form after successful submission
-            this.assetsCategoryDepreciationForm.reset();
+            // this.assetsCategoryDepreciationForm.reset();
           },
         });
     } else {

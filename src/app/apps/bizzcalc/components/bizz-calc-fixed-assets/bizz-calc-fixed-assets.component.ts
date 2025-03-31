@@ -73,13 +73,14 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
                 .setValue(depreciationRates[0]?.DepreciationRate);
               this.fixedAssetsForm
                 .get('categoryID')
-                .setValue(depreciationRates[0]?.CategoryID);
+                .setValue(depreciationRates[0]?.ID);
               this.fixedAssetsForm
                 .get('FACat')
                 .setValue(this.categories[0].GLDescription);
               this.fixedAssetsForm.get('FADepreciationRate')?.disable();
+              debugger
               depreciationRates.forEach((d) => {
-                if (x.ID === d.CategoryID) {
+                if (x.ID === d.ID) {
                   this.catDepreciationRates.push({
                     GLCode: x.GLCode,
                     GLDescription: x.GLDescription,
