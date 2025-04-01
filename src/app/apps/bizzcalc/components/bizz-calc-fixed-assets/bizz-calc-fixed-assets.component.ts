@@ -134,7 +134,7 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
       FACat: ['', Validators.required], // Required field
       FADate: ['', Validators.required], // Required field
       categoryID: [null], // Optional field
-      FAPurchaseMonth: ['', Validators.required], // Required field
+      FAPurchaseMonth: ['1', Validators.required], // Required field
     });
   }
 
@@ -147,6 +147,7 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
   }
 
   public onAddAssetsBtnClicked(): void {
+    debugger
     if (this.fixedAssetsForm.valid) {
       // Add valid asset to the list
       this.fixedAssets.push({
@@ -161,7 +162,7 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
       });
 
       // Clear the form after successful addition
-      this.fixedAssetsForm.reset();
+      // this.fixedAssetsForm.reset();
     } else {
       // Mark all controls as touched to show validation errors in the UI
       this.fixedAssetsForm.markAllAsTouched();
@@ -220,7 +221,7 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
             3000
           );
           // Clear the form and reset the fixedAssets array
-          this.fixedAssetsForm.reset();
+          // this.fixedAssetsForm.reset();
           this.fixedAssets = [];
         },
         error: (error) => {

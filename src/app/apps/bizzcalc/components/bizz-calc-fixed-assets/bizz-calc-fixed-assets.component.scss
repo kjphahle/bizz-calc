@@ -49,3 +49,25 @@ input {
   font-size: 12px !important;
   color: #5085b6;
 }
+
+
+::ng-deep .test {
+  background: #10637c !important;
+  width: 100% !important;
+  color: white !important;
+  font-size: 15px;
+  font-family: "Roboto";
+  text-align: center;
+  padding: 10px !important;
+}
+
+
+.test {
+  background: #10637c !important;
+  width: 100% !important;
+  color: white !important;
+  font-size: 15px;
+  font-family: "Roboto";
+  text-align: center;
+  padding: 10px !important;
+}

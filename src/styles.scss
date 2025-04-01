@@ -331,3 +331,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button.p-toast-close-button {
   padding-top: 8px !important;
 }
+
+
+::ng-deep .test {
+  background: #10637c !important;
+  width: 100% !important;
+  color: white !important;
+  font-size: 15px;
+  font-family: "Roboto";
+  text-align: center;
+  padding: 10px !important;
+}
