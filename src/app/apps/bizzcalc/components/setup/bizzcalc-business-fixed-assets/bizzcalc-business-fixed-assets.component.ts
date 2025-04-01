@@ -85,16 +85,12 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
 
   public onAddDepreciationRate(): void {
     // Check if the form is valid
-    debugger
     if (this.assetsCategoryDepreciationForm.valid) {
       const categoryRate =
         this.assetsCategoryDepreciationForm.get('rate')?.value;
 
       // Update the depreciation rates array
       const depreciationRate = this.depreciationRates.filter((c) => c.CategoryID === this.selectedCategory.ID);
-
-      debugger;
-
       // Show success toast message
       this.bizzCalcService.showToastMessage(
         'contrast',
@@ -107,7 +103,7 @@ export class BizzcalcBusinessFixedAssetsComponent implements OnInit {
       // this.assetsCategoryDepreciationForm.reset();
       if (depreciationRate) {
         this.userDepreciationRates.push({
-          CategoryID: depreciationRate[0].ID,
+          CategoryID: depreciationRate[0].CategoryID,
           GLDescription: depreciationRate[0].GLDescription,
           Rate: categoryRate,
         });
