@@ -1,0 +1,783 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1739706047382,
+    "data": [
+        {
+            "type": "file",
+            "name": "3rdpartylicenses.txt",
+            "size": 16818,
+            "hash": "556ca3240bedbafa34a4d8e344f773133998a753cc4bde967f1e5c898ff4aa9c"
+        },
+        {
+            "type": "file",
+            "name": "484.js",
+            "size": 108204,
+            "hash": "0554ed55ac13f6ef4e5cf88489d67ce732e905665ba66b4ac399bcc23b32cc37"
+        },
+        {
+            "type": "file",
+            "name": "620.js",
+            "size": 129089,
+            "hash": "cd5ef4697fdd6468755ec0b5988b15bee5932adc819c8700339f66b818562be5"
+        },
+        {
+            "type": "folder",
+            "name": "assets"
+        },
+        {
+            "type": "file",
+            "name": "bullet.svg",
+            "size": 247,
+            "hash": "2c3ed06a11c3f7477200e194e09ccdb875e58dbbedb5d3469a9e3f6a3cb3fc35"
+        },
+        {
+            "type": "file",
+            "name": "favicon.ico",
+            "size": 27695,
+            "hash": "d12826020c2fb26fa69db63cf08a38f88735f03ddf197dc77f732a59512f49cb"
+        },
+        {
+            "type": "file",
+            "name": "index.html",
+            "size": 6439,
+            "hash": "019b203105707ff99f4f3500ac8dae01acd94203dbf24afefd9bec24aa124577"
+        },
+        {
+            "type": "file",
+            "name": "main.js",
+            "size": 645752,
+            "hash": "8e263a0c7e8263db11e08ed98c51309c034b49d8dace23eb8aa83d61730a7756"
+        },
+        {
+            "type": "file",
+            "name": "polyfills.js",
+            "size": 34820,
+            "hash": "7afb51a72076df5024f37be08bf2dbd802c1443c07460e6c52e926f506df4d74"
+        },
+        {
+            "type": "file",
+            "name": "runtime.js",
+            "size": 2695,
+            "hash": "9f599be9400c943e6b8ba200fe723fa87cfac67222370714640f3d6c09695286"
+        },
+        {
+            "type": "file",
+            "name": "scripts.js",
+            "size": 149528,
+            "hash": "2f1e49afb51149f2c8d28e0e72b26353c9fe88e8a1114b49bcbe5ab3b049b642"
+        },
+        {
+            "type": "file",
+            "name": "styles.css",
+            "size": 238076,
+            "hash": "4a19dc50369eab284318acb459ede49a9b979b935a60627bdf94ca83301604d8"
+        },
+        {
+            "type": "folder",
+            "name": "assets/files"
+        },
+        {
+            "type": "folder",
+            "name": "assets/images"
+        },
+        {
+            "type": "folder",
+            "name": "assets/minified"
+        },
+        {
+            "type": "file",
+            "name": "assets/files/getting to value bundle.zip",
+            "size": 1295435,
+            "hash": "be588683c6f9885d510af727dd1f31e47d6e75a3928f6bc65b75fd37d7916ef0"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/DPO.jpeg",
+            "size": 15724,
+            "hash": "2ab7a527be8fcf68a748eee9387322f56a2071ba32d8db5e013a3222acc9ab06"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/Paygate.jpeg",
+            "size": 15876,
+            "hash": "ded80eab98dae4f439fe4dd635ce21a4d8735a645173c065f74fea27d00085d4"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/bullet.svg",
+            "size": 247,
+            "hash": "2c3ed06a11c3f7477200e194e09ccdb875e58dbbedb5d3469a9e3f6a3cb3fc35"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/avatar.svg",
+            "size": 3334,
+            "hash": "4a92dc2fded7d9de6940906b6538acff3a5eafd8bb9c3b724ad07ff3c44fe6ea"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/enabling access to markets.webp",
+            "size": 42340,
+            "hash": "8e6b2f0a2a6534e4c54bdc682f644e4a2d6c1e6988409e7c08827f796a880d31"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/facebook.svg",
+            "size": 1481,
+            "hash": "9a1a0382d615829cbf4f895808f8cd508e2e0672d1ac854835875e2cf260cd17"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/freebook-landing.png",
+            "size": 150245,
+            "hash": "a80e8c0951fd56625ee040e9495eab8f845bf6c5ad24258602b54504d7e4bac4"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/freebook.png",
+            "size": 130021,
+            "hash": "79faebb49cad812bc9fff6115ccfd46addcf59d3fd7bd3c96b2bc3d2ab0ed300"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/ic_baseline-tiktok.svg",
+            "size": 688,
+            "hash": "ea74d1cf5c15f3a568e75ff8642a3dd6f7bc5e79b757c8b65145b224b2fc89e8"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/instagram.svg",
+            "size": 1287,
+            "hash": "71923d09af1b6a0264b40d331e97fd2c77780fdafed5a2a3c6687e886340b643"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/mastercard.jpeg",
+            "size": 15196,
+            "hash": "dd9d9a1f7f7d1c1c5e6506dafd0e4ee52b6ad4a46466d24cca3358a2b8b4b2a7"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/mastercard.png",
+            "size": 66361,
+            "hash": "74367e5d771ea6904976b45007ea86c67d9bfaca8ddeac25f0f8c78be27dc749"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/mdi_linkedin.svg",
+            "size": 1233,
+            "hash": "3abd4614d94c21c543ec2643d919a0c1385041985ef0b2af7acb6f1a8ed8e671"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/mdi_twitter.svg",
+            "size": 1110,
+            "hash": "997b97f946dd4dd50cb722b6a17392250e7a286e29abc52aa0cf319cdbc09d81"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/mdi_youtube.svg",
+            "size": 1016,
+            "hash": "e1b9716cb424f5558773a33e8dbf9455fcf93cdca2d450365ee727772d46bb4b"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/payfast-color.png",
+            "size": 5254,
+            "hash": "fd029cabe6444a2bf6b8ce6a47a2fdf6cd4dfade34673411a1d1df46aadd35a3"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/payfast720.png",
+            "size": 15221,
+            "hash": "f4784cdb36ce37d81be65c1cf2fa14c4a3e4ebb6edd06e3d7076403a59627847"
+        },
+        {
+            "type": "folder",
+            "name": "assets/images/payment"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/pinterest-icon.png",
+            "size": 1346,
+            "hash": "3eb2178f586fc1d9b377e961e424ecbee6cc0281294a0834b444d575735f8836"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/search-icon.svg",
+            "size": 1006,
+            "hash": "1dec727135fbcd30cb44f5903883e89dc5b6421ad19778817216d56a5a960368"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/secured.jpeg",
+            "size": 33002,
+            "hash": "2d793d8f0e658d9b2aa1335a1b414eb77db7e0e409b087a4ba47d94739b2fc63"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/verified.jpeg",
+            "size": 27445,
+            "hash": "b48efcb7d5052b1a2145f3e70a5cea5fcc107347107ebcaeaeef8c2893cf42b3"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/visa.jpeg",
+            "size": 13729,
+            "hash": "b53a1b63140c0bcc0b77f9b8b81cfb3acc04182c28aea7e6df6b3ff0b0b0122a"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/Slide1.webp",
+            "size": 94652,
+            "hash": "0dc734ac203b9b117ef9b98d2118230ecc5f3ca9547c05f8c50d1c5d9c406234"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzbean-logo-min.png",
+            "size": 5440,
+            "hash": "69e8e78d2c4db48bbe9de1da203f1648da83fbadfd4222028c99cbcb94eb5b3e"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzbudget-min.png",
+            "size": 9248,
+            "hash": "74186d1ec89b817e4510c5e6b676f2ef53e7510aa9eb463e05dc3bf88663d392"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzcalc-min.png",
+            "size": 7506,
+            "hash": "4e9774a0c91be7b0db86cf9f9b08937e2609418538352ef178239721790639f0"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzcalculators-min.png",
+            "size": 10428,
+            "hash": "0dc1e9f1d89469b2e8cea207e445b6a40675c9b9fdeb16ff761153b358af85e9"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzcomm-min.png",
+            "size": 8019,
+            "hash": "f735d5a5a0ea6059c83fedc1c49ec8ea1f359951c85426302b1548ec86967785"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzdynamics-logo-min.png",
+            "size": 9996,
+            "hash": "db5b06a02b8e59d49cc701284ecc3654702bf84ca0b0057f1d9cd167a0645d95"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzforecasta-min.png",
+            "size": 10289,
+            "hash": "5fd3a5d62eacc69122188c2227b352350ae29467e16f98905e7c78836be18bbe"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzmall-min.png",
+            "size": 7250,
+            "hash": "8e74ee8666881ca1c3510387d14f5ed636996a7d4c4ac0fe887b1f21937b1e35"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzmodel-min.png",
+            "size": 8517,
+            "hash": "b7496702535e271211f1325cfd780bcd784bad584b4df2f39f5b9c3a61393396"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzmoney-min.png",
+            "size": 8792,
+            "hash": "1857ddb37a8c2caf6182bfe5523360aeb4fbe162a3fe07707abee0f209f07ef9"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzoptimizer-min.png",
+            "size": 9258,
+            "hash": "54eefdfe6bd0f6a0e02e32eac5c4b1e8214fb16e2b8f921da1f88d98b091b795"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzpartners-min.png",
+            "size": 8855,
+            "hash": "559fff88564f85b0d62fe2807b5a1e37fb397903dfdad816e2d17f5d414cdf13"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzplan-min.png",
+            "size": 7580,
+            "hash": "3527653315b477ebd9dce6a9bf009e5818bc406e83b5b25b5c7fe9fa286f317f"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizzspark-min.png",
+            "size": 8251,
+            "hash": "a812ab4107bda7e2f8f1673198afb43af7b21d38add73adc957b6515ab581b3d"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/bizztalent-min.png",
+            "size": 7916,
+            "hash": "5a10377f6507dedd84206d2b9a5216693bc63b92a2473e227b9783a425ea2df2"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/close-min.png",
+            "size": 5109,
+            "hash": "0f94ec6c1e35f0158616651b3163f3b3bc53d3375f2721535cc6449b5b92bf68"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/favicon-min.png",
+            "size": 8914,
+            "hash": "1a664a61e394896b00ce6d2e3c8b253581c6a3e4125bacc2f3c5594030fbcb5d"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/hamburger-min.png",
+            "size": 2362,
+            "hash": "9f7353cf7d1de78a6675c5a415c654d71e0d8f7977f25ff0953dd4cf0142df30"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/hero-fixed-text.png",
+            "size": 375001,
+            "hash": "274609d76e316c6cc5f52c1fcdbc5d0428c625609f5dc7e5f40a4b1d3252f9f1"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/hero-min.png",
+            "size": 387675,
+            "hash": "138738d886918a9a737fd793ea04e4162e4afe877a9c3d813b9977c75b66d3e3"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/hero-min2.PNG",
+            "size": 373207,
+            "hash": "6f00b2ef765fa63e7e1241133886a5340ed65ba29f8b77dda0c4342111b11704"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/hero.webp",
+            "size": 48318,
+            "hash": "3af525747228f652c0a895cd07940de154613474d60063b9a252fd95bef89a7a"
+        },
+        {
+            "type": "folder",
+            "name": "assets/minified/main"
+        },
+        {
+            "type": "folder",
+            "name": "assets/minified/modal"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/quentin_user.png",
+            "size": 104701,
+            "hash": "04123b30f324fffbbb96f94bb840b5e1810ba1f7d186f788a5e6d23618166b31"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/share-min.png",
+            "size": 8729,
+            "hash": "93b45d14defc51b52682337ec4f9af5bde25e35b00e4f1656e1d6d55be92a3bc"
+        },
+        {
+            "type": "folder",
+            "name": "assets/minified/social"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/payment/DPO.jpeg",
+            "size": 15724,
+            "hash": "2ab7a527be8fcf68a748eee9387322f56a2071ba32d8db5e013a3222acc9ab06"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/payment/mastercard.png",
+            "size": 66361,
+            "hash": "74367e5d771ea6904976b45007ea86c67d9bfaca8ddeac25f0f8c78be27dc749"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/payment/payfast720.png",
+            "size": 15221,
+            "hash": "f4784cdb36ce37d81be65c1cf2fa14c4a3e4ebb6edd06e3d7076403a59627847"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/payment/secured.jpeg",
+            "size": 33002,
+            "hash": "2d793d8f0e658d9b2aa1335a1b414eb77db7e0e409b087a4ba47d94739b2fc63"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/payment/verified.jpeg",
+            "size": 27445,
+            "hash": "b48efcb7d5052b1a2145f3e70a5cea5fcc107347107ebcaeaeef8c2893cf42b3"
+        },
+        {
+            "type": "file",
+            "name": "assets/images/payment/visa.jpeg",
+            "size": 13729,
+            "hash": "b53a1b63140c0bcc0b77f9b8b81cfb3acc04182c28aea7e6df6b3ff0b0b0122a"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/creatingyourassetofvalue.PNG",
+            "size": 102450,
+            "hash": "7e19ec0c2e1a6c162c258b7020a4e038c9d45ab1db4dad97772853834b7a602f"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/creatingyourassetofvalue.webp",
+            "size": 38086,
+            "hash": "59189dd02f8b718d4fdd79e180951551dbb2090ad32c0306ed94d2e2a83b9d86"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/enablingaccesstocapital.PNG",
+            "size": 351059,
+            "hash": "8b21857e0de53e85834b2cc41ec0fc39a6f37ec6a812dd2bbeabf9dcea995f52"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/enablingaccesstocapital.webp",
+            "size": 24092,
+            "hash": "93255fef706e82c7a0ffca293ef6e7d86876686dbaecc94dcf9acd93e8033ab2"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/enablingaccesstomarkets.png",
+            "size": 388556,
+            "hash": "1e8a9101c69bcafab93976c844bccf76107f7fd464782af10dd119c24cf40f87"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/enablingaccesstomarkets.webp",
+            "size": 42340,
+            "hash": "8e6b2f0a2a6534e4c54bdc682f644e4a2d6c1e6988409e7c08827f796a880d31"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/fourstagefilterprocess.PNG",
+            "size": 548147,
+            "hash": "4a8a00798307d744b8f170dfe3759d18c2fb656c3f78ef1841e3c198ecb49f26"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/fourstagefilterprocess.webp",
+            "size": 47166,
+            "hash": "49b7623f356b974d28bba4e342e40a144104dd5ac70166651e366ef756bb5abb"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/fundingentrepreneurship.png",
+            "size": 407024,
+            "hash": "00e823c5663fb42771792bcedd85f9e79a906fbab9364e4af9e70169b242cb13"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/fundingentrepreneurship.webp",
+            "size": 50946,
+            "hash": "43f3284a90ad00f554ae4a413cb2db14d40be4ddbbedf5aed4883e61cae9123c"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/ourguidingprinciples.PNG",
+            "size": 570915,
+            "hash": "f7b00d39f85fae98d171a1a15932f7df435f34531e847d4ea69a9f4cbf549157"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/ourguidingprinciples.webp",
+            "size": 30940,
+            "hash": "8cf63099171c3ce755653c95a812261e9c64679e107a1f3821c6c75cb473819d"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/theecosystem.png",
+            "size": 117960,
+            "hash": "80b0bb8f60707236a5b621dc8cef4578d2898efc7e26d10136938d818d0cb954"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/theecosystem.webp",
+            "size": 10074,
+            "hash": "6fc0d9087f114db2fbfe421032d098245f32196fcb11a3660143bfb67fd411e3"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/theproblemswesolve.PNG",
+            "size": 210018,
+            "hash": "f2f62c09dae8b9a2d878badb84e16a708c0eadb61fa1c3fd8c1e59a40564ee78"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/main/theproblemswesolve.webp",
+            "size": 6388,
+            "hash": "182a88688249e8d08a330f7f6554f90ece68489a8bd87f62128d9af2fe281619"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/arulechangeforraisingcapital.png",
+            "size": 409201,
+            "hash": "2275c67a43af0687cf775df7d28cb4ddc8646e49d14f870e78821c5775ddf4b6"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/arulechangeforraisingcapital.webp",
+            "size": 11764,
+            "hash": "4638ce452f046e67eb21e310d9e5139087614587e8f5e167672d7a2e62fea906"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/emptionalblindness.png",
+            "size": 164803,
+            "hash": "e3ed6b5a3b30c84b6ec5291ddab5e280432de56b9312e32af3def051565479bd"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/emptionalblindness.webp",
+            "size": 16014,
+            "hash": "3f66653f2da39b5cbb18c63bd059644691594e545b76defc70a87323fd9c893c"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/focus.PNG",
+            "size": 109024,
+            "hash": "f3beaeb8817e63842f25abf12a8930591c10ffd879ec868bb1d37c627b3a235b"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/focus.webp",
+            "size": 23122,
+            "hash": "2f00571991343d0df962da79eef38533419e87985a3f9ae7aa07681dd1691be9"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/fundability.png",
+            "size": 101467,
+            "hash": "24c9ec555e5f39594d6059dc03865221018fe74aea947b44eaac4df11fc040e8"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/fundability.webp",
+            "size": 12598,
+            "hash": "6a1656b3364727058ca24f5621db989eae552264097a7af77639e8d57f44401e"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/greatstuff.png",
+            "size": 170694,
+            "hash": "b58eb6c3033e81898b1f5ce43a3e7ab0bd7c4565c1362a59b3b7c3af39759303"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/greatstuff.webp",
+            "size": 15326,
+            "hash": "29ddd71d1198b200c0192ed4dbcb3aa19df2aa875efc4e59375c22cf60d27c6d"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/ignoredentrepreneurs.png",
+            "size": 177188,
+            "hash": "46c0363cdd865a2b118eb67f2aa99aebb623148c4ee60b150423c1460d9ad6de"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/ignoredentrepreneurs.webp",
+            "size": 18568,
+            "hash": "d75dc837c8be584ba67ccc384d026140f973256dc5b371c47ac6dd0e8a28867a"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/innovation.png",
+            "size": 201550,
+            "hash": "d568d1e9779bdc6299db16a08a085d3b90bdc95c51caa76d57525b5086c748aa"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/innovation.webp",
+            "size": 37500,
+            "hash": "24c8e6b1353fa7a187aeb7df5a1d4a2c39f796502284ced179cc4e58ddda0123"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/investability.png",
+            "size": 106561,
+            "hash": "3d6a4ece8ec78cdabe40f184d1df7e8f781f635bba2b1d451362456b6b2b152d"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/investability.webp",
+            "size": 16628,
+            "hash": "ed15f8ca678f889f54a62aca50199885fc11484d4ea10c21c7c44e7ce3c2f69a"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/listyourproducts.jpg",
+            "size": 83994,
+            "hash": "ee74ef0cdc31a6b8f47edf3394b47dff34a9497c29ddc38369b84bef68a58f76"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/listyourproducts.webp",
+            "size": 136114,
+            "hash": "893265339c3221c7298299862fd81ced29d091de930214d3cfaeaf3e48d5ca35"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/partnerships.png",
+            "size": 74568,
+            "hash": "f2bb41c43cb495f43d1638b65d9660838eb06e87adb167fd603c3814226a4839"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/partnerships.webp",
+            "size": 6772,
+            "hash": "8adb7b205cdf00ab1492ab7a31fb240f0c06a2f93e015ae0839519a4527e39ce"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/prepareforluck.png",
+            "size": 180431,
+            "hash": "b083c4d08e9d9af4268945ededc8dd44fca195d880ad3b5a8aa521de322ced92"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/prepareforluck.webp",
+            "size": 14786,
+            "hash": "4421a1817347fbe0971705901ed9bb035a23bcc486e8c94d7fdeb00abf7eef63"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/sustainability.png",
+            "size": 218689,
+            "hash": "13d8fec8cc93c243920ce82d15adf8be8db6de1ce068a04e56593532633e1ebd"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/sustainability.webp",
+            "size": 51826,
+            "hash": "1db079ffd4900f50a4a5d204e08a04c520bba873a9357eb3e35391f700de50a6"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/viability.png",
+            "size": 209174,
+            "hash": "22f6257c96b8ed33e9d8c278625eb08de9420431d001dc4b545fec377def8c3e"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/viability.webp",
+            "size": 30288,
+            "hash": "0d47573362d1844e9add74f89bf4e7f26e31fe92fdd9a2fb8e23e698b62afd4e"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/what.png",
+            "size": 169691,
+            "hash": "f712892465920df129b193dac625402ea5140636a6f992f50eee4be17bde9e6c"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/what.webp",
+            "size": 18682,
+            "hash": "9ea42da57a8cfa96a5d84c6214acd6d93239139d8c8089e4d697a200f8515e3c"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/whatwedo.png",
+            "size": 266585,
+            "hash": "abb35e7d02510e7a67792d861b29609bb1ae9afd8108cfe0864e674bc5dafd08"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/whatwedo.webp",
+            "size": 48842,
+            "hash": "77eb87d38400b072bea79d9ee612561599f3a6ee0cb7b1e02bc0e68a21e863d4"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/who.png",
+            "size": 242061,
+            "hash": "bace7c454fbb7e39d5178003b0c22a3ee6de1de107dd4316df569052c5acccab"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/who.webp",
+            "size": 29078,
+            "hash": "66375c034950f27545595baa52149510015795d15851c09018e369ab43d8148b"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/why.png",
+            "size": 96173,
+            "hash": "79abfb8658342fd1d3e35bd0cb5ab72a7ec88dec1587f36cf135b6b12cb0243b"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/why.webp",
+            "size": 15968,
+            "hash": "8cbeee54b2fcf3f675006771c7eb23d9951b1a0d87a76d0092e288dad8a39a4e"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/youreincontrol.jpg",
+            "size": 65925,
+            "hash": "c548e43236c67aaefa2f853d3219a29964302ec6ce282203ab62933cd7e1b33d"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/modal/youreincontrol.webp",
+            "size": 77272,
+            "hash": "60525fc96cc37fbf54126b014cf111eb56097f85979e44d2eaa5a6a7073b3bf4"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/social/facebook-min.png",
+            "size": 6318,
+            "hash": "d601a1945cd4c9eb13df734521f3b3e3336a226b54a981f089346b02fd5d366a"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/social/instagram-min.png",
+            "size": 35967,
+            "hash": "b45a1784d06cb8926e5446ef049e35d084f6feec9f8a95e45ddc096e0e306314"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/social/linkedin-min.png",
+            "size": 12595,
+            "hash": "66de55a93bd4719ca2363c6e79dd59596a422e7f0b8afba214a91be8e337e8ca"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/social/pinterest-min.png",
+            "size": 17129,
+            "hash": "576168d2bb8d604276400c2fa6004f1a02982b5e961ce8a5401c206a96231b1f"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/social/tiktok-min.png",
+            "size": 8287,
+            "hash": "6e7e63e279fbc7f5a83c7bbe8bc30882f3c6180683b0c0a43a3b3edb5bd4c50a"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/social/twitter-min.png",
+            "size": 23628,
+            "hash": "32a7e2dede5e29f94724a267f96743fde931038c3f3be13802de159b548791e2"
+        },
+        {
+            "type": "file",
+            "name": "assets/minified/social/youtube-min.png",
+            "size": 7321,
+            "hash": "c9152d1d6ce26fb015bc0dfabfc34452936266505c7feaa162c178f1fc9b3e6a"
+        }
+    ]
+}
