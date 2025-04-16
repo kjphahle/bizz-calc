@@ -172,7 +172,7 @@ export class OperatingExpenseComponent implements OnInit {
   private generateOperatingExpenseForm(): void {
     this.operatingExpenseForm = this.formBuilder.group({
       GLID: [''],
-      AdjustmentMonth: ["mth - " +this.reviewMonth()],
+      AdjustmentMonth: ["" +this.reviewMonth()],
       Adjustment: ['', [Validators.required, Validators.min(-99), Validators.max(100)]],
       Allocation: ['', [Validators.required, Validators.min(1)]],
     });
@@ -199,7 +199,7 @@ export class OperatingExpenseComponent implements OnInit {
     if(month > 12) {
       month = 1;
     }
-    this.operatingExpenseForm.get('AdjustmentMonth').setValue('mth - ' + month);
+    this.operatingExpenseForm.get('AdjustmentMonth').setValue('' + month);
   }
 
   public leftClicked = false;
@@ -209,7 +209,7 @@ export class OperatingExpenseComponent implements OnInit {
       month = 12;
     }
     this.baseRateMonthNum = event;
-    this.operatingExpenseForm.get('AdjustmentMonth').setValue('mth - ' + month);
+    this.operatingExpenseForm.get('AdjustmentMonth').setValue('' + month);
   }
 
   public onCategoryChange($event: any): void {
