@@ -8,3 +8,13 @@
 .app-bizzcalc-footer-link {
     padding: 5px 0;
 }
+
+
+img {
+  transition: all 0.8s ease-in;
+}
+
+img:hover {
+  transform: scale(1.4);
+  transform: rotate(360deg);
+}
