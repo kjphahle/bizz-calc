@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'app-save-button',
@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SaveButtonComponent {
   @Output() saveClicked = new EventEmitter<boolean>();
+  @Input() label = "save";
 
   public onSaveClicked(): void {
     this.saveClicked.emit(true);

@@ -342,3 +342,29 @@ button.p-toast-close-button {
   text-align: center;
   padding: 10px !important;
 }
+
+.app-info-title-container {
+  padding-bottom: 0px !important;
+  padding-top: 10px !important;
+}
+
+
+.primary-label-bizzcalc {
+  border: unset !important;
+  height: 50px !important;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 0px !important;
+}
+
+.bizzcalc-primary-row {
+  height: 50px !important;
+  // border: 1px solid red !important;
+  align-items: flex-end !important;
+}
+
+.bizzcalc-primary-label {
+  display: flex !important;
+  border: unset !important;
+  align-items: flex-end !important;
+}
