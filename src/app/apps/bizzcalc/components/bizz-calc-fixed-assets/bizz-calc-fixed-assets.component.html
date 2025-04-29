@@ -1,20 +1,18 @@
-<div class="bizzcalc__container">
+<div class="bizzcalc__container pt-0"  style="padding-top: 0px !important;">
   <!-- base assumptions -->
   <div class="bizzcalc__column">
     <form [formGroup]="fixedAssetsForm">
       <!-- Assets purchase month & month selector -->
       <div class="row">
-        <div class="col-7 col-md-8">
-          <div class="text-end">
+        <div class="col-6 col-md-6 py-0 d-flex align-items-end">
+          <!-- <div class="text-end">
             <small class="label-description bizzcalc-form-label">&nbsp;</small>
-          </div>
-
-          <small class="instructiontextcolour">purchase month</small>
-
+          </div> -->
+          <small class="instructiontextcolour">asset purchase month</small>
         </div>
-        <div class="col-5 col-md-4 ps-2">
+        <div class="col-6 col-md-6 ps-2 py-0">
           <!-- <app-bizzbean-nav-control formControlName="FAPurchaseMonth"></app-bizzbean-nav-control> -->
-          <div class="text-end">
+          <div class="text-end label-container">
             <small class="label-description bizzcalc-form-label">select month</small>
           </div>
           <app-bizzbean-nav-control [customMonths]="baseRateCustomMonths"
@@ -28,8 +26,8 @@
         </div>
       </div>
       <!-- Asset description -->
-      <div class="row bizzcalc-row">
-        <div class="col-md-12">
+      <div class="row bizzcalc-row"  style="padding-top: 0px !important;">
+        <div class="col-md-12 label-container">
           <small class="label-description bizzcalc-form-label">description of fixed asset purchased</small>
         </div>
         <div class="col-md-12">
@@ -43,31 +41,16 @@
         </small>
       </div>
       <!-- Asset cost, unit cost & unit purchased -->
-      <div class="row bizzcalc-row">
-        <div class="row d-none">
-          <div class="col-md-6"></div>
-
-          <div class="col-md-3 pe-0">
-            <small class="label-description bizzcalc-form-label">no. units</small>
-          </div>
-          <div class="col-md-3">
-            <small class="label-description bizzcalc-form-label">unit cost</small>
-          </div>
-        </div>
-        <div class="row pe-0">
-          <div class="col-6 col-md-6 pe-1">
-            <div class="text-end">
-              <small class="label-description bizzcalc-form-label">&nbsp;</small>
+      <div class="row bizzcalc-row pe-1" style="padding-top: 0px !important;">
+          <div class="col-6 col-md-6 pe-1 py-0 d-flex align-items-end">
+            <div class="label-container">
+              <small class="instructiontextcolour">asset cost</small>
             </div>
-
-            <small class="instructiontextcolour">asset cost</small>
-
           </div>
-          <div class="col-3 col-md-3 px-0">
-            <div class="text-end">
+          <div class="col-3 col-md-3 ps-2 py-0" style="padding-top: 0px !important;">
+            <div class="text-end label-container">
               <small class="label-description bizzcalc-form-label">no. units</small>
             </div>
-
             <input type="number" class="primary-input" formControlName="FAQty" placeholder="1+" />
             <small *ngIf="fixedAssetsForm.get('FAQty')?.hasError('required') && fixedAssetsForm.get('FAQty')?.touched" class="text-danger error-message-section">
               Number of units is required.
@@ -76,8 +59,8 @@
               Number of units must be greater than 1.
             </small>
           </div>
-          <div class="col-3 col-md-3 pe-1">
-            <div class="text-end">
+          <div class="col-3 col-md-3 pe-2 py-0" style="padding-top: 0px !important;">
+            <div class="text-end label-container">
               <small class="label-description bizzcalc-form-label">unit cost</small>
             </div>
             <input type="number" class="primary-input" formControlName="FACost" placeholder=">1" />
@@ -88,15 +71,12 @@
               Cost must be greater than 1.
             </small>
           </div>
-
-
-        </div>
       </div>
       <!-- Select asset category dropdown$ Rate -->
-      <div class="row bizzcalc-row">
+      <div class="row bizzcalc-row" style="padding-top: 0px !important;">
         <!-- category dropdown -->
-        <div class="col-7 col-md-7">
-          <div>
+        <div class="col-8 col-md-8 py-0" style="padding-top: 0px !important;">
+          <div class="label-container">
             <small class="label-description bizzcalc-form-label">select asset category</small>
           </div>
           <div *ngIf="catDepreciationRates.length > 0">
@@ -106,8 +86,8 @@
           </div>
         </div>
         <!-- percentage rate -->
-        <div class="col-5 col-md-5">
-          <div class="text-end">
+        <div class="col-4 col-md-4 py-0" style="padding-top: 0px !important;">
+          <div class="text-end label-container">
             <small class="label-description bizzcalc-form-label">% rate</small>
           </div>
           <div>
@@ -122,7 +102,7 @@
       <p-toast position="center" key="br" />
 
       <!-- Action buttons -->
-      <div class="col-12 bizzcalc__column bg-white px-0" style="padding-top: 20px;">
+      <div class="col-12 bizzcalc__column bg-white px-0 pb-0" style="padding-top: 20px;">
         <div class="d-flex justify-content-between">
           <button class="primary-btn bizz-calc-data-save-btn" (click)="onAddAssetsBtnClicked()">add data</button>
           <button class="primary-btn bizz-calc-page-save-btn" (click)="onViewDataBtnClicked()">view data</button>
