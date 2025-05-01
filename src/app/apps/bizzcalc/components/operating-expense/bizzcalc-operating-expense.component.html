@@ -13,21 +13,38 @@
       <!-- <pre>{{operatingExpenseForm.value | json}}</pre> -->
       <!-- Expense base value -->
       <!-- Row 1 Select expense-->
-      <div class="row bizzcalc-row">
-        <div class="col-12">
-          <app-bizzbean-category-list-control formControlName="GLID"
-            (arrowCircleRightClicked)="onCategoryChange($event)" (arrowCircleLeftClicked)="onCategoryChange($event)"
-            [categoryList]="categories"></app-bizzbean-category-list-control>
+      <div class="row bizzcalc-row py-0" style="padding-top: 0px !important;">
+        <div class="col-12 py-0">
+          <div>
+
+            <div style="height: 20px !important; line-height: 20px !important; display: flex;
+                align-items: flex-end;">
+              <small class="label-description bizzcalc-form-label">select expense item</small>
+            </div>
+            <section>
+              <div style="height: 20px !important; line-height: 20px !important; display: flex;
+              align-items: flex-end;">
+                <small class="label-description bizzcalc-form-label">monthly base rate</small>
+              </div>
+              <app-bizzbean-category-list-control formControlName="GLID"
+                (arrowCircleRightClicked)="onCategoryChange($event)" (arrowCircleLeftClicked)="onCategoryChange($event)"
+                [categoryList]="categories"></app-bizzbean-category-list-control>
+            </section>
+          </div>
+
         </div>
       </div>
 
       <!-- Row 2 -->
-      <div class="row pt-2">
-        <div class="col-6 col-md-6 pe-0">
-
+      <div class="row pt-0">
+        <div class="col-4 col-md-4 pe-0 py-0 d-flex align-items-end">
           <small class="instructiontextcolour">expense base value</small>
         </div>
-        <div class="col-6 col-md-6">
+        <div class="col-8 col-md-8 py-0">
+          <div style="height: 20px !important; line-height: 20px !important; display: flex;
+          align-items: flex-end;">
+            <small class="label-description bizzcalc-form-label">monthly base rate</small>
+          </div>
           <input type="number" class="primary-input" placeholder=">1" formControlName="Allocation" />
         </div>
 
@@ -44,22 +61,27 @@
 
       </div>
       <!-- Base rate review label -->
-      <div class="row pt-2">
-        <div class="col-4">
+      <div class="row py-0">
+        <div class="col-4 py-0 d-flex align-items-end">
           <small class="instructiontextcolour">base rate review</small>
-
         </div>
-        <div class="col-4">
+        <div class="col-4 py-0">
           <!-- <pre>{{adjustmentMonthCtrl?.value}}</pre> -->
+          <div style="height: 20px !important; line-height: 20px !important; display: flex;
+          align-items: flex-end;">
+            <small class="label-description bizzcalc-form-label">financial month</small>
+          </div>
           <app-bizzbean-nav-control [btnLabel]="adjustmentMonthCtrl?.value" [customMonths]="baseRateCustomMonths"
-            formControlName="AdjustmentMonth"
-            [currentMonthIndex]="reviewMonth() - 1"
+            formControlName="AdjustmentMonth" [currentMonthIndex]="reviewMonth() - 1"
             (arrowCircleLeftClicked)="onArrowCircleLeftClicked($event)"
-            (arrowCircleRightClicked)="onArrowCircleRightClicked($event)"
-            >
+            (arrowCircleRightClicked)="onArrowCircleRightClicked($event)">
           </app-bizzbean-nav-control>
         </div>
-        <div class="col-4">
+        <div class="col-4 py-0">
+          <div style="height: 20px !important; line-height: 20px !important; display: flex;
+          align-items: flex-end;">
+            <small class="label-description bizzcalc-form-label">% rate</small>
+          </div>
           <input type="number" class="primary-input" placeholder="-99-100%" formControlName="Adjustment" />
         </div>
         @if(adjustmentCtrl?.hasError('required') && adjustmentCtrl?.touched){
@@ -75,15 +97,13 @@
       <!-- Month and rate -->
       <!-- <pre>{{operatingExpenseForm?.value | json}}</pre> -->
       <!-- add data button -->
-      <div class="row pt-2">
+      <div class="row" style="padding-top: 20px !important;">
         <div class="col-md-12">
           <div class="d-flex justify-content-between">
-            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;" (click)="saveExpense()">add
+            <button class="primary-btn bizz-calc-page-save-btn" (click)="saveExpense()">add
               data</button>
-            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
-              (click)="onViewDataBtnClicked()">view data</button>
-            <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
-              (click)="onSaveBtnClicked()">save</button>
+            <button class="primary-btn bizz-calc-page-save-btn" (click)="onViewDataBtnClicked()">view data</button>
+            <button class="primary-btn bizz-calc-page-save-btn" (click)="onSaveBtnClicked()">save</button>
           </div>
         </div>
       </div>
