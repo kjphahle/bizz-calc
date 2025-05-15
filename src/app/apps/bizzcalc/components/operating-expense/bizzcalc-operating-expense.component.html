@@ -12,115 +12,149 @@
 
       <!-- <pre>{{operatingExpenseForm.value | json}}</pre> -->
       <!-- Expense base value -->
-      <!-- Row 1 Select expense-->
+
+      <!-- Row 1 Expense start month row-->
       <div class="row bizzcalc-row py-0" style="padding-top: 0px !important;">
         <div class="col-12 py-0">
-          <div>
-
-            <div style="height: 20px !important; line-height: 20px !important; display: flex;
-                align-items: flex-end;">
-              <small class="label-description bizzcalc-form-label">select expense item</small>
-            </div>
-            <section>
+          <div class="row">
+            <div class="col-4  py-0 d-flex align-items-end">
               <div style="height: 20px !important; line-height: 20px !important; display: flex;
               align-items: flex-end;">
-                <small class="label-description bizzcalc-form-label">monthly base rate</small>
-              </div>
-              <app-bizzbean-category-list-control formControlName="GLID"
-                (arrowCircleRightClicked)="onCategoryChange($event)" (arrowCircleLeftClicked)="onCategoryChange($event)"
-                [categoryList]="categories"></app-bizzbean-category-list-control>
-            </section>
+                  <small class="label-description bizzcalc-form-label">expense start month</small>
+                </div>
+            </div>
+            <div class="col-8 py-0">
+              <section>
+                <div style="height: 20px !important; line-height: 20px !important; display: flex;
+              align-items: flex-end;">
+                  <small class="label-description bizzcalc-form-label">select financial month</small>
+                </div>
+                <!-- <app-bizzbean-category-list-control formControlName="GLID"
+                  (arrowCircleRightClicked)="onCategoryChange($event)"
+                  (arrowCircleLeftClicked)="onCategoryChange($event)"
+                  [categoryList]="categories"></app-bizzbean-category-list-control> -->
+                  <app-bizzbean-nav-control [disableBackwardArrow]="operatingExpenseForm.get('GLID').value < 2"
+                  [disableForwardArrow]="operatingExpenseForm.get('GLID').value > 11"
+                  [customMonths]="baseRateCustomMonths"
+                  [btnLabel]="baseRateMonthNum?.month ?? baseRateCustomMonths[0].monthNo"
+                  formControlName="GLID" (arrowCircleRightClicked)="
+                    onArrowCircleRightClicked($event)
+                  " (arrowCircleLeftClicked)="
+                    onArrowCircleLeftClicked($event)
+                  "></app-bizzbean-nav-control>
+              </section>
+            </div>
           </div>
-
+          </div>
         </div>
-      </div>
 
-      <!-- Row 2 -->
-      <div class="row pt-0">
-        <div class="col-4 col-md-4 pe-0 py-0 d-flex align-items-end">
-          <small class="instructiontextcolour">expense base value</small>
+
+
+        <!-- Row 1 Select expense-->
+        <div class="row bizzcalc-row py-0" style="padding-top: 0px !important;">
+          <div class="col-12 py-0">
+            <div>
+              <section>
+                <div style="height: 20px !important; line-height: 20px !important; display: flex;
+              align-items: flex-end;">
+                  <small class="label-description bizzcalc-form-label">select expense item</small>
+                </div>
+                <app-bizzbean-category-list-control formControlName="GLID"
+                  (arrowCircleRightClicked)="onCategoryChange($event)"
+                  (arrowCircleLeftClicked)="onCategoryChange($event)"
+                  [categoryList]="categories"></app-bizzbean-category-list-control>
+              </section>
+            </div>
+
+          </div>
         </div>
-        <div class="col-8 col-md-8 py-0">
-          <div style="height: 20px !important; line-height: 20px !important; display: flex;
+
+        <!-- Row 2 -->
+        <div class="row pt-0">
+          <div class="col-4 col-md-4 pe-0 py-0 d-flex align-items-end">
+            <small class="instructiontextcolour">expense base value</small>
+          </div>
+          <div class="col-8 col-md-8 py-0">
+            <div style="height: 20px !important; line-height: 20px !important; display: flex;
           align-items: flex-end;">
-            <small class="label-description bizzcalc-form-label">monthly base rate</small>
+              <small class="label-description bizzcalc-form-label">monthly base rate</small>
+            </div>
+            <input type="number" class="primary-input" placeholder=">1" formControlName="Allocation" />
           </div>
-          <input type="number" class="primary-input" placeholder=">1" formControlName="Allocation" />
-        </div>
 
-        <small
-          *ngIf="operatingExpenseForm.get('Allocation')?.hasError('required') && operatingExpenseForm.get('allocation')?.touched"
-          class="text-danger error-message-section">
-          Allocation is required.
-        </small>
-        <small
-          *ngIf="operatingExpenseForm.get('Allocation')?.hasError('min') && operatingExpenseForm.get('allocation')?.touched"
-          class="text-danger error-message-section">
-          Allocation must be greater than 1.
-        </small>
+          <small
+            *ngIf="operatingExpenseForm.get('Allocation')?.hasError('required') && operatingExpenseForm.get('allocation')?.touched"
+            class="text-danger error-message-section">
+            Allocation is required.
+          </small>
+          <small
+            *ngIf="operatingExpenseForm.get('Allocation')?.hasError('min') && operatingExpenseForm.get('allocation')?.touched"
+            class="text-danger error-message-section">
+            Allocation must be greater than 1.
+          </small>
 
-      </div>
-      <!-- Base rate review label -->
-      <div class="row py-0">
-        <div class="col-4 py-0 d-flex align-items-end">
-          <small class="instructiontextcolour">base rate review</small>
         </div>
-        <div class="col-4 py-0">
-          <!-- <pre>{{adjustmentMonthCtrl?.value}}</pre> -->
-          <div style="height: 20px !important; line-height: 20px !important; display: flex;
+        <!-- Base rate review label -->
+        <div class="row py-0">
+          <div class="col-4 py-0 d-flex align-items-end">
+            <small class="instructiontextcolour">base rate review</small>
+          </div>
+          <div class="col-4 py-0">
+            <!-- <pre>{{adjustmentMonthCtrl?.value}}</pre> -->
+            <div style="height: 20px !important; line-height: 20px !important; display: flex;
           align-items: flex-end;">
-            <small class="label-description bizzcalc-form-label">financial month</small>
+              <small class="label-description bizzcalc-form-label">financial month</small>
+            </div>
+            <app-bizzbean-nav-control [btnLabel]="adjustmentMonthCtrl?.value" [customMonths]="baseRateCustomMonths"
+              formControlName="AdjustmentMonth" [currentMonthIndex]="reviewMonth() - 1"
+              (arrowCircleLeftClicked)="onArrowCircleLeftClicked($event)"
+              (arrowCircleRightClicked)="onArrowCircleRightClicked($event)">
+            </app-bizzbean-nav-control>
           </div>
-          <app-bizzbean-nav-control [btnLabel]="adjustmentMonthCtrl?.value" [customMonths]="baseRateCustomMonths"
-            formControlName="AdjustmentMonth" [currentMonthIndex]="reviewMonth() - 1"
-            (arrowCircleLeftClicked)="onArrowCircleLeftClicked($event)"
-            (arrowCircleRightClicked)="onArrowCircleRightClicked($event)">
-          </app-bizzbean-nav-control>
-        </div>
-        <div class="col-4 py-0">
-          <div style="height: 20px !important; line-height: 20px !important; display: flex;
+          <div class="col-4 py-0">
+            <div style="height: 20px !important; line-height: 20px !important; display: flex;
           align-items: flex-end;">
-            <small class="label-description bizzcalc-form-label">% rate</small>
+              <small class="label-description bizzcalc-form-label">% rate</small>
+            </div>
+            <input type="number" class="primary-input" placeholder="-99-100%" formControlName="Adjustment" />
           </div>
-          <input type="number" class="primary-input" placeholder="-99-100%" formControlName="Adjustment" />
+          @if(adjustmentCtrl?.hasError('required') && adjustmentCtrl?.touched){
+          <small class="text-danger error-message-section"> Adjustment is required. </small>
+          }@else if(adjustmentCtrl?.hasError('min') && adjustmentCtrl?.touched){
+          <small class="text-danger error-message-section"> Adjustment cannot be less than -99.</small>
+          } @else if(adjustmentCtrl?.hasError('max') && adjustmentCtrl?.touched){
+          <small class="text-danger error-message-section">
+            Adjustment cannot be greater than 100.
+          </small>
+          }
         </div>
-        @if(adjustmentCtrl?.hasError('required') && adjustmentCtrl?.touched){
-        <small class="text-danger error-message-section"> Adjustment is required. </small>
-        }@else if(adjustmentCtrl?.hasError('min') && adjustmentCtrl?.touched){
-        <small class="text-danger error-message-section"> Adjustment cannot be less than -99.</small>
-        } @else if(adjustmentCtrl?.hasError('max') && adjustmentCtrl?.touched){
-        <small class="text-danger error-message-section">
-          Adjustment cannot be greater than 100.
-        </small>
-        }
-      </div>
-      <!-- Month and rate -->
-      <!-- <pre>{{operatingExpenseForm?.value | json}}</pre> -->
-      <!-- add data button -->
-      <div class="row" style="padding-top: 20px !important;">
-        <div class="col-md-12">
-          <div class="d-flex justify-content-between">
-            <button class="primary-btn bizz-calc-page-save-btn" (click)="saveExpense()">add
-              data</button>
-            <button class="primary-btn bizz-calc-page-save-btn" (click)="onViewDataBtnClicked()">view data</button>
-            <button class="primary-btn bizz-calc-page-save-btn" (click)="onSaveBtnClicked()">save</button>
+        <!-- Month and rate -->
+        <!-- <pre>{{operatingExpenseForm?.value | json}}</pre> -->
+        <!-- add data button -->
+        <div class="row" style="padding-top: 20px !important;">
+          <div class="col-md-12">
+            <div class="d-flex justify-content-between">
+              <button class="primary-btn bizz-calc-page-save-btn" (click)="saveExpense()">add
+                data</button>
+              <button class="primary-btn bizz-calc-page-save-btn" (click)="onViewDataBtnClicked()">view data</button>
+              <button class="primary-btn bizz-calc-page-save-btn" (click)="onSaveBtnClicked()">save</button>
+            </div>
           </div>
         </div>
+        <div class="col-md-6"></div>
       </div>
-      <div class="col-md-6"></div>
     </div>
   </div>
-</div>
 
-<p-toast position="center" key="br" />
+  <p-toast position="center" key="br" />
 
-<div class="bizzbean-action-buttons d-none" style="margin-top: 132px">
-  <div class="col-12 bizzcalc__column bg-white pb-2">
-    <div class="d-flex justify-content-between">
-      <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
-        (click)="onViewDataBtnClicked()">view data</button>
-      <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
-        (click)="onSaveBtnClicked()">save</button>
+  <div class="bizzbean-action-buttons d-none" style="margin-top: 132px">
+    <div class="col-12 bizzcalc__column bg-white pb-2">
+      <div class="d-flex justify-content-between">
+        <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
+          (click)="onViewDataBtnClicked()">view data</button>
+        <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px;"
+          (click)="onSaveBtnClicked()">save</button>
+      </div>
     </div>
   </div>
-</div>

@@ -212,6 +212,8 @@ export class OperatingExpenseComponent implements OnInit {
     this.operatingExpenseForm.get('AdjustmentMonth').setValue('' + month);
   }
 
+
+
   public onCategoryChange($event: any): void {
     this.operatingExpenseForm.get('GLID').setValue($event?.ID);
   }
