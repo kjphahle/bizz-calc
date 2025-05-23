@@ -1,60 +1,30 @@
 <div class="container-fluid px-0 bizzcalc-setup-container bg-white">
-  <app-bizzcalc-header
-  [showLeftIcon]="true"
-  [showRightIcon]="true"
-  [title]="'employment'"
-  [leftIconRoute]="'/main/bizzcalc/revenue-calculator'"
-  [rightIconRoute]="'/main/bizzcalc/operating-expense'">
-</app-bizzcalc-header>
-
-
-  <div class="bizzcalc__container">
-
-    <!-- <pre>{{employmentForm.value | json}}</pre> -->
-
-    <div class="container-fluid px-0 bizzcalc-days-worked-container bg-white">
-      <div class="bizzcalc__container pt-0">
+  <app-bizzcalc-header [showLeftIcon]="true" [showRightIcon]="true" [title]="'employment'"
+    [leftIconRoute]="'/main/bizzcalc/revenue-calculator'" [rightIconRoute]="'/main/bizzcalc/operating-expense'">
+  </app-bizzcalc-header>
+  <div class="bizzcalc__container" style="padding-top: 0px !important;">
+    <div class="container-fluid px-0 bizzcalc-days-worked-container py-0 bg-white">
+      <div class="bizzcalc__container" style="padding-top: 0px !important; padding-bottom: 0px !important;">
         <!-- <pre>{{employmentForm.value | json }}</pre> -->
         <!-- <pre>{{employees | json}}</pre> -->
         <!-- <pre>{{ startDate }}</pre> -->
         <div class="form-container pt-0">
-          <div class="col-12 bizzcalc__column py-0">
+          <div class="col-12 bizzcalc__column" style="padding-top: 10px !important; padding-bottom: 0px !important;">
             <app-info-title [title]="'base assumption'" (click)=" openModalWithDynamicContent()"></app-info-title>
           </div>
-
           <!-- <pre>{{ customMonths | json }}</pre> -->
           <!-- <pre>{{baseRateCustomMonths | json}}</pre> -->
           <!-- <pre>{{employmentForm.value | json}}</pre> -->
           <!-- <pre>{{employmentMonthNum | json}}</pre> -->
-
           <!-- <pre>{{baseRateReviewMonth}}</pre> -->
-
           <!-- <pre>{{employmentForm.value | json}}</pre> -->
-
-          <div class="col-12 bizzcalc__column bizzcalc-row">
+          <div class="col-12 bizzcalc__column bizzcalc-row"  style="padding-top: 0px !important; padding-bottom: 0px !important;">
             <form [formGroup]="employmentForm">
-
-              <div class="row">
-
-
-
-                <div class="col-7 col-md-6 ">
-
-
-
-                    <small class="instructiontextcolour">employment month</small>
-
-
-
-
-
-
-
+              <div class="row" style="height: 50px !important;">
+                <div class="col-6 col-md-6 d-flex align-items-end py-0" style="height: 50px !important;">
+                  <small class="instructiontextcolour bizzcalc-form-label">employment month</small>
                 </div>
-                <!-- <pre>{{baseRateMonthNum?.monthNo}}</pre> -->
-                <!-- <pre>{{employmentForm.get("EmploymentMonth").value}}</pre> -->
-
-                <div class="col-5 ps-0 col-md-6">
+                <div class="col-6 ps-0 col-md-6 py-0" style="height: 50px !important;">
                   <small class="label-description bizzcalc-form-label text-end">select month</small>
                   <app-bizzbean-nav-control [disableBackwardArrow]="employmentForm.get('EmploymentMonth').value < 2"
                     [disableForwardArrow]="employmentForm.get('EmploymentMonth').value > 11"
@@ -68,80 +38,84 @@
                 </div>
               </div>
               <!-- Row: job title -->
-              <div class="row bizzcalc-row">
-
-                <div class="col-6 col-md-6 pt-0">
+              <div class="row bizzcalc-row" style="padding-top: 0px !important;">
+                <div class="col-6 col-md-6 py-0">
                   <app-bizzbean-input-control [id]="'jobTitle'" [label]="'job title'" [placeholder]="'job title'"
                     formControlName="jobTitle"></app-bizzbean-input-control>
                 </div>
 
                 <!-- Number of employees -->
-                <div class="col-3 col-md-2 pt-0">
-                  <app-bizzbean-input-control  type="number"
-                  (keypress)="preventNonNumericInput($event)" [id]="'numberEmployed'" [label]="'number'" [placeholder]="'+1'"
+                <div class="col-3 col-md-2 py-0 ps-0">
+                  <app-bizzbean-input-control type="number" (keypress)="preventNonNumericInput($event)"
+                    [id]="'numberEmployed'" [label]="'number'" [placeholder]="'+1'"
                     formControlName="NumberOfEmployees"></app-bizzbean-input-control>
                 </div>
                 <!-- Employee salary -->
-                <div class="col-3 col-md-4 pt-0">
-                  <app-bizzbean-input-control  type="number"
-                  (keypress)="preventNonNumericInput($event)" [id]="'monthlyBaseRate'" [label]="'rate'" [placeholder]="'>1'"
+                <div class="col-3 col-md-4 py-0 ps-0">
+                  <app-bizzbean-input-control type="number" (keypress)="preventNonNumericInput($event)"
+                    [id]="'monthlyBaseRate'" [label]="'rate'" [placeholder]="'>1'"
                     formControlName="EmployeeSalary"></app-bizzbean-input-control>
                   <!-- <input type="text" class="primary-input" placeholder="1,000%" [(ngModel)]="employee.employeeRate"/> -->
                 </div>
               </div>
               <div class="row-errors">
                 @if(employmentForm.get('jobTitle')?.invalid && employmentForm.get('jobTitle')?.touched){
-                  <small
-                  class="text-danger error-message-section">
+                <small class="text-danger error-message-section">
                   Please enter Job title.
-                 </small>
-                }@else if (employmentForm.get('NumberOfEmployees')?.hasError('min') && employmentForm.get('NumberOfEmployees')?.touched) {
-                  <small class="text-danger error-message-section">
-                  Number of employees must be between 1 and 100.
                 </small>
-              }
-                @else if (employmentForm.get('NumberOfEmployees')?.hasError('required') && employmentForm.get('NumberOfEmployees')?.touched) {
-                  <small class="text-danger error-message-section">
-                  Number of employees must be between 1 and 100.
-                </small>
-                }@else if (employmentForm.get('NumberOfEmployees')?.hasError('max') && employmentForm.get('NumberOfEmployees')?.touched) {
-                  <small class="text-danger error-message-section">
+                }@else if (employmentForm.get('NumberOfEmployees')?.hasError('min') &&
+                employmentForm.get('NumberOfEmployees')?.touched) {
+                <small class="text-danger error-message-section">
                   Number of employees must be between 1 and 100.
                 </small>
                 }
-                @else if (employmentForm.get('EmployeeSalary')?.hasError('min') && employmentForm.get('EmployeeSalary').touched) {
-                  <small class="text-danger error-message-section">
-                    Please enter a value greater than 1.
+                @else if (employmentForm.get('NumberOfEmployees')?.hasError('required') &&
+                employmentForm.get('NumberOfEmployees')?.touched) {
+                <small class="text-danger error-message-section">
+                  Number of employees must be between 1 and 100.
+                </small>
+                }@else if (employmentForm.get('NumberOfEmployees')?.hasError('max') &&
+                employmentForm.get('NumberOfEmployees')?.touched) {
+                <small class="text-danger error-message-section">
+                  Number of employees must be between 1 and 100.
                 </small>
                 }
-                @else if (employmentForm.get('EmployeeSalary')?.hasError('required') && employmentForm.get('EmployeeSalary').touched) {
-                  <small class="text-danger error-message-section">
-                    Please enter a value greater than 1.
+                @else if (employmentForm.get('EmployeeSalary')?.hasError('min') &&
+                employmentForm.get('EmployeeSalary').touched) {
+                <small class="text-danger error-message-section">
+                  Please enter a value greater than 1.
+                </small>
+                }
+                @else if (employmentForm.get('EmployeeSalary')?.hasError('required') &&
+                employmentForm.get('EmployeeSalary').touched) {
+                <small class="text-danger error-message-section">
+                  Please enter a value greater than 1.
                 </small>
                 }
 
               </div>
-              <div class="row bizzcalc-row align-items-end" *ngIf="+employmentForm.get('EmploymentMonth')?.value !== 12">
+              <div class="row bizzcalc-row align-items-end pt-0" style="padding-top: 0px !important;"
+                *ngIf="+employmentForm.get('EmploymentMonth')?.value !== 12">
 
-                <div class="col-5 pt-0 pe-0 height: 32px !important;">
+                <div class="col-6 pt-0 pe-0 height: 32px !important;">
                   <small class="instructiontextcolour">base rate review</small>
                 </div>
-                <div class="col-4 pt-0 px-1">
+                <div class="col-3 pt-0 px-1">
                   <div class="h-100" style="display: inline-block;
                     height: 32px !important;
                     width: 100%;">
-
                     <app-bizzbean-nav-control
                       [disableBackwardArrow]="employmentForm.get('EmploymentReviewMonth').value < employmentForm.get('EmploymentMonth').value"
-                      [disableForwardArrow]="employmentForm.get('EmploymentReviewMonth').value > 11" [customMonths]="customMonths"
-                      formControlName="EmploymentReviewMonth" [btnLabel]="employmentForm.get('EmploymentReviewMonth').value"
+                      [disableForwardArrow]="employmentForm.get('EmploymentReviewMonth').value > 11"
+                      [customMonths]="customMonths" formControlName="EmploymentReviewMonth"
+                      [btnLabel]="employmentForm.get('EmploymentReviewMonth').value"
                       (arrowCircleRightClicked)="onArrowCircleRightReviewMonthClicked($event)"
                       (arrowCircleLeftClicked)="onArrowCircleLeftReviewMonthClicked($event)"></app-bizzbean-nav-control>
                   </div>
                 </div>
                 <div class="col-3 pt-0 ps-0">
-                  <app-bizzbean-input-control type="number"
-                  (keypress)="preventNonNumericInput($event)" type="number" [id]="'Percent'" [label]="'% rate'" [placeholder]="'-99-100%'"
+                  <app-bizzbean-input-control type="number" (keypress)="preventNonNumericInput($event)" type="number"
+                    [id]="'Percent'" [label]="'% rate'" [placeholder]="'-99-100%'"
                     formControlName="ReviewPercentage"></app-bizzbean-input-control>
                 </div>
               </div>
@@ -149,8 +123,8 @@
                 <div class="col-md-6"></div>
                 <div class="col-md-6">
 
-                  <app-bizzbean-input-control type="number"
-                  (keypress)="preventNonNumericInput($event)" type="number" [id]="'rate'" [label]="'% rate'" [placeholder]="'% rate'"
+                  <app-bizzbean-input-control type="number" (keypress)="preventNonNumericInput($event)" type="number"
+                    [id]="'rate'" [label]="'% rate'" [placeholder]="'% rate'"
                     formControlName="ReviewPercentage"></app-bizzbean-input-control>
                 </div>
               </div>
@@ -158,7 +132,8 @@
               <p-toast position="center" key="br" />
               <div class="row d-none">
                 <div class="col-md-6">
-                  <button class="primary-btn bizz-calc-data-save-btn" style="margin-top: 10px" (click)="onAddPositionClicked()">
+                  <button class="primary-btn bizz-calc-data-save-btn" style="margin-top: 10px"
+                    (click)="onAddPositionClicked()">
                     add data
                   </button>
                 </div>
@@ -170,12 +145,15 @@
       </div>
     </div>
     <!-- View data buttons -->
-    <div class="bizzbean-action-buttons row bizzcalc-row px-3">
+    <div class="bizzbean-action-buttons row bizzcalc-row px-3" style="padding-top: 0px !important;">
       <div class="col-12 bizzcalc__column bg-white pb-2">
         <div class="d-flex justify-content-between">
-          <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px; min-width: 85px;" (click)="onAddPositionClicked()">add data</button>
-          <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px; min-width: 85px;" (click)="onViewDataBtnClicked()">view data</button>
-          <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px; min-width: 85px;" (click)="onSaveBtnClicked()">save</button>
+          <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px; min-width: 85px;"
+            (click)="onAddPositionClicked()">add data</button>
+          <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px; min-width: 85px;"
+            (click)="onViewDataBtnClicked()">view data</button>
+          <button class="primary-btn bizz-calc-page-save-btn" style="margin-top: 10px; min-width: 85px;"
+            (click)="onSaveBtnClicked()">save</button>
         </div>
       </div>
       <!-- <app-bizzbean-action-buttons (saveClicked)="onSaveClicked()"></app-bizzbean-action-buttons> -->
