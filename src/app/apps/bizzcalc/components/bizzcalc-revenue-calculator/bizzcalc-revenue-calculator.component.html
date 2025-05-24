@@ -8,86 +8,52 @@
     <!-- <pre>testMonth: {{testMonth | json}}</pre> -->
     <p-toast position="center" key="br" />
     <div class="row pt-3">
-      <div class="col-4 col-md-4 pe-6 d-flex align-items-end">
-        <small class="instructiontextcolour">base rates</small>
+      <div class="col-4 col-md-4 pe-6 d-flex align-items-end py-0" style="height: 50px !important;">
+        <small class="instructiontextcolour bizzcalc-form-label">base rates</small>
       </div>
       <div class="col-4 col-md-4">
-        <label for="base-daily-sales" class="bizz-calc-form-label bizzcalc-form-label"
-          >base daily sales</label
-        >
-        <input
-          type="number"
-          id="base-daily-sales"
-          formControlName="valueSalesPerDay"
-          class="primary-input"
-          placeholder=">1"
-        />
+        <app-bizzbean-input-control [id]="'valueSalesPerDay'" [label]="'base daily sales'" [placeholder]="'>1'"
+          formControlName="valueSalesPerDay"></app-bizzbean-input-control>
       </div>
 
-      <small
-      class="text-danger error-message-section"
-      *ngIf="
+      <small class="text-danger error-message-section" *ngIf="
        revenueCalculatorForm.get('valueSalesPerDay')?.hasError('required') &&
        revenueCalculatorForm.get('valueSalesPerDay')?.touched
-      "
-    >
-      Please enter the value of sales per day.
-    </small>
-    <small
-      class="text-danger error-message-section"
-      *ngIf="
+      ">
+        Please enter the value of sales per day.
+      </small>
+      <small class="text-danger error-message-section" *ngIf="
        revenueCalculatorForm.get('valueSalesPerDay')?.hasError('min') &&
        revenueCalculatorForm.get('valueSalesPerDay')?.touched
-      "
-    >
-      Value must be greater than 0.
-    </small>
+      ">
+        Value must be greater than 0.
+      </small>
       <div class="col-4 col-md-4">
-        <label for="gross-margin" class="bizz-calc-form-label bizzcalc-form-label"
-          >gross margin</label
-        >
-        <input
-          type="number"
-          id="gross-margin"
-          class="primary-input"
-          formControlName="profitMargin"
-          placeholder="1 <-> 100%"
-        />
+        <app-bizzbean-input-control [id]="'gross-margin'" [label]="'gross margin'" [placeholder]="'1 <-> 100%'"
+          formControlName="profitMargin"></app-bizzbean-input-control>
       </div>
-      <small
-    class="text-danger error-message-section"
-    *ngIf="
+      <small class="text-danger error-message-section" *ngIf="
      revenueCalculatorForm.get('profitMargin')?.hasError('required') &&
      revenueCalculatorForm.get('profitMargin')?.touched
-    "
-  >
-    Please enter the profit margin.
-  </small>
-  <small
-    class="text-danger error-message-section"
-    *ngIf="
+    ">
+        Please enter the profit margin.
+      </small>
+      <small class="text-danger error-message-section" *ngIf="
      revenueCalculatorForm.get('profitMargin')?.hasError('min') &&
      revenueCalculatorForm.get('profitMargin')?.touched
-    "
-  >
-    Profit margin must be at least 1%.
-  </small>
-  <small
-    class="text-danger error-message-section"
-    *ngIf="
+    ">
+        Profit margin must be at least 1%.
+      </small>
+      <small class="text-danger error-message-section" *ngIf="
      revenueCalculatorForm.get('profitMargin')?.hasError('max') &&
      revenueCalculatorForm.get('profitMargin')?.touched
-    "
-  >
-    Profit margin cannot exceed 100%.
-  </small>
+    ">
+        Profit margin cannot exceed 100%.
+      </small>
     </div>
-    <div class="row pt-2">
-      <div class="col-12 col-md-12">
-
+    <div class="row py-0">
+      <div class="col-12 col-md-12 py-0">
         <small class="instructiontextcolour">enter growth rate per month-between -99 and 100%</small>
-
-
       </div>
       <!-- <div class="col-5 col-md-5">
         <app-bizzbean-nav-control></app-bizzbean-nav-control>
@@ -97,24 +63,13 @@
       <div formArrayName="adjustmentMonths">
         <div>
           <div class="row">
-            <div
-              *ngFor="
+            <div *ngFor="
                 let adjustmentMonth of adjustmentMonths.controls;
                 let i = index
-              "
-              [formGroupName]="i"
-              class="col-4 col-md-4 pt-0"
-            >
-              <label class="bizz-calc-mobile-label bizz-calc-form-label bizzcalc-form-label">{{
-                "mth " + adjustmentMonth.value.label
-              }}</label>
-              <input
-                type="number"
-                [disabled]="i === 0"
-                class="primary-input"
-                formControlName="growthRate"
-                [placeholder]="i === 0 ? '' : '0,00%'"
-              />
+              " [formGroupName]="i" class="col-4 col-md-4 pt-0 py-0">
+              <app-bizzbean-input-control [type]="'number'" [id]="'gross-margin'"
+                [label]="['mth '+adjustmentMonth.value.label]" [placeholder]="i === 0 ? '' : '0,00%'"
+                formControlName="growthRate"></app-bizzbean-input-control>
             </div>
           </div>
         </div>
@@ -126,11 +81,16 @@
         <small class="error-message">% rate must be between -99% and 100%</small>
       </div>
     </div>
-    <div class="row pt-2" style="margin-bottom: 12px">
-      <div class="button" style="text-align: center">
-        <app-save-button (saveClicked)="saveFormData()"></app-save-button>
-      </div>
-    </div>
+      <section class="business-days-form-row d-flex justify-content-between bizzcal-action-buttons-row">
+      <button type="submit" class="primary-btn bizzcalc-button bizz-calc-data-save-btn">
+        add data
+      </button>
+      <button type="submit" class="primary-btn bizzcalc-button bizz-calc-page-save-btn">
+        view data
+      </button>
+      <button type="submit" class="primary-btn bizzcalc-button bizz-calc-page-save-btn" (click)="saveFormData()">
+        save
+      </button>
+    </section>
   </form>
-
 </div>

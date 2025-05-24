@@ -16,6 +16,7 @@ export class BizzbeanInputControlComponent implements ControlValueAccessor {
   @Input() label = '';
   @Input() id = '';
   @Input() placeholder = '';
+  @Input() type: 'text' | 'number' = 'text';
 
   constructor(
     @Self() public controlDir: NgControl,
