@@ -7,11 +7,11 @@
     <!-- <pre>{{startDate}}</pre> -->
     <!-- <pre>testMonth: {{testMonth | json}}</pre> -->
     <p-toast position="center" key="br" />
-    <div class="row pt-3">
+    <div class="row py-0">
       <div class="col-4 col-md-4 pe-6 d-flex align-items-end py-0" style="height: 50px !important;">
         <small class="instructiontextcolour bizzcalc-form-label">base rates</small>
       </div>
-      <div class="col-4 col-md-4">
+      <div class="col-4 col-md-4 py-0">
         <app-bizzbean-input-control [id]="'valueSalesPerDay'" [label]="'base daily sales'" [placeholder]="'>1'"
           formControlName="valueSalesPerDay"></app-bizzbean-input-control>
       </div>
@@ -28,7 +28,7 @@
       ">
         Value must be greater than 0.
       </small>
-      <div class="col-4 col-md-4">
+      <div class="col-4 col-md-4 py-0">
         <app-bizzbean-input-control [id]="'gross-margin'" [label]="'gross margin'" [placeholder]="'1 <-> 100%'"
           formControlName="profitMargin"></app-bizzbean-input-control>
       </div>
@@ -81,7 +81,7 @@
         <small class="error-message">% rate must be between -99% and 100%</small>
       </div>
     </div>
-      <section class="business-days-form-row d-flex justify-content-between bizzcal-action-buttons-row">
+      <section class="business-days-form-row d-flex justify-content-between bizzcal-action-buttons-row align-items-end" style="margin-top: 0px !important;">
       <button type="submit" class="primary-btn bizzcalc-button bizz-calc-data-save-btn">
         add data
       </button>
