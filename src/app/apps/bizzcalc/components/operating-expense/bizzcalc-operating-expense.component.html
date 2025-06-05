@@ -33,10 +33,10 @@
                   (arrowCircleRightClicked)="onCategoryChange($event)"
                   (arrowCircleLeftClicked)="onCategoryChange($event)"
                   [categoryList]="categories"></app-bizzbean-category-list-control> -->
-                  <app-bizzbean-nav-control [disableBackwardArrow]="operatingExpenseForm.get('GLID').value < 2"
-                  [disableForwardArrow]="operatingExpenseForm.get('GLID').value > 11"
+                  <app-bizzbean-nav-control [disableBackwardArrow]="operatingExpenseMonth < 2 && false"
+                  [disableForwardArrow]="operatingExpenseMonth > 11"
                   [customMonths]="baseRateCustomMonths"
-                  [btnLabel]="baseRateMonthNum?.month ?? baseRateCustomMonths[0].monthNo"
+                  [btnLabel]="operatingExpenseMonth"
                   formControlName="GLID" (arrowCircleRightClicked)="
                     onArrowCircleRightClicked($event)
                   " (arrowCircleLeftClicked)="

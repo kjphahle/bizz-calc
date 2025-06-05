@@ -194,22 +194,26 @@ export class OperatingExpenseComponent implements OnInit {
     this.generateOperatingExpenseForm();
   }
 
+  public operatingExpenseMonth = 1;
   onArrowCircleRightClicked(event: ICustomMonths): void {
+    //  debugger;
     let month = event.monthNo;
-    if(month > 12) {
-      month = 1;
+    if(this.operatingExpenseMonth > 13) {
+      // month = 1;
+      this.operatingExpenseMonth += 1;
     }
-    this.operatingExpenseForm.get('AdjustmentMonth').setValue('' + month);
+    this.operatingExpenseForm.get('AdjustmentMonth').setValue('' + this.operatingExpenseMonth);
   }
 
   public leftClicked = false;
   onArrowCircleLeftClicked(event: ICustomMonths): void {
-    let month = event.monthNo;
-    if(month === 0) {
-      month = 12;
+
+    if(this.operatingExpenseMonth !== 0) {
+      // let month = event.monthNo;
+      this.operatingExpenseMonth -= 1;
     }
     this.baseRateMonthNum = event;
-    this.operatingExpenseForm.get('AdjustmentMonth').setValue('' + month);
+    this.operatingExpenseForm.get('AdjustmentMonth').setValue('' + this.operatingExpenseMonth);
   }
 
 
