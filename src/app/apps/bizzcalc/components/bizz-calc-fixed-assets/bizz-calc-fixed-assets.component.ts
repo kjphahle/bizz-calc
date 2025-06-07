@@ -147,7 +147,6 @@ export class BizzCalcFixedAssetsComponent implements OnInit {
   }
 
   public onAddAssetsBtnClicked(): void {
-    debugger
     if (this.fixedAssetsForm.valid) {
       // Add valid asset to the list
       this.fixedAssets.push({

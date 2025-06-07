@@ -196,7 +196,6 @@ export class OperatingExpenseComponent implements OnInit {
 
   public operatingExpenseMonth = 1;
   onArrowCircleRightClicked(event: ICustomMonths): void {
-    //  debugger;
     let month = event.monthNo;
     if(this.operatingExpenseMonth > 13) {
       // month = 1;

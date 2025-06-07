@@ -240,7 +240,6 @@ export class EmploymentComponent implements AfterViewInit {
   }
 
   public onAddPositionClicked(): void {
-    debugger
     if (this.employmentForm.valid) {
       // Add or update employee in the list
       const employee = this.createEmployeeFromForm();

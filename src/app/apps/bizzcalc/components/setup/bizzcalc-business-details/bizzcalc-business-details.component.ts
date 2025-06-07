@@ -100,6 +100,7 @@ export class BizzcalcBusinessDetailsComponent implements OnInit {
     } else {
       this.bizzCalcService.setReviewMonth(month + 1);
     }
+    this.businessDetailsForm.get("ProjectDate").setValue(event);
   }
 
   public onScenarioNameChange(scenarioName: any): void {

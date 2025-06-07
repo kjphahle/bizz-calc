@@ -23,21 +23,25 @@
             "browser": "src/main.ts",
             "outputPath": "dist/Bizzbean",
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico",
-            {
-              "glob": "**/*",
-              "input": "public"
-           }],
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
             "styles": [
               "src/styles.scss",
               "node_modules/@progress/kendo-theme-default/dist/all.css",
               "node_modules/swiper/swiper.scss",
-              "node_modules/intl-tel-input/build/css/intlTelInput.css"
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
 
+              // "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              // "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
@@ -105,12 +109,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico",
-            {
-              "glob": "**/*",
-              "input": "public"
-           }
-          ],
+            "assets": [
+              "src/favicon.ico",
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
             "styles": ["src/styles.scss"],
             "scripts": []
           }

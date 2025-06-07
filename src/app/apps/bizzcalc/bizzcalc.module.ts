@@ -95,13 +95,13 @@ import { OperatingExpensesModalComponent } from './components/setup/modals/opera
         BizzcalcRoutingModule,
         FontAwesomeModule,
         NgbDatepickerModule,
-        CalendarModule,
         RadioButtonModule,
         CheckboxModule,
         FormsModule,
         NgbModule,
         SharedModule,
         ToastModule,
+        CalendarModule,
         BsDatepickerModule.forRoot(),
         TooltipModule.forRoot()], providers: [ConfirmationService, MessageService, BizzCalcService, provideHttpClient(withInterceptorsFromDi())] })
 export class BizzcalcModule {}

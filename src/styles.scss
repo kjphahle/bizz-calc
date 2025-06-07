@@ -20,7 +20,6 @@ body {
 // TODO: Move to separate class
 // @media only screen and (max-width: 427px) {
 @media only screen and (max-width: 427px) {
-
   .header-container-navigations {
     line-height: 34px !important;
   }
@@ -28,9 +27,8 @@ body {
     height: 2.812rem !important;
   }
   app-navbar {
-
     //if this is on then my nav-bar gets removed on all my mobile displays for dashboard- flo
- //   display: none !important;
+    //   display: none !important;
   }
   .main {
     margin: 0;
@@ -212,8 +210,6 @@ body {
 
 /* Importing Bootstrap SCSS file. */
 
-
-
 .swiper-button-next svg {
   color: red !important;
 }
@@ -306,7 +302,6 @@ input#holiday-end-date {
   //.padding-top: 10px; /* Optional: space between the content and the top edge */
 }
 
-
 .p-toast-center {
   width: 285px !important;
 }
@@ -325,13 +320,18 @@ input#holiday-end-date {
   color: white !important;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 button.p-toast-close-button {
   padding-top: 8px !important;
 }
-
 
 ::ng-deep .test {
   background: #10637c !important;
@@ -347,7 +347,6 @@ button.p-toast-close-button {
   padding-bottom: 0px !important;
   padding-top: 10px !important;
 }
-
 
 .primary-label-bizzcalc {
   border: unset !important;
@@ -371,4 +370,27 @@ button.p-toast-close-button {
 
 .label-container {
   height: 20px !important;
+}
+
+::ng-deep .p-calendar .p-inputtext {
+  background-color: #e3ffe3;
+  border-radius: 6px;
+}
+
+::ng-deep .p-datepicker {
+  background-color: #f9f9ff;
+}
+
+::ng-deep .p-datepicker td > span {
+  background-color: #fff;
+}
+
+.p-datepicker-panel {
+  background-color: #ddebf7 !important;
+}
+
+#scenario-start-date {
+  background-color: #ddebf7;
+  border: 1px solid #5085b6;
+  color: #5085b6;
 }
