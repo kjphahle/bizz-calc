@@ -54,6 +54,7 @@ import { FixedAssetsCategoriesModalComponent } from './components/setup/modals/f
 import { EmploymentModalComponent } from './components/setup/modals/employment-modal/employment-modal.component';
 import { FixedAssetsModalComponent } from './components/setup/modals/fixed-assets-modal/fixed-assets-modal.component';
 import { OperatingExpensesModalComponent } from './components/setup/modals/operating-expenses-modal/operating-expenses-modal.component';
+import { FundingCalculatorModalComponent } from './components/setup/modals/funding-calculator-modal/funding-calculator-modal.component';
 
 @NgModule({ declarations: [
         BizzcalcComponent,
@@ -89,7 +90,8 @@ import { OperatingExpensesModalComponent } from './components/setup/modals/opera
         ViewHolidaysComponent,
         FixedAssetsCategoriesModalComponent,
         FixedAssetsModalComponent,
-        EmploymentModalComponent
+        EmploymentModalComponent,
+        FundingCalculatorModalComponent
     ], imports: [CommonModule,
         ReactiveFormsModule,
         BizzcalcRoutingModule,

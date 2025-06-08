@@ -1,0 +1,59 @@
+<div class="modal-header justify-content-between">
+  <h6 class="modal-title modal-basic-title" id="modal-basic-title">revenue calculator</h6>
+  <i class="bi bi-x-lg modal-close-button" (click)="activeModal.dismiss('Cross click')"></i>
+</div>
+
+<!-- Modal body -->
+<div class="modal-body">
+
+  <ng-container>
+    <!-- <pre>{{employees | json}}</pre> -->
+    <!-- <pre>{{accountDetails | json}}</pre> -->
+
+    <table>
+      <tr>
+        <th class="w-auto text-center days-worked-th">id</th>
+        <th class="w-auto text-center days-worked-th">mth</th>
+        <th class="w-auto text-center days-worked-th">inventory</th>
+        <th class="w-auto text-center days-worked-th">receivables</th>
+        <!-- <th class="w-auto text-center days-worked-th">net</th> -->
+         <th class="w-auto text-center days-worked-th">payables</th>
+        <th class="w-auto text-center days-worked-th">action</th>
+      </tr>
+      <tr *ngFor="let account of accountDetails">
+        <!-- <pre>{{accountDetails | json}}</pre> -->
+        <td class="w-auto text-end days-worked-td">{{ account?.ID }}</td>
+        <td class="w-auto text-center days-worked-td">{{ account?.MonthNo }}</td>
+        <td class="w-auto text-center days-worked-td">{{ account?.Inventory }}</td>
+        <td class="w-auto text-center days-worked-td">{{ account?.AccountsReceivable }}</td>
+        <td class="w-auto text-center days-worked-td">{{ account?.AccountsPayable }}</td>
+        <td class="w-auto text-center days-worked-td">
+          <div class="d-flex justify-content-around px-3">
+            <div class="edit-icon pe-2" (click)="onEditHoliday(account)">
+              <i class="bi bi-pen"></i>
+            </div>
+            <div class="thrash-icon pe-2" (click)="onRemoveHoliday(account)">
+              <i class="bi bi-x-square"></i>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </ng-container>
+</div>
+<!-- Modal footer -->
+<div class="modal-footer">
+  <!-- <ng-container *ngIf="!viewDaysWorked">
+    <div class="text-center w-100">
+      <button type="submit" class="primary-btn bizzcalc-button">save</button>
+      <button
+        type="submit"
+        class="primary-btn bizzcalc-button"
+        (click)="onDaysWorkedClicked()"
+      >
+        day worked
+      </button>
+    </div>
+  </ng-container> -->
+  <!-- <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Save</button> -->
+</div>

@@ -287,6 +287,13 @@ export class BizzCalcService {
     });
   }
 
+  public getWorkingCapitalReport(): Observable<any> {
+    const headers = this.headers;
+    return this.http.get<any>(`${this.apiUrl}GetWorkingCapitalReport`, {
+      headers,
+    });
+  }
+
   public createBusinessDetails(businessDetails: any): Observable<any> {
     const headers = this.headers;
     return this.http.post<any>(`${this.apiUrl}BBPostSetup1`, businessDetails, {
