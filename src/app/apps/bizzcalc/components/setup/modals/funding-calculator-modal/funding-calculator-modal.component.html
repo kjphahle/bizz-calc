@@ -12,21 +12,22 @@
 
     <table>
       <tr>
-        <th class="w-auto text-center days-worked-th">id</th>
+        <!-- <th class="w-auto text-center days-worked-th">id</th> -->
         <th class="w-auto text-center days-worked-th">mth</th>
         <th class="w-auto text-center days-worked-th">inventory</th>
         <th class="w-auto text-center days-worked-th">receivables</th>
-        <!-- <th class="w-auto text-center days-worked-th">net</th> -->
          <th class="w-auto text-center days-worked-th">payables</th>
+         <th class="w-auto text-center days-worked-th">net</th>
         <th class="w-auto text-center days-worked-th">action</th>
       </tr>
       <tr *ngFor="let account of accountDetails">
         <!-- <pre>{{accountDetails | json}}</pre> -->
-        <td class="w-auto text-end days-worked-td">{{ account?.ID }}</td>
+        <!-- <td class="w-auto text-end days-worked-td">{{ account?.ID }}</td> -->
         <td class="w-auto text-center days-worked-td">{{ account?.MonthNo }}</td>
         <td class="w-auto text-center days-worked-td">{{ account?.Inventory }}</td>
         <td class="w-auto text-center days-worked-td">{{ account?.AccountsReceivable }}</td>
         <td class="w-auto text-center days-worked-td">{{ account?.AccountsPayable }}</td>
+        <td class="w-auto text-center days-worked-td">{{ (+account?.AccountsPayable + +account?.AccountsReceivable + +account?.Inventory) | number:'1.2-2' }}</td>
         <td class="w-auto text-center days-worked-td">
           <div class="d-flex justify-content-around px-3">
             <div class="edit-icon pe-2" (click)="onEditHoliday(account)">
