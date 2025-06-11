@@ -1,5 +1,5 @@
 <div class="modal-header justify-content-between">
-  <h6 class="modal-title modal-basic-title" id="modal-basic-title">revenue calculator</h6>
+  <h6 class="modal-title modal-basic-title text-center" id="modal-basic-title">working capital</h6>
   <i class="bi bi-x-lg modal-close-button" (click)="activeModal.dismiss('Cross click')"></i>
 </div>
 
@@ -18,7 +18,7 @@
         <th class="w-auto text-center days-worked-th">receivables</th>
          <th class="w-auto text-center days-worked-th">payables</th>
          <th class="w-auto text-center days-worked-th">net</th>
-        <th class="w-auto text-center days-worked-th">action</th>
+        <!-- <th class="w-auto text-center days-worked-th">action</th> -->
       </tr>
       <tr *ngFor="let account of accountDetails">
         <!-- <pre>{{accountDetails | json}}</pre> -->
@@ -28,7 +28,7 @@
         <td class="w-auto text-center days-worked-td">{{ account?.AccountsReceivable }}</td>
         <td class="w-auto text-center days-worked-td">{{ account?.AccountsPayable }}</td>
         <td class="w-auto text-center days-worked-td">{{ (+account?.AccountsPayable + +account?.AccountsReceivable + +account?.Inventory) | number:'1.2-2' }}</td>
-        <td class="w-auto text-center days-worked-td">
+        <!-- <td class="w-auto text-center days-worked-td">
           <div class="d-flex justify-content-around px-3">
             <div class="edit-icon pe-2" (click)="onEditHoliday(account)">
               <i class="bi bi-pen"></i>
@@ -37,7 +37,7 @@
               <i class="bi bi-x-square"></i>
             </div>
           </div>
-        </td>
+        </td> -->
       </tr>
     </table>
   </ng-container>

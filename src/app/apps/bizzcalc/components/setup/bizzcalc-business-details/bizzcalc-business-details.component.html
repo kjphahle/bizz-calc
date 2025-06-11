@@ -54,7 +54,7 @@
               <div class="w-auto">
                 <label class="bizzcalc-mobile-label bizzcalc-form-label" for="start-scenario-date">change start
                   date</label>
-                <p-calendar (onSelect)="onDateValueChange($event)" class="form-control" dateFormat="mm/yy" [yearNavigator]="true" [monthNavigator]="true"
+                <p-calendar view="month" (onSelect)="onDateValueChange($event)" class="form-control" dateFormat="mm/yy" [yearNavigator]="true" [monthNavigator]="true"
                    id="scenario-start-date" formControlName="ProjectDate"></p-calendar>
               </div>
             </div>
