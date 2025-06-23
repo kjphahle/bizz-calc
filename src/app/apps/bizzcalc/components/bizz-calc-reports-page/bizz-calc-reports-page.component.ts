@@ -19,6 +19,8 @@ export class BizzCalcReportsPageComponent {
       ReportName: string
   }]
 
+   public scenarios: string[] = ["LEARN", "MY DREAM", "BREAK THAT CONSTRAINI", "WHEN THIS HAPPENS"];
+
   constructor(private modalService: NgbModal, private bizzCalcService: BizzCalcService) {
     this.bizzCalcService.getReports().subscribe({next: data => {
       this.reports = data.children;
@@ -34,6 +36,10 @@ export class BizzCalcReportsPageComponent {
 
   public goToScheduleOfExpenses(): void {
     this.openScheduleOfExpensesModal();
+  }
+
+  public downloadReport(): void {
+
   }
 
   public goResultsChart(): void {

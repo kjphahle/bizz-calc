@@ -1,6 +1,10 @@
 <div class="bizzcalc__container pt-0">
   <!-- Navigations -->
-  <app-bizzcalc-header [showLeftIcon]="false" [showRightIcon]="false" [title]="'report'"></app-bizzcalc-header>
+  <app-bizzcalc-header
+    [showLeftIcon]="false"
+    [showRightIcon]="false"
+    [title]="'report'"
+  ></app-bizzcalc-header>
 
   <!-- business details -->
   <!-- <div class="col-12 bizzcalc__column bizzcalc__container">
@@ -10,8 +14,36 @@
     </div> -->
   <!-- days worked -->
   <div class="col-12 bizzcalc__column py-2" *ngFor="let report of reports">
-      <button class="secondary-btn bizzcalc-secondary-btn w-100" (click)="goToBalanceSheet(report.ID)">
+    <button
+      class="secondary-btn bizzcalc-secondary-btn w-100"
+      (click)="goToBalanceSheet(report.ID)"
+    >
+      {{ report.ReportName }}
+    </button>
+  </div>
+
+  <!-- Downloads section -->
+  <div class="col-12 bizzcalc__column py-2" *ngFor="let scenario of scenarios">
+    <div class="d-flex justify-content-between">
+      <p class="screnario-label mb-0">{{ scenario }}</p>
+      <input
+        type="checkbox"
+        class="bizzcalc__checkbox-list-box"
+        (click)="goToBalanceSheet(scenario)"
+      />
+    </div>
+
+    <!-- <button class="secondary-btn bizzcalc-secondary-btn w-100" (click)="goToBalanceSheet(report.ID)">
         {{report.ReportName}}
-      </button>
+      </button> -->
+  </div>
+
+  <div class="col-12 bizzcalc__column py-2">
+    <button
+      class="secondary-btn bizzcalc-secondary-btn w-auto" style="background-color: #9FC754; color: white; height: 40px !important;"
+      (click)="downloadReport()"
+    >
+      download
+    </button>
   </div>
 </div>
