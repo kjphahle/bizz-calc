@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import {NavigationEnd, Router } from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
     selector: 'app-bizz-calc-landing-page',
@@ -10,7 +10,7 @@ import {NavigationEnd, Router } from '@angular/router';
 export class BizzCalcLandingPageComponent implements OnInit {
   public currentRoute: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -19,6 +19,13 @@ export class BizzCalcLandingPageComponent implements OnInit {
         console.log('Updated Route:', this.currentRoute); // Debugging
       }
     });
+
+    this.route.data.subscribe(data => {
+    console.dir("hhhhhhhhhhhhhhhhhhhhhhhhh");
+    console.dir(data?.title);         // "Dashboard"
+    // console.log(data.requiresAuth);  // true
+    // alert(data?.title)
+  });
 
     // Initial value on component load
     this.currentRoute = new URL(this.router.url, window.location.origin).pathname;

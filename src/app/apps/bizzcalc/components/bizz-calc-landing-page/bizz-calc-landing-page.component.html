@@ -1,48 +1,19 @@
 <div class="container-fluid px-0 bizzcalc-setup-container bg-white">
+  <!-- Header -->
+   <app-bizzcalc-header
+    [showheaderLabel]="false"
+    [showLeftIcon]="false"
+    [showRightIcon]="false"
+    [title]="''"
+  ></app-bizzcalc-header>
 
-    <div class="main-container px-3">
-        <!-- content -->
-         <!-- Show only when route is '/main/bizzcalc' -->
-         <div *ngIf="currentRoute === '/main/bizzcalc'">
-            <div style="padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-
-                <!-- Logo --><br><br>
-                <img style="margin-top: 20px; " src="/minified/bizzcalc.png" alt="bizzcalc logo" width="150px" >
-                <br><br>
-                <!-- Main Title -->
-                <div style="font-size: 20px; color: #5085B6; text-transform: lowercase; margin-top: 0px;">
-                   test the financial viability of your startup business idea
-                </div>
-
-                <!-- Subtitle -->
-                <div style="font-size: 14px; margin-top: 10px; color: #5085B6; text-transform: lowercase;">
-                working the app
-                </div>
-
-                <!-- Paragraph Text -->
-                <div style="font-size: 12px; max-width: 100%;  line-height: 1.6; color: #5085B6; ">
-                   <p> Complete the setup step first.</p>
-                   <p>  Thereafter, the sequence is unimportant, although it is advisable to follow the steps in page sequence.</p>
-                   <p>  The results of data entered in the light blue fields on each page can be checked by clicking on the step review button. </p>
-                   <p> it is suggested that after saving each step’s data, you review the impact of your decisions in the reports section and amend your data if necessary. <br><br>
-                    Click on the lightbulb icon for assistance on each step, if needed. </p>
-                    <p> Good luck with your business venture!</p>
-                </div>
-
-                <!-- Centered Button -->
-                <div style="width: 100%; display: flex; justify-content: center; margin-top: 50px;">
-                   <a href="/main/bizzcalc/setup">
-                    <button style="background-color: #8CC152; color: white; border: none; padding: 12px 25px; font-size: 12px; text-transform: lowercase; border-radius: 10px; cursor: pointer;height: 40px;">
-                        proceed to setup
-                    </button></a>
-                </div>
-            </div>
-        </div>
-        <router-outlet></router-outlet>
+  <div class="main-container px-3">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- footer -->
+  @if(currentRoute !== '/main/bizzcalc') {
+    <div class="bizzcalc__footer" id="bizzcalc__footer">
+      <app-bizzcalc-footer></app-bizzcalc-footer>
     </div>
-    <!-- footer -->
-    <div *ngIf="currentRoute !== '/main/bizzcalc'" class="bizzcalc__footer" id="bizzcalc__footer">
-        <app-bizzcalc-footer></app-bizzcalc-footer>
-    </div>
-
+  }
 </div>

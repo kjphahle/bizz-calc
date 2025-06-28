@@ -1,0 +1,37 @@
+<div class="text-center">
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="/minified/bizzcalc.png" alt="bizzcalc logo" height="50px" />
+  </div>
+  <!-- Main Title -->
+  <div class="main-title-container">
+    <h3 class="main-title mb-0">test the financial <br> viability of your<br> startup business idea</h3>
+  </div>
+
+  <!-- Subtitle -->
+  <div class="sub-title-container">
+    <h5 class="sub-title mb-0">working the app</h5>
+  </div>
+
+  <!-- Paragraph Text -->
+  <div class="welcome-message-description">
+    <p>Complete the setup step first. <br>Thereafter, the sequence is unimportant, although it is advisable to
+      follow the steps in page sequence.</p>
+    <p class="pt-2">
+      The results of data entered in the light blue fields on each page can be
+      checked by clicking on the step review button.<br> it is suggested that after saving each step’s data, you review the impact
+      of your decisions in the reports section and amend your data if necessary.
+    <p class="pt-2">
+      Click on the lightbulb icon for assistance on each step, if needed.
+    </p>
+    <p class="pt-2">Good luck with your business venture!</p>
+  </div>
+
+  <!-- Centered Button -->
+  <div class="text-center bizz-button-container">
+    <bizz-button
+      (buttonClicked)="onButtonClicked($event)"
+      [label]="'proceed to setup'"
+    ></bizz-button>
+  </div>
+</div>

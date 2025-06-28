@@ -1,0 +1,38 @@
+$main-title-font-size: 20px;
+$sub-title-font-size: 15px;
+$title-font-color: #5085b6;
+$main-title-font-weight: 300;
+
+.main-title {
+  font-size: $main-title-font-size;
+  color: $title-font-color;
+  font-weight: $main-title-font-weight;
+  line-height: 30px;
+  letter-spacing: 2px;
+}
+
+.sub-title {
+  font-size: $sub-title-font-size;
+  color: $title-font-color;
+  font-weight: $main-title-font-weight;
+  line-height: 30px;
+}
+
+.welcome-message-description  p {
+  color: $title-font-color !important;
+  margin-bottom: 0px !important;
+  font-size: 10px !important;
+}
+
+.main-title-container {
+  padding-top: 25px;
+}
+
+.sub-title-container{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bizz-button-container {
+  padding-top: 25px;
+}

@@ -1,29 +1,43 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { BizzCalcService } from '../../services/bizz-calc.service';
 
 @Component({
-    selector: 'app-bizzcalc-header',
-    templateUrl: './bizzcalc-header.component.html',
-    styleUrls: ['./bizzcalc-header.component.scss'],
-    standalone: false
+  selector: 'app-bizzcalc-header',
+  templateUrl: './bizzcalc-header.component.html',
+  styleUrls: ['./bizzcalc-header.component.scss'],
+  standalone: false,
 })
-export class BizzcalcHeaderComponent implements OnInit{
+export class BizzcalcHeaderComponent implements OnInit, OnChanges {
 
-  public headerLabel: string = "";
   #bizzCalcService = inject(BizzCalcService);
 
   @Input() showLeftIcon = true;
+  @Input() public showheaderLabel: boolean = true;
   @Input() showRightIcon = true;
   @Input() title = 'setup';
-  @Input() leftIconRoute: string = '';  //Route for the left icon
+  @Input() leftIconRoute: string = ''; //Route for the left icon
   @Input() rightIconRoute: string = ''; // Route for the right icon
+  public headerLabel: string = '';
 
   ngOnInit(): void {
-    this.#bizzCalcService.scenarioName$.subscribe({next: value => {
-      this.headerLabel = value;
-    }})
-
+    this.#bizzCalcService.scenarioName$.subscribe({
+      next: (value) => {
+        this.headerLabel = this.showheaderLabel === true ? value : '';
+      },
+    });
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['showheaderLabel'].currentValue) {
+      this.headerLabel = "";
+    }
+  }
 
 }

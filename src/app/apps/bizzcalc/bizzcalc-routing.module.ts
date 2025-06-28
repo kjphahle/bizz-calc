@@ -18,58 +18,102 @@ import { BizzcalcRevenueCalculatorComponent } from './components/bizzcalc-revenu
 import { BizzcalcFundingCalculatorComponent } from './components/bizcalc-funding-calculator/bizzcalc-funding-calculator.component';
 import { BizzCalcLandingPageComponent } from './components/bizz-calc-landing-page/bizz-calc-landing-page.component';
 import { BizzCalcReportsPageComponent } from './components/bizz-calc-reports-page/bizz-calc-reports-page.component';
+import { WelcomeScreenComponent } from './components/welcome-screen/welcome-screen.component';
 
 const routes: Routes = [
   {
     path: '',
+    data: {
+      title: '',
+    },
     component: BizzCalcLandingPageComponent,
     children: [
       {
+        path: '',
+        data: {
+          title: '',
+        },
+        component: WelcomeScreenComponent,
+      },
+      {
         path: 'revenue-calculator',
+        data: {
+          title: 'revenue-calculator',
+        },
         component: RevenueCalculatorComponent,
       },
       {
         path: 'employment',
+        data: {
+          title: 'employment',
+        },
         component: EmploymentComponent,
       },
       {
         path: 'operating-expense',
+        data: {
+          title: 'operating-expense',
+        },
         component: OperatingExpenseComponent,
       },
       {
         path: 'fixed-assets',
+        data: {
+          title: 'fixed-assets',
+        },
         component: FixedAssetsComponent,
       },
       {
         path: 'funding-calculator',
+        data: {
+          title: 'funding-calculator',
+        },
         component: BizzcalcFundingCalculatorComponent,
       },
     ],
   },
   {
     path: 'setup',
+    data: {
+      title: 'setup',
+    },
     component: BizzCalcLandingPageComponent,
     children: [
       {
         path: '',
+        data: {
+          title: 'setup',
+        },
         component: BizzcalcSetupComponent,
       },
       {
         path: 'business-details',
+        data: {
+          title: 'business-details',
+        },
         component: BizzcalcBusinessDetailsComponent,
       },
       {
         path: 'days-worked',
+        data: {
+          title: 'days-worked',
+        },
         component: BizzcalcBusinessDaysWorkedComponent,
       },
       {
         path: 'assets-depreciation',
+        data: {
+          title: 'assets-depreciation',
+        },
         component: BizzcalcBusinessFixedAssetsComponent,
       },
     ],
   },
   {
     path: 'reports',
+    data: {
+      title: 'reports',
+    },
     component: ReportsComponent,
     children: [
       {

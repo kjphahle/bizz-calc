@@ -1,0 +1,22 @@
+$primary-btn-color: #8cc152;
+$primary-btn-height: 30px;
+$primary-btn-width: 150px;
+$btn-border-radius: 10px;
+$btn-padding-x: 10px;
+$btn-padding-y: 10px;
+$color: white;
+
+button {
+  cursor: pointer;
+  font-size: 12px;
+  padding: 10px 10px;
+  line-height: 0px !important;
+}
+
+.bizz-primary-btn {
+  background-color: $primary-btn-color;
+  color: $color;
+  border-radius: $btn-border-radius;
+  height: $primary-btn-height;
+  border-color: #8cc152;
+}

@@ -8,6 +8,7 @@ import { BizzbeanInputControlComponent } from './components/bizzbean-input-contr
 import { BizzbeanActionButtonsComponent } from './components/bizzbean-action-buttons/bizzbean-action-buttons.component';
 import { SaveButtonComponent } from './components/save-button/save-button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BizzButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BizzbeanActionButtonsComponent,
     SaveButtonComponent,
   ],
-  imports: [CommonModule, FontAwesomeModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FontAwesomeModule, FormsModule, ReactiveFormsModule, BizzButtonComponent],
   exports: [
     InfoTitleComponent,
     BizzbeanFormLabelComponent,
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BizzbeanInputControlComponent,
     BizzbeanActionButtonsComponent,
     SaveButtonComponent,
+    BizzButtonComponent
   ],
 })
 export class SharedModule {}
