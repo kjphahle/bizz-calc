@@ -1,10 +1,16 @@
 <div class="container-fluid px-0 bizzcalc-setup-container bg-white">
   <!-- Header -->
-   <app-bizzcalc-header
-    [showheaderLabel]="false"
-    [showLeftIcon]="false"
-    [showRightIcon]="false"
-    [title]="''"
+   <!-- <pre>{{setCurrentRouteDetails(currentRoute) | json}}</pre> -->
+  <app-bizzcalc-header
+    [showheaderLabel]="
+      setCurrentRouteDetails(currentRoute).title === '' ? false : true
+    "
+    [showLeftIcon]="setCurrentRouteDetails(currentRoute).previous === '' ? false : true"
+    [showRightIcon]="setCurrentRouteDetails(currentRoute).next === '' ? false : true"
+    [title]="setCurrentRouteDetails(currentRoute).title"
+    [leftIconRoute]="setCurrentRouteDetails(currentRoute).previous"
+    [rightIconRoute]="setCurrentRouteDetails(currentRoute).next"
+
   ></app-bizzcalc-header>
 
   <div class="main-container px-3">
@@ -12,8 +18,8 @@
   </div>
   <!-- footer -->
   @if(currentRoute !== '/main/bizzcalc') {
-    <div class="bizzcalc__footer" id="bizzcalc__footer">
-      <app-bizzcalc-footer></app-bizzcalc-footer>
-    </div>
+  <div class="bizzcalc__footer" id="bizzcalc__footer">
+    <app-bizzcalc-footer></app-bizzcalc-footer>
+  </div>
   }
 </div>

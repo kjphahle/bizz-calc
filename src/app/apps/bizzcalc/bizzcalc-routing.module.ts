@@ -23,123 +23,85 @@ import { WelcomeScreenComponent } from './components/welcome-screen/welcome-scre
 const routes: Routes = [
   {
     path: '',
-    data: {
-      title: '',
-    },
     component: BizzCalcLandingPageComponent,
     children: [
       {
         path: '',
-        data: {
-          title: '',
-        },
         component: WelcomeScreenComponent,
       },
       {
         path: 'revenue-calculator',
-        data: {
-          title: 'revenue-calculator',
-        },
         component: RevenueCalculatorComponent,
       },
       {
         path: 'employment',
-        data: {
-          title: 'employment',
-        },
         component: EmploymentComponent,
       },
       {
         path: 'operating-expense',
-        data: {
-          title: 'operating-expense',
-        },
         component: OperatingExpenseComponent,
       },
       {
         path: 'fixed-assets',
-        data: {
-          title: 'fixed-assets',
-        },
         component: FixedAssetsComponent,
       },
       {
         path: 'funding-calculator',
-        data: {
-          title: 'funding-calculator',
-        },
         component: BizzcalcFundingCalculatorComponent,
+      },
+        {
+        path: 'reports',
+        component: ReportsComponent,
+        children: [
+          {
+            path: '',
+            component: BizzCalcReportsPageComponent,
+          },
+          {
+            path: 'income-statement',
+            component: BizzcalcBusinessDetailsComponent,
+          },
+          {
+            path: 'balance-sheet',
+            component: BizzcalcBusinessDaysWorkedComponent,
+          },
+          {
+            path: 'schedule-of-expenses',
+            component: BizzcalcBusinessFixedAssetsComponent,
+          },
+          {
+            path: 'cashflow',
+            component: BizzcalcBusinessFixedAssetsComponent,
+          },
+          {
+            path: 'results-chart',
+            component: BizzcalcBusinessFixedAssetsComponent,
+          },
+        ],
       },
     ],
   },
   {
     path: 'setup',
-    data: {
-      title: 'setup',
-    },
     component: BizzCalcLandingPageComponent,
     children: [
       {
         path: '',
-        data: {
-          title: 'setup',
-        },
         component: BizzcalcSetupComponent,
       },
       {
         path: 'business-details',
-        data: {
-          title: 'business-details',
-        },
         component: BizzcalcBusinessDetailsComponent,
       },
       {
         path: 'days-worked',
-        data: {
-          title: 'days-worked',
-        },
         component: BizzcalcBusinessDaysWorkedComponent,
       },
       {
         path: 'assets-depreciation',
-        data: {
-          title: 'assets-depreciation',
-        },
         component: BizzcalcBusinessFixedAssetsComponent,
       },
-    ],
-  },
-  {
-    path: 'reports',
-    data: {
-      title: 'reports',
-    },
-    component: ReportsComponent,
-    children: [
-      {
-        path: '',
-        component: BizzCalcReportsPageComponent,
-      },
-      {
-        path: 'income-statement',
-        component: BizzcalcBusinessDetailsComponent,
-      },
-      {
-        path: 'balance-sheet',
-        component: BizzcalcBusinessDaysWorkedComponent,
-      },
-      {
-        path: 'schedule-of-expenses',
-        component: BizzcalcBusinessFixedAssetsComponent,
-      },
-      {
-        path: 'cashflow',
-        component: BizzcalcBusinessFixedAssetsComponent,
-      },
-      {
-        path: 'results-chart',
-        component: BizzcalcBusinessFixedAssetsComponent,
-      },
+
     ],
   },
 ];

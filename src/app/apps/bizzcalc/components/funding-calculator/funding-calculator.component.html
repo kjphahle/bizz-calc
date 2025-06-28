@@ -1,18 +1,13 @@
 <div class="container-fluid px-0 bg-danger funding-calculator-container">
-    <app-bizzcalc-header [showLeftIcon]="true" [showRightIcon]="true" [title]="'funding calculator'"></app-bizzcalc-header>
-
-    <app-bizzcalc-header [showLeftIcon]="true" [showRightIcon]="true" [title]="'funding calculator'"></app-bizzcalc-header>
-    <div class="bizzcalc__container">
-        <!-- base assumptions -->
-        <div class="col-12 bizzcalc__column">
-            <app-info-title [title]="'base assumption'"></app-info-title>
-            <app-bizz-calc-fixed-assets></app-bizz-calc-fixed-assets>
-        </div>
-        <!-- View data buttons -->
-        <div class="bizzbean-action-buttons pt-3" style="margin-top: 70px;">
-            <app-bizzbean-action-buttons></app-bizzbean-action-buttons>
-        </div>
+  <div class="bizzcalc__container">
+    <!-- base assumptions -->
+    <div class="col-12 bizzcalc__column">
+      <app-info-title [title]="'base assumption'"></app-info-title>
+      <app-bizz-calc-fixed-assets></app-bizz-calc-fixed-assets>
     </div>
-  
+    <!-- View data buttons -->
+    <div class="bizzbean-action-buttons pt-3" style="margin-top: 70px">
+      <app-bizzbean-action-buttons></app-bizzbean-action-buttons>
+    </div>
   </div>
-  
+</div>
