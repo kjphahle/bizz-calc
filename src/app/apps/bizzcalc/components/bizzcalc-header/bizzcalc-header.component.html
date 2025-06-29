@@ -1,13 +1,18 @@
 <div class="container header-container bg-white px-3">
-  <section class="d-flex justify-content-between header-container-top align-items-center">
+  <section
+    class="d-flex justify-content-between header-container-top align-items-center"
+  >
     <div class="">
       <img height="20px" src="minified/exit.svg" />
     </div>
     <div class="nav-title-label nav-header-label">{{ title }}</div>
-    <div class="" style="width: 20px;"></div>
+    <div class="" style="width: 20px"></div>
   </section>
 
-  <section class="d-flex justify-content-between bizzcalc-row header-container-navigations py-2" style="padding-top: 8px !important;">
+  <section
+    class="d-flex justify-content-between bizzcalc-row header-container-navigations py-2"
+    style="padding-top: 8px !important"
+  >
     <div [style.visibility]="showLeftIcon ? 'visible' : 'hidden'">
       <a *ngIf="leftIconRoute" [routerLink]="leftIconRoute">
         <img height="20px" src="minified/navigation_left.svg" />
@@ -20,4 +25,10 @@
       </a>
     </div>
   </section>
+
+  @if(showInfoTitle){
+  <section class="bizzcalc__column app-info-title-container">
+    <app-info-title [title]="'base assumption'"></app-info-title>
+  </section>
+  }
 </div>

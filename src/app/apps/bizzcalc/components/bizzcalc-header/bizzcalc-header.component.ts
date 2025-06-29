@@ -19,6 +19,7 @@ export class BizzcalcHeaderComponent implements OnInit, OnChanges {
   #bizzCalcService = inject(BizzCalcService);
 
   @Input() showLeftIcon = true;
+  @Input() showInfoTitle = true;
   @Input() public showheaderLabel: boolean = true;
   @Input() showRightIcon = true;
   @Input() title = 'setup';
